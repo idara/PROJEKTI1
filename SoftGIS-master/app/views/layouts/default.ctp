@@ -37,6 +37,7 @@
             <h1>Soft-GIS</h1>
         </div>
         <?php echo $this->Session->flash(); ?>
+		
         <div id="content">
 
 

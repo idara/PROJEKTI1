@@ -90,10 +90,10 @@ $( document ).ready(function() {
                 array('class' => 'button')
             );?>
 			<?php echo $this->Html->link(
-				'Käyttäjähallinta',
-				array('controller' => 'authors', 'action' => 'view'),
-				array('class' => 'button cancel')
-			);?>
+                'Käyttäjähallinta',
+                array('controller' => 'authors', 'action' => 'view'),
+                array('class' => 'button cancel')
+            );?>
             <?php echo $this->Html->link(
                 'Kirjaudu ulos',
                 array('controller' => 'authors', 'action' => 'logout'),

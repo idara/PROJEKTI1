@@ -2,6 +2,8 @@
 
 class Author extends AppModel
 {
+	var $name = 'Author';
+
     public $hasMany = array(
         'Poll' => array(
             'foreign_key' => 'author_id'
@@ -12,15 +14,15 @@ class Author extends AppModel
         'username' => array(
             'isUnique' => array(
                 'rule' => 'isUnique',
-                'message' => 'Käyttäjänimi on varattu'
+                'message' => 'Käyttäjänimi on varattu.'
             ),
             'minLength' => array(
                 'rule' => array('minLength', 3),
-                'message' => 'Käyttäjänimen täytyy olla vähintään 3 merkkiä pitkä'
+                'message' => 'Käyttäjänimen täytyy olla vähintään 3 merkkiä pitkä.'
             ),
             'maxLength' => array(
                 'rule' => array('maxLength', 50),
-                'message' => 'Käyttäjänimi ei saa olla yli 50 merkkiä pitkä'
+                'message' => 'Käyttäjänimi ei saa olla yli 50 merkkiä pitkä.'
             )
         )
     );
