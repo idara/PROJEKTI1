@@ -2,6 +2,7 @@
 
 class AuthorsController extends AppController
 {
+	var $name = 'Authors';
 
     public function beforeFilter()
     {
@@ -57,28 +58,35 @@ class AuthorsController extends AppController
 	//Kaikkien käyttäjien listaus
 	public function view() {
 	
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
 		else
 		{
+			//Käyttäjälista
 			$this->Author->recursive = 0;
 			$this->set('authors', $this->paginate());
+			
+			//Kyselyiden määrä
+			$this->set('pollsCount', $this->Author->query("SELECT authors.id, COUNT(polls.author_id) as lkm FROM authors INNER JOIN polls ON authors.id=polls.author_id GROUP BY authors.id;"));
 			
 			//Asetetaan layout -> Navigointi näkyviin
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
 			$this->set('title_for_layout', ' - Käyttäjälista');
+			
+			$groups = $this->Author->Group->find('all');
+			$this->set(compact('groups'));
 		}
 	}
 	
 	//Uuden käyttäjän lisääminen käyttäjähallinnan kautta
 	function add() {
 		
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
@@ -97,6 +105,9 @@ class AuthorsController extends AppController
 			//$groups = $this->User->Group->find('list');
 			//$this->set(compact('groups'));
 			
+			//Ryhmien nimet ja id:t ja nimet lomakkeen select-elementille
+			$groups = $this->Author->Group->find('all');
+			$this->set(compact('groups'));
 			
 			//Asetetaan layout -> Navigointi näkyviin
 			$this->layout = 'author';
@@ -106,10 +117,108 @@ class AuthorsController extends AppController
 		}
 	}
 	
-	//Käyttäjän muokkaaminen
-	function edit($id = null) {
+	//Käyttäjän käyttäjänimen muokkaaminen
+	function username($id = null) {
 	
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
+		{
+			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
+			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
+		}
+		else
+		{
+			if (!$id && empty($this->data)) {
+				$this->Session->setFlash(__('Käyttäjää ei löydy', true));
+				$this->redirect(array('action' => 'view'));
+			}
+			if (!empty($this->data)) {
+				if ($this->Author->save($this->data)) {
+					$this->Session->setFlash(__('Käyttäjän käyttäjänimeen tehdyt muutokset on tallennettu', true));
+					$this->redirect(array('action' => 'view'));
+				} else {
+					$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+				}
+			}
+			if (empty($this->data)) {
+				$this->data = $this->Author->read(null, $id);
+			}
+			
+			//Käyttäjän tiedot näkymälle tulostettavaksi
+			$this->set('user', $this->Author->read(null, $id));
+			
+			//Asetetaan layout -> Navigointi näkyviin
+			$this->layout = 'author';
+			
+			//Asetetaan sivun otsikko
+			$this->set('title_for_layout', ' - Muokkaa käyttäjän käyttäjänimeä');
+		}
+	}
+	
+	//Käyttäjän salasanan muokkaaminen
+	function password($id = null) {
+	
+		if(($this->Auth->user('group_id'))!=1)
+		{
+			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
+			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
+		}
+		else
+		{
+			if (!$id && empty($this->data)) {
+				$this->Session->setFlash(__('Käyttäjää ei löydy', true));
+				$this->redirect(array('action' => 'view'));
+			}
+			if (!empty($this->data)) {
+				if ($this->Author->save($this->data)) {
+					$this->Session->setFlash(__('Käyttäjän salasanaan tehdyt muutokset on tallennettu', true));
+					$this->redirect(array('action' => 'view'));
+				} else {
+					$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+				}
+			}
+			if (empty($this->data)) {
+				$this->data = $this->Author->read(null, $id);
+			}
+			
+			//Käyttäjän tiedot näkymälle tulostettavaksi
+			$this->set('user', $this->Author->read(null, $id));
+			
+			//Asetetaan layout -> Navigointi näkyviin
+			$this->layout = 'author';
+			
+			//Asetetaan sivun otsikko
+			$this->set('title_for_layout', ' - Muokkaa käyttäjän käyttäjänimeä');
+		}
+	}
+	
+	//Käyttäjän poistaminen
+	function delete($id = null) {
+	
+		if(($this->Auth->user('group_id'))!=1)
+		{
+			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
+			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
+		}
+		else
+		{
+			if (!$id) {
+				$this->Session->setFlash(__('Käyttäjää ei löytynyt.', true));
+				$this->redirect(array('action'=>'view'));
+			}
+			if ($this->Author->delete($id, $cascade = true)) {
+				$this->Session->setFlash(__('Käyttäjä poistettu.', true));
+				$this->redirect(array('action'=>'view'));
+			}
+			$this->Session->setFlash(__('Käyttäjää ei voitu poistaa.', true));
+			$this->redirect(array('action' => 'view'));
+		}
+	}
+	
+	
+	//Ryhmän vaihtaminen
+	function group($id = null) {
+	
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
@@ -130,69 +239,15 @@ class AuthorsController extends AppController
 			}
 			if (empty($this->data)) {
 				$this->data = $this->Author->read(null, $id);
-			}		
+			}
 			
-			//Asetetaan layout -> Navigointi näkyviin
-			$this->layout = 'author';
+			//Käyttäjän tiedot näkymälle tulostettavaksi
+			$this->set('user', $this->Author->read(null, $id));
 			
-			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', ' - Muokkaa käyttäjän tietoja');
-		}
-	}
-	
-	//Käyttäjän poistaminen
-	function delete($id = null) {
-	
-		if(($this->Auth->user('accessControl'))!=1)
-		{
-			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
-			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
-		}
-		else
-		{
-			if (!$id) {
-				$this->Session->setFlash(__('Käyttäjää ei löytynyt.', true));
-				$this->redirect(array('action'=>'view'));
-			}
-			if ($this->Author->delete($id)) {
-				$this->Session->setFlash(__('Käyttäjä poistettu.', true));
-				$this->redirect(array('action'=>'view'));
-			}
-			$this->Session->setFlash(__('Käyttäjää ei voitu poistaa.', true));
-			$this->redirect(array('action' => 'view'));
-		}
-	}
-	
-	//Kaikkien käyttäjien listaus
-	public function access_control_edit($id = null) {
-
-		if(($this->Auth->user('accessControl'))!=1)
-		{
-			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
-			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
-		}
-		else
-		{		
-			if (!$id && empty($this->data)) {
-				$this->Session->setFlash(__('Käyttäjää ei löydy', true));
-				$this->redirect(array('action' => 'view'));
-			}
-			if (!empty($this->data)) {
+			//Ryhmien nimet ja id:t ja nimet lomakkeen select-elementille
+			$groups = $this->Author->Group->find('all');
+			$this->set(compact('groups'));
 			
-				$user = $this->Author->findById($id);
-				$this->set('user', $user);
-				
-				if ($this->Author->save($this->data)) {
-					$this->Session->setFlash(__('Käyttäjän hallintaoikeuksiin tehdyt muutokset on tallennettu', true));
-					$this->redirect(array('action' => 'view'));
-				} else {
-					$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
-				}
-			}
-			if (empty($this->data)) {
-				$this->data = $this->Author->read(null, $id);
-			}
-
 			//Asetetaan layout -> Navigointi näkyviin
 			$this->layout = 'author';
 			

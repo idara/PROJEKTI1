@@ -3,10 +3,6 @@
 <?php
 	echo $this->element('authors_menu');
 ?>
- 
-<hr>
-
-<h2>Käyttäjähallinta - Kaikki järjestelmän käyttäjät</h2>
 
 <table class="list">
     <thead>
@@ -18,9 +14,12 @@
 		-->
 		
 			<th><?php echo $this->Paginator->sort('Id', 'id');?></th>
-			<th><?php echo $this->Paginator->sort('Käyttäjänimi', 'username');?></th>
-			<th><?php echo $this->Paginator->sort('Hallintaoikeus', 'accessControl');?></th>
-			<th>Toiminnot</th>
+			<th title="Järjestä taulukko käyttäjänimen mukaan"><?php echo $this->Paginator->sort('Käyttäjänimi', 'username');?></th>
+			<th title="Järjestä taulukko ryhmän numeron mukaan"><?php echo $this->Paginator->sort('Ryhmä', 'group_id');?></th>
+			<!--<th>Ryhmä</th>-->
+			<th title="Käyttäjän omien kyselyiden lukumäärä">Kyselyitä</th>
+			<th>Muokkaa</th>
+			<th>Poista</th>
         </tr>
     </thead>
 	<tbody>
@@ -30,34 +29,72 @@
 				<td><?php echo $author['Author']['username']; ?></td>
 				<td>
 					<?php
-						if((($author['Author']['accessControl'])==1) OR ($author['Author']['id'])==1)
+						//Käyttäjän ryhmän tulostus
+						$i=(intval($author['Author']['group_id'])-1);
+						echo $groups[$i]['Group']['groupname'];
+					?>
+				</td>
+				<td>
+					<?php // Käyttäjän kyselyiden määrä
+						foreach ($pollsCount as $pollCount)
 						{
-							echo ("Kyllä");
-						}
-						else
-						{
-							echo ("Ei");
+							if($pollCount['authors']['id']==$author['Author']['id'])
+							{
+								echo($pollCount['0']['lkm']);
+							}
 						}
 					?>
 				</td>
 				<td>
-					<!-- Linkki käyttäjän muokkaussivulle -->
+					<!-- Linkki käyttäjätunnuksen muokkaussivulle -->
 					<?php
 						echo $this->Html->link(
-							'Muokkaa',
+							'Käyttäjänimeä',
 							array(
 								'controller' => 'authors',
-								'action' => 'edit',
+								'action' => 'username',
 								$author['Author']['id']
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Muokkaa käyttäjänimeä ja salasanaa.'
+								'title' => 'Muokkaa käyttäjänimeä'
 							)
 						);
 					?>
 					
-
+					<!-- Linkki käyttäjän muokkaussivulle -->
+					<?php
+						echo $this->Html->link(
+							'Salasanaa',
+							array(
+								'controller' => 'authors',
+								'action' => 'password',
+								$author['Author']['id']
+							),
+							array(
+								'class' => 'button small',
+								'title' => 'Vaihda käytäjän salasana'
+							)
+						);
+					?>
+					
+					<!-- Linkki ryhmän muokkaamiseen -->
+					<?php
+						echo $this->Html->link(
+							'Vaihda ryhmää',
+							array(
+								'controller' => 'authors',
+								'action' => 'group',
+								$author['Author']['id']
+							),
+							array(
+								'class' => 'button small',
+								'title' => 'Vaihda ryhmää, johon käyttäjä kuuluu'
+							)
+						);
+					?>
+				</td>			
+				<td>
 					<!-- Linkki käyttäjän poistamiseksi -->
 					<?php
 						echo $this->Html->link(
@@ -74,23 +111,6 @@
 							sprintf("Haluatko varmasti poistaa käyttäjän '%s'?", $author['Author']['username'])
 						);
 					?>
-					
-					<!-- Linkki hallintaoikeuksien muokkaamiseen -->
-					<?php
-						echo $this->Html->link(
-							'Muokkaa hallintaoikeutta',
-							array(
-								'controller' => 'authors',
-								'action' => 'access_control_edit',
-								$author['Author']['id']
-							),
-							array(
-								'class' => 'button small',
-								'title' => 'Muokkaa käyttäjän hallintaoikeutta'
-							)
-						);
-					?>
-				</td>
 			</tr>
 				
 		<?php endforeach; ?>
@@ -98,10 +118,7 @@
 </table>
 
 
-<small style="float:right; text-align:right;">
-	<?php
-		echo $this->Paginator->counter(array( 'format' => __('Sivu %page% / %pages%', true)));
-	?>
+<small class="pageChanger">
 <br>
 		<?php echo $this->Paginator->prev('<< ' . __('edellinen', true), array(), null, array('class'=>'disabled'));?>
 	  	<?php echo $this->Paginator->numbers();?>

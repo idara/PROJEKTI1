@@ -3,17 +3,25 @@
 <?php
 	echo $this->element('authors_menu');
 ?>
- 
-<hr>
-
-<h2>Käyttäjähallinta - Muokkaa käyttäjää</h2>
 
 
 <?php
 	echo $this->Session->flash('auth');
+	
     echo $this->Form->create('Author');
-    echo $this->Form->input('username', array('label' => 'Käyttäjänimi', 'title' => 'Käyttäjänimen on oltava vähintään 3 merkkiä pitkä.'));
-    echo $this->Form->input('password', array('label' => 'Salasana'));
+	
+	//Luodaan select -elementille asetukset
+	$options = array();
+	foreach ($groups as $group)
+	{
+		$options[$group['Group']['id']] = $group['Group']['groupname'];
+	}
+	
+	echo ("<label class=\"labelfix\">Valitse ryhmä käyttäjälle " . $user['Author']['username'] . "</label>");
+	
+	echo $this->Form->select('group_id', $options, null, array('empty' => false));
+	
+	echo("<br><br>");
 ?>
 
 <!-- Tallenna muutokset -->
