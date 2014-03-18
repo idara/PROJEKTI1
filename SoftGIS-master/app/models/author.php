@@ -3,13 +3,13 @@
 class Author extends AppModel
 {
 	var $name = 'Author';
-	//var $hasOne = 'Group';
 	
 	var $belongsTo = array('Group');
 
     public $hasMany = array(
         'Poll' => array(
-            'foreign_key' => 'author_id'
+            'foreign_key' => 'author_id',
+			'dependent'    => true
         )
     );
 

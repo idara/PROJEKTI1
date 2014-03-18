@@ -5,28 +5,36 @@ class Poll extends AppModel
     public $hasMany = array(
         'Question' => array(
             'foreign_key' => 'poll_id',
-            'order' => 'Question.num ASC'
+            'order' => 'Question.num ASC',
+			'dependent'    => true//LISÄTTY
         ),
         'Response' => array(
-            'order' => 'Response.created ASC'
+			//'foreign_key' => 'poll_id',//LISÄTTY
+            'order' => 'Response.created ASC',
+			'dependent'    => true//LISÄTTY
         ),
         'Hash' => array(
-            'order' => 'Hash.used ASC'
+			//'foreign_key' => 'poll_id',//LISÄTTY
+            'order' => 'Hash.used ASC',
+			'dependent'    => true//LISÄTTY
         )
     );
 
     public $hasAndBelongsToMany = array(
         'Path' => array(
             'joinTable' => 'polls_paths',
-            'unique' => true
+            'unique' => true,
+			'dependent'    => true//LISÄTTY
         ),
         'Marker' => array(
             'joinTable' => 'polls_markers',
-            'unique' => true
+            'unique' => true,
+			'dependent'    => true//LISÄTTY
         ),
         'Overlay' => array(
             'joinTable' => 'polls_overlays',
-            'unique' => true
+            'unique' => true,
+			'dependent'    => true//LISÄTTY
         )
     );
 

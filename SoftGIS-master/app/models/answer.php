@@ -3,7 +3,11 @@
 class Answer extends AppModel
 {
     public $belongsTo = array(
-        'Question',
-        'Response'
+        'Question' => array(
+			'dependent'    => true//LISÄTTY
+        ),
+        'Response' => array(
+			'dependent'    => true//LISÄTTY
+        )
     );
 }

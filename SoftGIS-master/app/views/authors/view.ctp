@@ -2,6 +2,8 @@
 
 <?php
 	echo $this->element('authors_menu');
+
+echo $tuloste;
 ?>
 
 <table class="list">
@@ -93,6 +95,24 @@
 							)
 						);
 					?>
+					
+					<?php
+						/*
+						echo $this->Html->link(
+							'Testi',
+							array(
+								'controller' => 'authors',
+								'action' => 'testi',
+								$author['Author']['id']
+							),
+							array(
+								'class' => 'button small cancel',
+								'title' => 'Testi'
+							)
+						);
+						*/
+					?>
+					
 				</td>			
 				<td>
 					<!-- Linkki käyttäjän poistamiseksi -->
@@ -109,6 +129,7 @@
 								'title' => 'Poista käyttäjä ja kaikki käyttäjän kyselyt.'
 							),
 							sprintf("Haluatko varmasti poistaa käyttäjän '%s'?", $author['Author']['username'])
+							//$confirmMessage
 						);
 					?>
 			</tr>

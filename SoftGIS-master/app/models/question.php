@@ -7,11 +7,15 @@ class Question extends AppModel
     );
 
     public $hasMany = array(
-        'Answer'
+        'Answer' => array(
+			'dependent'    => true//LISÄTTY
+        )
     );
 
     public $belongsTo = array(
-        'Poll'
+        'Poll' => array(
+			'dependent'    => true//LISÄTTY
+        )
     );
 
     public function afterFind($results, $primary)

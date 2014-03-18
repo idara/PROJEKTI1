@@ -8,7 +8,7 @@ class GroupsController extends AppController
 	//Ryhmälistaus
     public function index()
     {
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
@@ -35,7 +35,7 @@ class GroupsController extends AppController
 	//Uuden käyttäjän lisääminen käyttäjähallinnan kautta
 	function add() {
 		
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
@@ -66,7 +66,7 @@ class GroupsController extends AppController
 	//Käyttäjän muokkaaminen
 	function edit($id = null) {
 	
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
@@ -100,7 +100,7 @@ class GroupsController extends AppController
 	//Käyttäjän poistaminen
 	function delete($id = null) {
 	
-		if(($this->Auth->user('accessControl'))!=1)
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjien hallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
