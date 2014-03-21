@@ -2,30 +2,55 @@
 
 <?php
 	echo $this->element('authors_menu');
-
-echo $tuloste;
+	echo ("Kirjautunut käyttäjä: " . $authorizedUserId);
 ?>
 
 <table class="list">
     <thead>
         <tr>
-		<!--
-            <th>ID</th>
-            <th>Käyttäjätunnus</th>
-            <th>Toiminnot</th>
-		-->
-		
 			<th><?php echo $this->Paginator->sort('Id', 'id');?></th>
-			<th title="Järjestä taulukko käyttäjänimen mukaan"><?php echo $this->Paginator->sort('Käyttäjänimi', 'username');?></th>
-			<th title="Järjestä taulukko ryhmän numeron mukaan"><?php echo $this->Paginator->sort('Ryhmä', 'group_id');?></th>
-			<!--<th>Ryhmä</th>-->
-			<th title="Käyttäjän omien kyselyiden lukumäärä">Kyselyitä</th>
-			<th>Muokkaa</th>
-			<th>Poista</th>
+			<th title="<?php __('Käyttäjän omien kyselyiden lukumäärä', true); ?>"><?php echo $this->Paginator->sort(__('Käyttäjänimi', true), 'username');?></th>
+			<th title="<?php __('Käyttäjän omien kyselyiden lukumäärä', true); ?>"><?php echo $this->Paginator->sort(__('Ryhmä', true), 'group_id');?></th>
+			<th title="<?php __('Käyttäjän omien kyselyiden lukumäärä', true); ?>"><?php __('Kyselyitä', true); ?></th>
+			<th><?php __('Muokkaa', true); ?></th>
+			<th><?php __('Poista', true); ?></th>
         </tr>
     </thead>
 	<tbody>
         <?php foreach ($authors as $author): ?>
+			<?php
+				if(strcmp($author['Author']['id'], $authorizedUserId)==0)
+				{
+					//Username
+					$usernameTitleString = __("Muokkaa omaa käyttäjätunnustasi", true);
+					
+					//Password
+					$passwordTitleString = __("Vaihda oma salasanasi", true);
+					
+					//Group
+					$groupTitleString = __("Vaihda ryhmää, johon kuulut", true);
+					
+					//Delete
+					$deleteTitleString = __("Poista oma käyttäjätunnuksesi ja kaikki kyselysi", true);
+					$deleteconfirmString = __("Haluatko varmasti poistaa oman käyttäjätunnuksesi", true);
+				}
+				else
+				{
+					
+					//Username
+					$usernameTitleString = __("Muokkaa käyttäjätunnusta", true);
+					
+					//Password
+					$passwordTitleString = __("Vaihda käyttäjän salasana", true);
+					
+					//Group
+					$groupTitleString = __("Vaihda ryhmää, johon käyttäjä kuuluu", true);
+					
+					//Delete
+					$deleteTitleString = __("Poista käyttäjä ja kaikki käyttäjän kyselyt", true);
+					$deleteconfirmString = __("Haluatko varmasti poistaa käyttäjän", true);
+				}
+			?>
             <tr>
                 <td><?php echo $author['Author']['id']; ?></td>
 				<td><?php echo $author['Author']['username']; ?></td>
@@ -51,7 +76,7 @@ echo $tuloste;
 					<!-- Linkki käyttäjätunnuksen muokkaussivulle -->
 					<?php
 						echo $this->Html->link(
-							'Käyttäjänimeä',
+							__('Käyttäjätunnus', true),
 							array(
 								'controller' => 'authors',
 								'action' => 'username',
@@ -59,7 +84,7 @@ echo $tuloste;
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Muokkaa käyttäjänimeä'
+								'title' => $usernameTitleString
 							)
 						);
 					?>
@@ -67,7 +92,7 @@ echo $tuloste;
 					<!-- Linkki käyttäjän muokkaussivulle -->
 					<?php
 						echo $this->Html->link(
-							'Salasanaa',
+							__('Salasana', true),
 							array(
 								'controller' => 'authors',
 								'action' => 'password',
@@ -75,7 +100,7 @@ echo $tuloste;
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Vaihda käytäjän salasana'
+								'title' => $passwordTitleString
 							)
 						);
 					?>
@@ -83,7 +108,7 @@ echo $tuloste;
 					<!-- Linkki ryhmän muokkaamiseen -->
 					<?php
 						echo $this->Html->link(
-							'Vaihda ryhmää',
+							__('Vaihda ryhmää', true),
 							array(
 								'controller' => 'authors',
 								'action' => 'group',
@@ -91,34 +116,16 @@ echo $tuloste;
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Vaihda ryhmää, johon käyttäjä kuuluu'
+								'title' => $groupTitleString
 							)
 						);
-					?>
-					
-					<?php
-						/*
-						echo $this->Html->link(
-							'Testi',
-							array(
-								'controller' => 'authors',
-								'action' => 'testi',
-								$author['Author']['id']
-							),
-							array(
-								'class' => 'button small cancel',
-								'title' => 'Testi'
-							)
-						);
-						*/
-					?>
-					
+					?>					
 				</td>			
 				<td>
 					<!-- Linkki käyttäjän poistamiseksi -->
 					<?php
 						echo $this->Html->link(
-							'Poista',
+							__('Poista', true),
 							array(
 								'controller' => 'authors',
 								'action' => 'delete',
@@ -126,9 +133,9 @@ echo $tuloste;
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Poista käyttäjä ja kaikki käyttäjän kyselyt.'
+								'title' => $deleteTitleString
 							),
-							sprintf("Haluatko varmasti poistaa käyttäjän '%s'?", $author['Author']['username'])
+							sprintf("%s '%s'?",$deleteconfirmString, $author['Author']['username'])
 							//$confirmMessage
 						);
 					?>

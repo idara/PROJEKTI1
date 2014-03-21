@@ -29,7 +29,7 @@
     function setContent() {
         //Update answer content according the arswers
         document.getElementById("answer").innerHTML = text;
-        document.getElementById("lataus").href = "data:application/csv;charset=utf-8," + text.replace(/\n/g,'%0A');
+        document.getElementById("lataus").href = "data:application/csv;charset=utf-8," + "sep=,%0A" + text.replace(/\n/g,'%0A');
         document.getElementById("lataus").download = pollNam + '_vastaukset.csv';
     }
 

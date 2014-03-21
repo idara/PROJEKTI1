@@ -3,12 +3,12 @@
     echo $this->Form->create('Author');
     echo $this->Form->input(
         'username', 
-        array('label' => 'Käyttäjänimi', 'autofocus' => 'autofocus')
+        array('label' => __('Käyttäjänimi', true), 'autofocus' => 'autofocus')
     );
     echo $this->Form->input(
         'password',
-        array('label' => 'Salasana')
+        array('label' => __('Salasana', true))
     );
 ?>
-<button type="submit">Kirjaudu</button>
+<button type="submit"><?php __('Kirjaudu'); ?></button>
 <?php echo $this->Form->end(); ?>

@@ -56,6 +56,7 @@ $( document ).ready(function() {
 });
 
     </script>
+	
 </head>
 <body>
     <div id="container">
@@ -92,6 +93,11 @@ $( document ).ready(function() {
 			<?php echo $this->Html->link(
 				'Käyttäjähallinta',
 				array('controller' => 'authors', 'action' => 'view'),
+				array('class' => 'button cancel')
+			);?>
+			<?php echo $this->Html->link(
+				'Profiili',
+				array('controller' => 'authors', 'action' => 'profile'),
 				array('class' => 'button cancel')
 			);?>
             <?php echo $this->Html->link(

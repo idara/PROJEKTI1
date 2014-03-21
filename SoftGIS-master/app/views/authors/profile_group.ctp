@@ -1,7 +1,7 @@
 <!-- Käyttäjähallinta - vaihda ryhmää -->
  
 <?php
-	echo $this->element('authors_menu');
+	echo $this->element('profile_header');	
 ?>
 
 
@@ -31,7 +31,7 @@
 <?php
 	echo $this->Html->link(
 		__('Peruuta', true),
-		array('controller' => 'authors', 'action' => "view"),
+		array('controller' => 'authors', 'action' => "profile"),
 		array('class' => 'button cancel')
 	);
 ?>

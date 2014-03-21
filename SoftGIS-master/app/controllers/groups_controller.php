@@ -22,7 +22,7 @@ class GroupsController extends AppController
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', ' - Ryhmälista');
+			$this->set('title_for_layout', __(' - Ryhmälista', true));
 		}
     }
 
@@ -59,7 +59,7 @@ class GroupsController extends AppController
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', ' - Lisää uusi ryhmä');
+			$this->set('title_for_layout', __(' - Lisää uusi ryhmä', true));
 		}
 	}
 	
@@ -93,11 +93,11 @@ class GroupsController extends AppController
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', ' - Muokkaa ryhmän tietoja');
+			$this->set('title_for_layout', __(' - Muokkaa ryhmää', true));
 		}
 	}
-	
-	//Käyttäjän poistaminen
+
+	//Ryhmän poistaminen
 	function delete($id = null) {
 	
 		if(($this->Auth->user('group_id'))!=1)

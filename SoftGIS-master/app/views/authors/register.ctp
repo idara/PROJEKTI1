@@ -20,20 +20,20 @@ $(document).ready(function() {
 <?php
     echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('username', array('label' => 'Käyttäjänimi'));
-    echo $this->Form->input('password', array('label' => 'Salasana'));
+    echo $this->Form->input('username', array('label' => __('Käyttäjänimi', true)));
+    echo $this->Form->input('password', array('label' => __('Salasana', true)));
 ?>
 
 <div class="input text">
-    <label for="secter">Tunniste</label>
+    <label for="secter"><?php __('Tunniste'); ?></label>
     <input type="text" name="data[secret]" id="secret" 
-        title="Tunnisteen saat sivuston ylläpitäjältä"/>
+        title="<?php __('Tunnisteen saat sivuston ylläpitäjältä'); ?>"/>
     <?php if (!empty($secretWrong)): ?>
         <div class="error-message">
-            Tunniste ei täsmännyt. Saat tunnisteen sivuston ylläpitäjältä.
+            <?php __('Tunniste ei täsmännyt. Saat tunnisteen sivuston ylläpitäjältä.'); ?>
         </div>
     <?php endif; ?>
 
 </div>
-<button type="submit">Rekisteröidy</button>
+<button type="submit"><?php __('Rekisteröidy'); ?></button>
 <?php echo $this->Form->end(); ?>
