@@ -3,13 +3,14 @@
 <?php
 	echo $this->element('authors_menu');
 ?>
+<h3><?php __('Lisää käyttäjä'); ?></h3><br>
 
 <!-- Lomake käyttäjän luomiselle -->
 <?php
 	
     echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('username', array('label' => __('Käyttäjänimi', true), 'title' => __('Käyttäjänimen on oltava vähintään 3 merkkiä pitkä', true)));
+    echo $this->Form->input('username', array('label' => __('Käyttätunnus', true), 'title' => __('Käyttäjänimen on oltava vähintään 3 merkkiä pitkä', true)));
     echo $this->Form->input('password', array('label' => __('Salasana', true)));
 
 	//Luodaan select -elementille asetukset
@@ -21,7 +22,7 @@
 		$options[$groups[$i]['Group']['id']] = $groups[$i]['Group']['groupname'];
 	}
 	//Select elementille otsikko
-	echo ("<label class=\"labelfix\">" . __('Valitse ryhmä käyttäjälle', true) . "</label>");
+	echo ("<label class=\"labelfix\">" . __('Ryhmä', true) . "</label>");
 	//Select-elementti
 	echo $this->Form->select('group_id', $options, null, array('empty' => false));
 	

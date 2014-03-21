@@ -5,6 +5,8 @@
 	echo ("Kirjautunut käyttäjä: " . $authorizedUserId);
 ?>
 
+<h3><?php __('Käyttäjät'); ?></h3><br>
+
 <table class="list">
     <thead>
         <tr>

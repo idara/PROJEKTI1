@@ -435,7 +435,7 @@ table.listVertical {
 	display: block;
 	padding: 0px 0px 0.2em 0.3em;
 	letter-spacing: 1px;
-	margin-bottom:10px;
+	margin-bottom:0px;/* alkup. 10px */
 }
 
 .pageChanger

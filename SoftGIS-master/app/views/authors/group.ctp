@@ -4,6 +4,7 @@
 	echo $this->element('authors_menu');
 ?>
 
+<h3><?php echo (__('Vaihda ryhmää, johon käyttäjä', true) . " " . $user['Author']['username'] . " " . __('kuuluu', true)); ?></h3><br>
 
 <?php
 	echo $this->Session->flash('auth');
@@ -17,7 +18,7 @@
 		$options[$group['Group']['id']] = $group['Group']['groupname'];
 	}
 	
-	echo ("<label class=\"labelfix\">" . __('Valitse ryhmä käyttäjälle', true) . " " . $user['Author']['username'] . "</label>");
+	echo ("<label class=\"labelfix\">" . __('Ryhmä', true) . "</label>");
 	
 	echo $this->Form->select('group_id', $options, null, array('empty' => false));
 	

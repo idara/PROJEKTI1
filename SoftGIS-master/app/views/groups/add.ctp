@@ -4,23 +4,21 @@
 	echo $this->element('authors_menu');
 ?>
 
-<hr>
-
-<h2>Ryhmähallinta - Lisää uusi ryhmä</h2>
+<h3><?php __('Lisää ryhmä'); ?></h3><br>
 
 <!-- Lomake ryhmän luomiselle -->
 <?php
     echo $this->Session->flash('auth');
     echo $this->Form->create('Group');
-    echo $this->Form->input('groupname', array('label' => 'Ryhmän nimi', 'title' => 'Rhmän nimen on oltava vähintään 3 merkkiä pitkä.'));
+    echo $this->Form->input('groupname', array('label' => __('Ryhmän nimi', true), 'title' => __('Rhmän nimen on oltava vähintään 3 merkkiä pitkä', true)));
 ?>
 <!-- Tallenna muutokset -->
-<button type="submit">Lisää ryhmä</button>
+<button type="submit"><?php __('Lisää ryhmä'); ?></button>
 
 <!-- Hylkää muutokset -->
 <?php
 	echo $this->Html->link(
-		'Peruuta',
+		__('Peruuta', true),
 		array('controller' => 'groups', 'action' => 'index'),
 		array('class' => 'button cancel')
 	);

@@ -4,12 +4,12 @@
 	echo $this->element('authors_menu');
 ?>
 
+<h3><?php echo (__('Vaihda käyttäjän', true) . " " . $user['Author']['username'] . " " . __('salasana', true)); ?></h3><br>
 
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-	echo ("<label class=\"labelfix\">" . __('Muokkaa käyttäjän', true) . " " . $user['Author']['username'] . " " . __('salasanaa', true) . "</label>");
-    echo $this->Form->input('password', array('label' => false, 'title' => __('Älä tallenna muokkaamatonta salasanaa!', true)));
+    echo $this->Form->input('password', array('label' => __('Salasana', true), 'title' => __('Älä tallenna muokkaamatonta salasanaa!', true)));
 ?>
 
 <!-- Tallenna muutokset -->

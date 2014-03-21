@@ -27,7 +27,7 @@
 					),
 					array(
 						'class' => 'button small profileEditButton',
-						'title' => 'Muokkaa omaa käyttäjätunnustasi'
+						'title' => __('Muokkaa omaa käyttäjätunnustasi', true)
 					)
 				);
 			?>
@@ -35,7 +35,7 @@
 			<!-- Linkki salasanan muokkaamiseen -->
 			<?php
 				echo $this->Html->link(
-					'Salasana',
+					__('Salasana', true),
 					array(
 						'controller' => 'authors',
 						'action' => 'profile_password',
@@ -43,7 +43,7 @@
 					),
 					array(
 						'class' => 'button small profileEditButton',
-						'title' => 'Vaihda oma salasanasi'
+						'title' => __('Vaihda oma salasanasi', true)
 					)
 				);
 			?>
@@ -51,7 +51,7 @@
 			<!-- Linkki ryhmän muokkaamiseen -->
 				<?php
 					echo $this->Html->link(
-						'Ryhmä',
+						__('Ryhmä', true),
 						array(
 							'controller' => 'authors',
 							'action' => 'profile_group',
@@ -59,15 +59,17 @@
 						),
 						array(
 							'class' => 'button small profileEditButton',
-							'title' => 'Vaihda ryhmää, johon kuulut'
+							'title' => __('Vaihda ryhmää, johon kuulut', true)
 						)
 					);
 				?>
 					
 				<!-- Linkki käyttäjän poistamiseksi -->
 				<?php
+					$deleteConfirmString = __('Haluatko varmasti poistaa oman käyttäjätunnuksesi',true);
+				
 					echo $this->Html->link(
-						'Poista',
+						__('Poista', true),
 						array(
 							'controller' => 'authors',
 							'action' => 'profile_delete',
@@ -75,10 +77,9 @@
 						),
 						array(
 							'class' => 'button small profileEditButton',
-							'title' => 'Poista oma käyttäjätunnuksesi ja kaikki kyselysi'
+							'title' => __('Poista oma käyttäjätunnuksesi ja kaikki kyselysi', true)
 						),
-						sprintf("Haluatko varmasti poistaa oman käyttäjätunnuksesi '%s'?", $author['0']['authors']['username'])
-						//$confirmMessage
+						sprintf("%s '%s'?", $deleteConfirmString, $author['0']['authors']['username'])
 					);
 				?>
 		</div>
@@ -92,7 +93,7 @@
 				Yhteensä
 				<?php
 					echo $this->Html->image(
-						'information.png',
+						'information-icon.png',
 						array(
 							'alt' => 'CakePHP',
 							'class' => 'infoIcon',
@@ -113,7 +114,7 @@
 				Julkisia
 				<?php
 					echo $this->Html->image(
-						'information.png',
+						'information-icon.png',
 						array(
 							'alt' => 'CakePHP',
 							'class' => 'infoIcon',
@@ -134,7 +135,7 @@
 				Aktiivisia
 				<?php
 					echo $this->Html->image(
-						'information.png',
+						'information-icon.png',
 						array(
 							'alt' => 'CakePHP',
 							'class' => 'infoIcon',

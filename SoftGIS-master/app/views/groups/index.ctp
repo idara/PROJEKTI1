@@ -3,17 +3,15 @@
 <?php
 	echo $this->element('authors_menu');
 ?>
- 
-<hr>
 
-<h2>Ryhmähallinta - Kaikki järjestelmän ryhmät</h2>
+<h3><?php __('Ryhmät'); ?></h3><br>
 
 <table class="list">
     <thead>
         <tr>		
 			<th><?php echo $this->Paginator->sort('Id', 'id');?></th>
-			<th><?php echo $this->Paginator->sort('Ryhmän nimi', 'groupname');?></th>
-			<th>Toiminnot</th>
+			<th><?php echo $this->Paginator->sort(__('Ryhmän nimi',true), 'groupname');?></th>
+			<th><?php __('Toiminnot'); ?></th>
         </tr>
     </thead>
 	<tbody>
@@ -25,7 +23,7 @@
 					<!-- Linkki ryhmän muokkaussivulle -->
 					<?php
 						echo $this->Html->link(
-							'Muokkaa',
+							__('Muokkaa',true),
 							array(
 								'controller' => 'groups',
 								'action' => 'edit',
@@ -33,7 +31,7 @@
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Muokkaa ryhmän nimeä'
+								'title' => __('Muokkaa ryhmän nimeä',true)
 							)
 						);
 					?>
@@ -41,8 +39,10 @@
 
 					<!-- Linkki ryhmän poistamiseksi -->
 					<?php
+						$deleteConfirmString = __('Haluatko varmasti poistaa ryhmän',true);
+					
 						echo $this->Html->link(
-							'Poista',
+							__('Poista',true),
 							array(
 								'controller' => 'groups',
 								'action' => 'delete',
@@ -50,9 +50,9 @@
 							),
 							array(
 								'class' => 'button small',
-								'title' => 'Poista ryhmä'
+								'title' => __('Poista ryhmä',true)
 							),
-							sprintf("Haluatko varmasti poistaa ryhmän '%s'?", $group['Group']['groupname'])
+							sprintf("%s '%s'?", $deleteConfirmString, $group['Group']['groupname'])
 						);
 					?>
 				</td>

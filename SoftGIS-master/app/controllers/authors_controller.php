@@ -483,7 +483,7 @@ class AuthorsController extends AppController
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', _(' - Vaihda ryhmää', true));
+			$this->set('title_for_layout', __(' - Vaihda ryhmää', true));
 		}
 		else
 		{

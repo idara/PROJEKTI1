@@ -4,12 +4,12 @@
 	echo $this->element('profile_header');	
 ?>
 
+<h3><?php echo (__('Vaihda käyttäjän', true) . " " . $user['Author']['username'] . " " . __('käyttäjätunnus', true)); ?></h3><br>
 
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-	echo ("<label class=\"labelfix\">" . __('Muokkaa käyttäjän', true) . " " . $user['Author']['username'] . " " . __('käyttäjänimeä', true) . "</label>");
-    echo $this->Form->input('username', array('label' => false, 'title' => __('Käyttäjänimen on oltava vähintään 3 merkkiä pitkä.', true)));
+    echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'title' > __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä.', true)));
 ?>
 
 <!-- Tallenna muutokset -->

@@ -1,65 +1,64 @@
 <!-- Käyttäjähallinta - valikko -->
 
-<h2>Käyttäjähallinta</h2>
+<h2><?php __('Käyttäjähallinta'); ?></h2>
 
 
  
 <?php
 	echo $this->Html->link(
-		'Näytä käyttäjät',
+		__('Näytä käyttäjät', true),
 		array(
 			'controller' => 'authors',
 			'action' => 'view'
 		),
 		array(
 			'class' => 'button',
-			'title' => 'Näytä kaikki käyttäjät'
+			'title' => __('Näytä kaikki käyttäjät', true)
 		)
 	);
 ?>
 
 <?php
 	echo $this->Html->link(
-		'Lisää käyttäjä',
+		__('Lisää käyttäjä', true),
 		array(
 			'controller' => 'authors',
 			'action' => 'add'
 		),
 		array(
 			'class' => 'button',
-			'title' => 'Lisää uusi käyttäjä'
+			'title' => __('Lisää uusi käyttäjä', true)
 		)
 	);
 ?>
 
 <?php
 	echo $this->Html->link(
-		'Näytä ryhmät',
+		__('Näytä ryhmät', true),
 		array(
 			'controller' => 'groups',
 			'action' => 'index'
 		),
 		array(
 			'class' => 'button',
-			'title' => 'Näytä kaikki ryhmät'
+			'title' => __('Näytä kaikki ryhmät', true)
 		)
 	);
 ?>
 
 <?php
 	echo $this->Html->link(
-		'Lisää ryhmä',
+		__('Lisää ryhmä', true),
 		array(
 			'controller' => 'groups',
 			'action' => 'add'
 		),
 		array(
 			'class' => 'button',
-			'title' => 'Lisää uusi ryhmä'
+			'title' => __('Lisää uusi ryhmä', true)
 		)
 	);
 ?>
 
 
 <hr>
-<br>
