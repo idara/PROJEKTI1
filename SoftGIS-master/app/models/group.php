@@ -24,7 +24,7 @@ class Group extends AppModel
         'groupname' => array(
             'isUnique' => array(
                 'rule' => 'isUnique',
-                'message' => 'Ryhmän nimi on varattu.'
+                'message' => 'Ryhmän nimi on jo käytössä.'
             ),
             'minLength' => array(
                 'rule' => array('minLength', 3),

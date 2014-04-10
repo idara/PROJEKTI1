@@ -22,6 +22,7 @@ $(document).ready(function() {
     echo $this->Form->create('Author');
     echo $this->Form->input('username', array('label' => __('Käyttäjänimi', true)));
     echo $this->Form->input('password', array('label' => __('Salasana', true)));
+	echo $this->Form->input('email', array('label' => __('Sähköposti', true)));
 ?>
 
 <div class="input text">
@@ -33,7 +34,6 @@ $(document).ready(function() {
             <?php __('Tunniste ei täsmännyt. Saat tunnisteen sivuston ylläpitäjältä.'); ?>
         </div>
     <?php endif; ?>
-
 </div>
 <button type="submit"><?php __('Rekisteröidy'); ?></button>
 <?php echo $this->Form->end(); ?>

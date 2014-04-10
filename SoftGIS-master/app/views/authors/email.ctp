@@ -1,10 +1,10 @@
-<!-- Käyttäjähallinta - listaa kaikki käyttäjät -->
+<!-- Käyttäjähallinta - muokkaa sähköpostiosoitetta -->
  
 <?php
 	echo $this->element('authors_menu');
 ?>
 
-<h3><?php echo (__('Vaihda käyttäjän', true) . " " . $user['Author']['username'] . " " . __('käyttäjätunnus', true)); ?></h3><br>
+<h3><?php echo (__('Vaihda käyttäjän', true) . " " . $user['Author']['username'] . " " . __('sähköpostiosoite', true)); ?></h3><br>
 
 <?php
 /*
@@ -19,13 +19,13 @@
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'title' => __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä.', true), 'after'=> '<span class="afterInput">' . __('Syötä uusi käyttäjätunnus.', true) . '</span>'));));
+    echo $this->Form->input('email', array('label' => __('Sähköpostiosoite', true), 'title' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi.', true)));
+	echo $this->Form->input('emailRetyped', array('label' => __('Vahvista sähköpostiosoite', true), 'after'=> '<span class="afterInput">' . __('Kirjoitusvirheiden ehkäisemiseksi, syötä sähköpostiosoite molempiin kenttiin.', true) . '</span>'));
 	
 	echo ("<br><br>");
 	
 	echo $this->Form->input('confirmPassword', array('type'=>'password', 'label' => __('Syötä salasanasi', true), 'after'=> '<span class="afterInput">' . __('Turvallisuussyistä johtuen, syötä salasanasi vahvistaaksesi muutokset.', true) . '</span>'));
 ?>
-<br>
 
 <!-- Tallenna muutokset -->
 <button type="submit"><?php __('Tallenna muutokset'); ?></button>

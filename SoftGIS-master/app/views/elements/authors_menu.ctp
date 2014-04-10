@@ -60,5 +60,32 @@
 	);
 ?>
 
+<?php
+	echo $this->Html->link(
+		__('Avoimet tukipyynnöt', true),
+		array(
+			'controller' => 'requests',
+			'action' => 'index'
+		),
+		array(
+			'class' => 'button',
+			'title' => __('Näytä avoimet tukipyynnöt', true)
+		)
+	);
+?>
+
+<?php
+	echo $this->Html->link(
+		__('Käsitellyt tukipyynnöt', true),
+		array(
+			'controller' => 'requests',
+			'action' => 'viewcomplited'
+		),
+		array(
+			'class' => 'button',
+			'title' => __('Näytä käsitellyt tukipyynnöt', true)
+		)
+	);
+?>
 
 <hr>

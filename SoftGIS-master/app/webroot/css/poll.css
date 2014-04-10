@@ -80,6 +80,19 @@ div.info {
   width: 250px; }
 
 /** Notices and Errors **/
+
+div.notification 
+{
+	position:fixed;
+	top:15px;
+	right:5px;
+	color: #fff;
+	background: #c73e14;
+	padding: 0.5em;
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
 div.message {
   clear: both;
   color: #fff;
@@ -163,6 +176,12 @@ div.input {
     border: 1px solid #c9c9c9;
     display: block;
     box-sizing: border-box; }
+
+.afterInput
+{
+	font-size:13px;
+	color:gray;
+}
 
 div.map-container div.map {
   width: 100%;

@@ -133,3 +133,12 @@ CREATE TABLE `responses` (
   `hash` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author_id` int(11) NOT NULL,
+  `request_created` DATETIME,
+  `request` TEXT NOT NULL,
+  `complete` BOOL DEFAULT FALSE,
+  PRIMARY KEY (`id`)
+);

@@ -17,6 +17,7 @@
         // echo $this->Html->css('smoke');
         echo $this->Html->css('token-input');
         echo $this->Html->css('ui.spinner');
+		echo $this->Html->css('popup');
         
         echo $this->Html->script('http://maps.google.com/maps/api/js?libraries=geometry&sensor=false');
         echo $this->Html->script('underscore-min');
@@ -63,6 +64,15 @@ $( document ).ready(function() {
         <div id="header">
             <h1>Soft-GIS</h1>
         </div>
+		
+		<?php
+			// Notification of uncompleted supportrequests
+			if(isset($requestNotification))
+			{
+				echo ($requestNotification);
+			}
+		?>
+
         <?php echo $this->Session->flash(); ?>
         <div id="navbar">
             <?php echo $this->Html->link(

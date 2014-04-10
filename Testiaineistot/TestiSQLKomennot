@@ -1,4 +1,4 @@
-INSERT INTO `polls` ( `name`, `author_id`, `public`, `launch`, `end`, `welcome_text`, `thanks_text`) VALUES
+INSERT INTO `polls` (`name`, `author_id`, `public`, `launch`, `end`, `welcome_text`, `thanks_text`) VALUES
 ( 'TestikyselyTeksti', 1, 1, NULL, NULL, NULL, NULL),
 ( 'TestikyselyEiTekstiÃ¤', 1, 1, NULL, NULL, NULL, NULL),
 ( 'TestikyselyKyllÃ¤EiEos', 1, 1, NULL, NULL, NULL, NULL),

@@ -1,3 +1,30 @@
+<script>	
+	
+	$( document ).ready(function() {
+	
+		var dataId;
+		var dataUsername;
+		var dataHref;
+		var dataConfirmPassword;
+	
+		//Title -> tooltip
+		$('a[title]').qtip({
+			show: {
+				delay: 300
+			},
+			position: {
+				my: "bottom center",
+				at: "top center"
+				// my: "right center",
+				// at: "left center"
+			},
+			style: {
+				classes: "ui-tooltip-help ui-tooltip-shadow"
+			}
+		});		
+	});
+</script>
+
 <!-- Käyttäjähallinta - omien tietojen näyttö -->
 <?php
 	echo $this->element('profile_header');
@@ -66,6 +93,7 @@
 					
 				<!-- Linkki käyttäjän poistamiseksi -->
 				<?php
+				/*
 					$deleteConfirmString = __('Haluatko varmasti poistaa oman käyttäjätunnuksesi',true);
 				
 					echo $this->Html->link(
@@ -80,6 +108,22 @@
 							'title' => __('Poista oma käyttäjätunnuksesi ja kaikki kyselysi', true)
 						),
 						sprintf("%s '%s'?", $deleteConfirmString, $author['0']['authors']['username'])
+					);
+					*/
+				?>
+				
+				<!-- Linkki tukipyynnön jättämiseen -->
+				<?php
+					echo $this->Html->link(
+						__('Tukipyyntö', true),
+						array(
+							'controller' => 'requests',
+							'action' => 'add'
+						),
+						array(
+							'class' => 'button small profileEditButton',
+							'title' => __('Jätä tukipyyntö järjestelmän valvojalle', true)
+						)
 					);
 				?>
 		</div>

@@ -15,7 +15,11 @@
 	$options = array();
 	foreach ($groups as $group)
 	{
-		$options[$group['Group']['id']] = $group['Group']['groupname'];
+		//Karsitaan ylemmän oikeustason ryhmät pois
+		if($group['Group']['id'] >= $modifyGroup)
+		{
+			$options[$group['Group']['id']] = $group['Group']['groupname'];
+		}
 	}
 	
 	echo ("<label class=\"labelfix\">" . __('Ryhmä', true) . "</label>");

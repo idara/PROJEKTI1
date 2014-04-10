@@ -17,7 +17,7 @@ class Author extends AppModel
         'username' => array(
             'isUnique' => array(
                 'rule' => 'isUnique',
-                'message' => 'Käyttäjänimi on varattu.'
+                'message' => 'Käyttäjätunnus on jo käytössä.'
             ),
             'minLength' => array(
                 'rule' => array('minLength', 3),
@@ -27,6 +27,16 @@ class Author extends AppModel
                 'rule' => array('maxLength', 50),
                 'message' => 'Käyttäjänimi ei saa olla yli 50 merkkiä pitkä.'
             )
+        ),
+        'password' => array(
+            'notEmpty' => array(
+                'rule' => 'notEmpty',
+                'message' => 'Salasana ei voi olla tyhjä.'
+            )
+        ),
+        'email' => array(
+            'rule' => 'email',
+            'message' => 'Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi'
         )
     );
 }
