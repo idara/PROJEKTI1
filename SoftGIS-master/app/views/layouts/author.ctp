@@ -60,7 +60,40 @@ $( document ).ready(function() {
 	
 </head>
 <body>
+
     <div id="container">
+	
+		<div class="langbar">
+			<?php
+			/*
+				echo $this->Html->link(
+					'Suomi',
+					array('language'=>'fin')
+				);
+			
+			
+				echo $this->Html->link(
+					'Enganti',
+					array('language'=>'eng')
+				);
+				*/
+			?>
+			
+			<?php echo $this->Html->image("flags/fin.png", array(
+				"alt" => "Finnish",
+				'url' => array('controller' => 'polls', 'action' => 'index', 'language'=>'fin'),
+				'class' => 'languageFlag'
+			)); ?>
+			
+			<?php echo $this->Html->image("flags/eng.png", array(
+				"alt" => "English",
+				'url' => array('controller' => 'polls', 'action' => 'index', 'language'=>'eng'),
+				'class' => 'languageFlag'
+			)); ?>
+			
+		</div>
+	
+		
         <div id="header">
             <h1>Soft-GIS</h1>
         </div>
@@ -76,46 +109,47 @@ $( document ).ready(function() {
         <?php echo $this->Session->flash(); ?>
         <div id="navbar">
             <?php echo $this->Html->link(
-                'Omat kyselyt',
+                __('Omat kyselyt', true),
                 array('controller' => 'polls', 'action' => 'index'),
                 array('class' => 'button')
             );?>
             <?php echo $this->Html->link(
-                'Luo uusi kysely',
+                __('Luo uusi kysely', true),
                 array('controller' => 'polls', 'action' => 'modify'),
                 array('class' => 'button')
             );?>
             <?php echo $this->Html->link(
-                'Karttamerkit',
+                __('Karttamerkit', true),
                 array('controller' => 'markers', 'action' => 'index'),
                 array('class' => 'button')
             );?>
             <?php echo $this->Html->link(
-                'Vektoriaineistot',
+                __('Vektoriaineistot', true),
                 array('controller' => 'paths', 'action' => 'index'),
                 array('class' => 'button')
             );?>
             <?php echo $this->Html->link(
-                'Karttakuvat',
+                __('Karttakuvat', true),
                 array('controller' => 'overlays', 'action' => 'index'),
                 array('class' => 'button')
             );?>
 			<?php echo $this->Html->link(
-				'Käyttäjähallinta',
+				__('Käyttäjähallinta', true),
 				array('controller' => 'authors', 'action' => 'view'),
 				array('class' => 'button cancel')
 			);?>
 			<?php echo $this->Html->link(
-				'Profiili',
+				__('Profiili', true),
 				array('controller' => 'authors', 'action' => 'profile'),
 				array('class' => 'button cancel')
 			);?>
             <?php echo $this->Html->link(
-                'Kirjaudu ulos',
+                __('Kirjaudu ulos', true),
                 array('controller' => 'authors', 'action' => 'logout'),
                 array('class' => 'button cancel')
             );?>
-        </div>
+        </div>		
+		
         <div id="content">
 
 

@@ -323,52 +323,52 @@ function center(){ //we try to center and zoom the map on init
 
 
 <div class="answerMenu">
-    <a href="#help" class="button" id="toggleHelp">Ohje</a>
+    <a href="#help" class="button" id="toggleHelp"><?php __('Ohje'); ?></a>
 </div>
 
 <div class="form">
-    <h1>Karttakuvan tiedot</h1>
+    <h1><?php __('Karttakuvan tiedot'); ?></h1>
 
     <div class="help">
-        <h2>Koordinaattien syöttäminen</h2>
-        <p>Voit syöttää kuvan lounais- ja koiliskulman koordinaatit niille varattuihin kenttiin ja ohjelma asettaa karttakuvan kartalle. Esiaktselussa karttakuva on läpinäkyvä kohdistamisen helpottamiseksi, mutta kyselyssä läpinäkyvyyttä ei ole.</p>
-        <h2>Kulmamerkit kartalle</h2>
-        <p>Voit myös asettaa karttakuvan kohdalleen klikkaamalla karttaa karttakuvan lounais- ja koiliskulmien kohdalta. Kartalle ilmestyy merkit kuvan kulmien paikaksi. Kulmien merkkejä voi vetämällä siirtää, tai hiiren oikealla klikkauksella poistaa.</p>
+        <h2><?php __('Koordinaattien syöttäminen'); ?></h2>
+        <p><?php __('Voit syöttää kuvan lounais- ja koiliskulman koordinaatit niille varattuihin kenttiin ja ohjelma asettaa karttakuvan kartalle. Esiaktselussa karttakuva on läpinäkyvä kohdistamisen helpottamiseksi, mutta kyselyssä läpinäkyvyyttä ei ole.'); ?></p>
+        <h2><?php __('Kulmamerkit kartalle'); ?></h2>
+        <p><?php __('Voit myös asettaa karttakuvan kohdalleen klikkaamalla karttaa karttakuvan lounais- ja koiliskulmien kohdalta. Kartalle ilmestyy merkit kuvan kulmien paikaksi. Kulmien merkkejä voi vetämällä siirtää, tai hiiren oikealla klikkauksella poistaa.'); ?></p>
     </div>
 
     <div class="value">
         <?php echo $this->Form->create('Overlay'); ?>
-        <?php echo $this->Form->input('name', array('label' => 'Nimi','placeholder'=>'Anna nimi','required'=> true)); ?>
-        <?php echo $this->Form->input('content', array('label' => 'Sisältö')); ?>
+        <?php echo $this->Form->input('name', array('label' => __('Nimi', true),'placeholder'=>__('Anna nimi', true),'required'=> true)); ?>
+        <?php echo $this->Form->input('content', array('label' => __('Sisältö', true))); ?>
     </div>
     <div class="input map-container">
-        <label>Esikatselu</label>
+        <label><?php __('Esikatselu'); ?></label>
         <?php if (!file_exists(APP.'webroot'.DS.'overlayimages'.DS.$this->data['Overlay']['image'])) {
-            echo '<div style="color:#FF0000">Kuvatiedostoa ei löytynyt</div>';
+            echo '<div style="color:#FF0000">' . __('Kuvatiedostoa ei löytynyt', true) . '</div>';
         } ?>
         <div id="map" class="map">
         </div>
     </div>
 
     <div class="details">
-        <?php echo $this->Form->input('image', array('label' => 'Kuvatiedosto', 'type' => 'hidden')); ?>
-        <h3>Koordinaatit</h3>
+        <?php echo $this->Form->input('image', array('label' => __('Kuvatiedosto', true), 'type' => 'hidden')); ?>
+        <h3><?php __('Koordinaatit'); ?></h3>
         <?php echo $this->Form->input('ne_lat', 
-            array('label' => 'Pohjoinen (NE lat) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Pohjoinen', true) . ' (NE lat) ', 'div' => "inline", "class" => "small")); ?>
         <?php echo $this->Form->input('ne_lng', 
-            array('label' => 'Itä (NE lng) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Itä', true) . ' (NE lng) ', 'div' => "inline", "class" => "small")); ?>
         <?php echo $this->Form->input('sw_lat', 
-            array('label' => 'Etelä (SW lat) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Etelä', true) . ' (SW lat) ', 'div' => "inline", "class" => "small")); ?>
         <?php echo $this->Form->input('sw_lng', 
-            array('label' => 'Länsi (SW lng) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Länsi', true) . ' (SW lng) ', 'div' => "inline", "class" => "small")); ?>
 
     </div>
 
     <div class="submit">
         <br>
-        <?php echo $this->Form->button('Tallenna', 
+        <?php echo $this->Form->button(__('Tallenna', true), 
             array('type'=>'submit')); ?>
-        <?php echo $this->Html->link('Peruuta', 
+        <?php echo $this->Html->link(__('Peruuta', true), 
             array('action' => 'index'), array('class' => 'button cancel')); ?>
 
         <?php echo $this->Form->end(); ?>

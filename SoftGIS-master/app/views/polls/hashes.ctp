@@ -1,6 +1,6 @@
 <div class="subnav">
     <?php echo $this->Html->link(
-        'Takaisin',
+        __('Takaisin', true),
         array(
             'action' => 'view',
             $pollId
@@ -11,24 +11,24 @@
     ); ?>
 </div>
 
-<h2>Varmenteet</h2>
-<h3>Luo uusia varmenteita, kpl.</h3>
+<h2><?php __('Varmenteet'); ?></h2>
+<h3><?php __('Luo uusia varmenteita, kpl.'); ?></h3>
 <form method="POST" 
     action="<?php echo $this->Html->url(
             array('action' => 'generatehashes', $pollId)
         ); ?>">
     <input type="text" value="2" name="data[count]"/>
-    <button type="submit">Luo</button>
+    <button type="submit"><?php __('Luo'); ?></button>
 </form>
 
 <hr />
 
-<h3>Varmenteet</h3>
+<h3><?php __('Varmenteet'); ?></h3>
 <table class="list small">
     <thead>
         <tr>
-            <th>Varmenne</th>
-            <th>Vastausosoite varmenteen kanssa</th>
+            <th><?php __('Varmenne'); ?></th>
+            <th><?php __('Vastausosoite varmenteen kanssa'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +50,6 @@
     </tbody>
 </table>
 <div class="help">
-    <p>Vihrellä merkatut varmenteet ovat käyttämättömiä ja punaisella merkatut käytettyjä.</p>
-    <p>Jokainen varmenne voidaan käyttää vain kerran. Varmenne muutetaan käytetyksi vasta kun vastausprosessi saadaan päätökseen ja vastaukset tallennetaan tietokantaan.</p>
+    <p><?php __('Vihrellä merkatut varmenteet ovat käyttämättömiä ja punaisella merkatut käytettyjä.'); ?></p>
+    <p><?php __('Jokainen varmenne voidaan käyttää vain kerran. Varmenne muutetaan käytetyksi vasta kun vastausprosessi saadaan päätökseen ja vastaukset tallennetaan tietokantaan.'); ?></p>
 </div>

@@ -1,6 +1,6 @@
 <script>
 
-var confirmPublish = "Haluatko varmasti julkaista kyselyn? Julkaisun jälkeen kyselyä ei voida enää muokata";
+var confirmPublish = "<?php __('Haluatko varmasti julkaista kyselyn? Julkaisun jälkeen kyselyä ei voida enää muokata'); ?>";
 
 $( document ).ready(function() {
     $( "a.publish" ).click(function() {
@@ -10,17 +10,17 @@ $( document ).ready(function() {
 
 </script>
 
-<h2>Omat kyselyt</h2>
+<h2><?php __('Omat kyselyt'); ?></h2>
 <table class="list">
     <thead>
         <tr>
-            <th>Nimi</th>
-            <th>Testaa</th>
-            <th>Julkinen</th>
-            <th>Muokkaa</th>
-            <th>Poista</th>
-            <th>Kopioi</th>
-            <th>Vastauksia</th>
+            <th><?php __('Nimi'); ?></th>
+            <th><?php __('Testaa'); ?></th>
+            <th><?php __('Julkinen'); ?></th>
+            <th><?php __('Muokkaa'); ?></th>
+            <th><?php __('Poista'); ?></th>
+            <th><?php __('Kopioi'); ?></th>
+            <th><?php __('Vastauksia'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -35,70 +35,70 @@ $( document ).ready(function() {
                             $poll['Poll']['id']
                         ),
                         array(
-                            'title' => 'Tarkastele kyselyä'
+                            'title' => __('Tarkastele kyselyä', true)
                         )
                     ); ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'Testaa',
+                        __('Testaa', true),
                         array(
                             'controller' => 'answers', 
                             'action' => 'test',
                             $poll['Poll']['id']
                         ),
                         array(
-                            'title' => 'Testikäytä kyselyä'
+                            'title' => __('Testikäytä kyselyä', true)
                         )
                     ); ?>
                 </td>
                 <td>
                     <?php if ($poll['Poll']['public']) {
-                        echo 'Kyllä';
+                        echo __('Kyllä', true);
                     } else {
-                        echo 'Ei, ';
+                        echo (__('Ei', true) . ', ');
                         echo $this->Html->link(
-                            'hashit',
+                            __('hashit', true),
                             array('action' => 'hashes', $poll['Poll']['id'])
                         ); 
                     } ?>
 				</td>
                 <td>
                     <?php echo $this->Html->link(
-                        'Muokkaa',
+                        __('Muokkaa', true),
                         array(
                             'action' => 'modify',
                             $poll['Poll']['id']
                         ),
                         array(
-                            'title' => 'Muokkaa kyselyä'
+                            'title' => __('Muokkaa kyselyä', true)
                         )
                     ); ?>
                 </td>
 				<td>
                     <?php echo $this->Html->link(
-                        'Poista',
+                        __('Poista', true),
                         array(
                             'action' => 'delete',
                             $poll['Poll']['id'],
                         ),
                         array(
-                            'title' => 'Poista kysely'
+                            'title' => __('Poista kysely', true)
                         ),
-						'Oletko varma että haluat poistaa kyselyn?'
+						__('Oletko varma että haluat poistaa kyselyn?', true)
                     ); ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'Kopioi',
+                        __('Kopioi', true),
                         array(
                             'action' => 'copy',
                             $poll['Poll']['id']
                         ),
                         array(
-                            'title' => 'Kopioi uudeksi kyselyksi'
+                            'title' => __('Kopioi uudeksi kyselyksi', true)
                         ),
-                        'Oletko varma että haluat kopioida kyselyn?'
+                        __('Oletko varma että haluat kopioida kyselyn?', true)
                     ); ?>
                 </td>
                 <td><?php echo count($poll['Response']); ?></td>

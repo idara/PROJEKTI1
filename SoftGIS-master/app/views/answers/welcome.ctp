@@ -7,6 +7,6 @@
 <div class="answerNav">
     <a href="<?php echo $this->Html->url(array('action'=>'answer')); ?>"
         class="button">
-        Aloita kysely
+        <?php __('Aloita kysely'); ?>
     </a>
 </a>

@@ -106,14 +106,14 @@ function addMarker(location) {
 </script>
 
 <div class="answerMenu">
-    <a href="#help" class="button" id="toggleHelp">Ohje</a>
+    <a href="#help" class="button" id="toggleHelp"><?php __('Ohje'); ?></a>
 </div>
 
-<h2>Karttamerkki</h2>
+<h2><?php __('Karttamerkki'); ?></h2>
 
 <div class="help">
-    <h2>Karttamerkin asettaminen kartalle</h2>
-    <p>Klikkaamalla karttaa voit asettaa merkin kartalle. Klikkaamalla merkkiä hiiren oikealla painikkeella voit poistaa sen kartalta.</p>
+    <h2><?php __('Karttamerkin asettaminen kartalle'); ?></h2>
+    <p><?php __('Klikkaamalla karttaa voit asettaa merkin kartalle. Klikkaamalla merkkiä hiiren oikealla painikkeella voit poistaa sen kartalta.'); ?></p>
 </div>
 
 <?php echo $this->Form->create('Marker'); ?>
@@ -122,13 +122,13 @@ function addMarker(location) {
 <?php echo $this->Form->input('icon', array('label' => 'Kuvake')); ?>
 <?php echo $this->Form->input('latlng', array('type' => 'hidden')); ?>
 <div class="input map-container">
-    <label>Sijainti</label>
+    <label><?php __('Sijainti'); ?></label>
     <div id="map" class="map">
     </div>
 </div>
-<button type="submit">Tallenna</button>
+<button type="submit"><?php __('Tallenna'); ?></button>
 <?php echo $this->Html->link(
-    'Peruuta',
+    __('Peruuta', true),
     array('action' => 'index'),
     array('class' => 'button cancel')
 ); ?>

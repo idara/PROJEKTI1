@@ -33,3 +33,10 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	
+/*
+	Localization
+*/
+Router::connect('/:language/:controller/:action/*',
+                       array(),
+                       array('language' => '[a-z]{3}'));

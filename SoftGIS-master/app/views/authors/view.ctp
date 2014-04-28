@@ -67,7 +67,6 @@
 
 <?php
 	echo $this->element('authors_menu');
-	echo ("Kirjautunut käyttäjä: " . $authorizedUserId);
 ?>
 
 <!-- Deletedialog -->
@@ -172,6 +171,7 @@
 				<td>
 					<!-- Linkki käyttäjätunnuksen muokkaussivulle -->
 					<?php
+					/*
 						echo $this->Html->link(
 							__('Käyttäjätunnus', true),
 							array(
@@ -184,6 +184,7 @@
 								'title' => $usernameTitleString
 							)
 						);
+					*/
 					?>
 					
 					<!-- Linkki salasanan muokkaussivulle -->
@@ -202,7 +203,7 @@
 						);
 					?>
 					
-					<!-- Linkki salasanan muokkaussivulle -->
+					<!-- Linkki sähköpostin muokkaussivulle -->
 					<?php
 						echo $this->Html->link(
 							__('Sähköposti', true),

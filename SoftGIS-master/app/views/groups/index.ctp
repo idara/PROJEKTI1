@@ -65,7 +65,7 @@
 
 <small style="float:right; text-align:right;">
 	<?php
-		echo $this->Paginator->counter(array( 'format' => __('Sivu %page% / %pages%', true)));
+		echo $this->Paginator->counter(array( 'format' => __('Sivu', true) . '%page% / %pages%'));
 	?>
 <br>
 		<?php echo $this->Paginator->prev('<< ' . __('edellinen', true), array(), null, array('class'=>'disabled'));?>

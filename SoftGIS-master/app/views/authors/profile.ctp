@@ -36,15 +36,22 @@
 	<div class="profileBasicInfo">
 		<h3><?php echo $author['0']['authors']['username']; ?></h3>
 		<p>
-			<?php 
-				$i=(intval($author['0']['authors']['group_id'])-1);
-				echo $groups[$i]['Group']['groupname'];
+			<?php
+				//Käyttäjän ryhmän tulostus
+				foreach($groups as $group)
+				{
+					if($author['0']['authors']['group_id']==$group['groups']['id'])
+					{
+						echo ($group['groups']['groupname']);
+					}
+				}
 			?>
 		</p>
 		
 		<div class="profileElementRight">
 			<!-- Linkki käyttäjänimen muokkaamiseen -->
 			<?php
+			/*
 				echo $this->Html->link(
 					__('Käyttäjänimi', true),
 					array(
@@ -57,12 +64,13 @@
 						'title' => __('Muokkaa omaa käyttäjätunnustasi', true)
 					)
 				);
+				*/
 			?>
 			
 			<!-- Linkki salasanan muokkaamiseen -->
 			<?php
 				echo $this->Html->link(
-					__('Salasana', true),
+					__('Vaihda salasana', true),
 					array(
 						'controller' => 'authors',
 						'action' => 'profile_password',
@@ -77,6 +85,7 @@
 			
 			<!-- Linkki ryhmän muokkaamiseen -->
 				<?php
+				/*
 					echo $this->Html->link(
 						__('Ryhmä', true),
 						array(
@@ -89,6 +98,7 @@
 							'title' => __('Vaihda ryhmää, johon kuulut', true)
 						)
 					);
+				*/
 				?>
 					
 				<!-- Linkki käyttäjän poistamiseksi -->
@@ -122,7 +132,7 @@
 						),
 						array(
 							'class' => 'button small profileEditButton',
-							'title' => __('Jätä tukipyyntö järjestelmän valvojalle', true)
+							'title' => __('Jätä tukipyyntö järjestelmänvalvojalle', true)
 						)
 					);
 				?>
@@ -141,7 +151,7 @@
 						array(
 							'alt' => 'CakePHP',
 							'class' => 'infoIcon',
-							'title' => 'Käyttäjän kaikkien kyselyiden yhteismäärä'
+							'title' => __('Käyttäjän kaikkien kyselyiden yhteismäärä', true)
 						)
 					);
 				?>
@@ -162,7 +172,7 @@
 						array(
 							'alt' => 'CakePHP',
 							'class' => 'infoIcon',
-							'title' => 'Käyttäjän julkisten kyselyiden määrä'
+							'title' => __('Käyttäjän julkisten kyselyiden määrä', true)
 						)
 					);
 				?>
@@ -183,7 +193,7 @@
 						array(
 							'alt' => 'CakePHP',
 							'class' => 'infoIcon',
-							'title' => 'Käyttäjän avoimien kyselyiden määrä'
+							'title' => __('Käyttäjän avoimien kyselyiden määrä', true)
 						)
 					);
 				?>

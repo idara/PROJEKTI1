@@ -8,24 +8,27 @@ class Path extends AppModel
         )
     );
 
-    public $validate = array(
-        'name' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Anna aineistolle nimi.'
-            ),
-            'unique' => array(
-                'rule' => array('uniqueByUser', 'author_id'),
-                'message' => 'Tämänniminen aineisto on jo olemassa, kokeile toista nimeä.'
-            )
-        ),
-        'coordinates' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Aineistolla täytyy olla sijainti, lisää se kartalle.'
-            )
-        )
-    );
+    function __construct() {
+		parent::__construct();
+		$this->validate = array(
+			'name' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Anna aineistolle nimi.', true)
+				),
+				'unique' => array(
+					'rule' => array('uniqueByUser', 'author_id'),
+					'message' => __('Tämänniminen aineisto on jo olemassa, kokeile toista nimeä.', true)
+				)
+			),
+			'coordinates' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Aineistolla täytyy olla sijainti, lisää se kartalle.', true)
+				)
+			)
+		);
+	}
 
     function uniqueByUser($check, $field){
         //$check = automaattisesti tarkastettava kenttä, $field = käyttäjän tunniste

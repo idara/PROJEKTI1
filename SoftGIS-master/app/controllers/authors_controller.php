@@ -30,13 +30,35 @@ class AuthorsController extends AppController
 
         if (!empty($this->data)) {
             if ($this->data['secret'] == $secret) {
-                if ($this->Author->save($this->data)) {
-                    $this->Session->setFlash(__('Rekisteröinti onnistui'));
-                    $this->Session->setFlash(__('Voit nyt kirjautua sisään'));
-                    $this->redirect(array('action' => 'login'));
-                } else {
-                    $this->data['Author']['password'] = '';
-                }
+			
+				$lowestGroup = $this->Author->query("SELECT groups.id FROM groups ORDER BY id DESC LIMIT 1;");
+		
+				$this->data['Author']['group_id'] = $lowestGroup['0']['groups']['id'];
+				
+				// Tarkistetaan salasanojen oikeinkirjoitus
+				if(strcmp($this->data['Author']['password'], $this->Auth->password($this->data['Author']['passwordRetyped']))==0)
+				{
+					if ($this->Author->save($this->data)) {
+						$this->Session->setFlash(__('Rekisteröinti onnistui<br>Voit nyt kirjautua sisään', true));
+						//$this->Session->setFlash(__('Rekisteröinti onnistui'));
+						//$this->Session->setFlash(__('Voit nyt kirjautua sisään'));
+						$this->redirect(array('action' => 'login'));
+					} else {
+						$this->data['Author']['password'] = '';
+					}
+				}
+				else
+				{
+					//$this->Session->setFlash(__('Salasanat eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
+					//$this->redirect(array('action' => 'add
+					
+					$this->Session->setFlash(__('Rekisteröinti ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+					$this->Author->invalidate( 'passwordRetyped', __('Salasanat eivät täsmää.', true) );
+					
+					//Tyhjennetään salasanakentät
+					$this->data['Author']['password']="";
+					$this->data['Author']['passwordRetyped']="";
+				}
             } else {
                 $this->data['Author']['password'] = '';
                 $this->set('secretWrong', true);
@@ -202,12 +224,13 @@ class AuthorsController extends AppController
 				else
 				{					
 					$this->Session->setFlash(__('Virheellinen salasana.', true));
-					$this->redirect(array('action' => 'username', $id));
 					
 					//Tyhjennetään salasanakentät
 					//$this->data['Author']['password']="";
 					//$this->data['Author']['passwordRetyped']="";
 					$this->data['Author']['confirmPassword'] = '';
+					
+					$this->redirect(array('action' => 'username', $id));
 				}
 			}
 			if (empty($this->data)) {
@@ -362,12 +385,13 @@ class AuthorsController extends AppController
 					//$this->data['confirmPassword'] = '';
 					//$this->set('passwordWrong', true);
 					$this->Session->setFlash(__('Virheellinen salasana.', true));
-					$this->redirect(array('action' => 'email', $id));
 					
 					//Tyhjennetään salasanakentät
 					//$this->data['Author']['password']="";
 					//$this->data['Author']['passwordRetyped']="";
 					$this->data['Author']['confirmPassword'] = '';
+					
+					$this->redirect(array('action' => 'email', $id));
 				}
 			}
 			if (empty($this->data)) {
@@ -476,7 +500,7 @@ class AuthorsController extends AppController
 				$AuthorizedPassword = $AuthorizedPassword['0']['authors']['password'];
 			
 				//Confirm password
-				$confirmPassword = $this->Auth->password($this->data['confirmPassword']);
+				$confirmPassword = $this->Auth->password($this->data['Author']['confirmPassword']);
 		
 				// IF Authorized user's password == Confirm password
 				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
@@ -485,16 +509,20 @@ class AuthorsController extends AppController
 						$this->Session->setFlash(__('Käyttäjään tehdyt muutokset on tallennettu', true));
 						$this->redirect(array('action' => 'view'));
 					} else {
-						$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
-						//$this->data['confirmPassword'] = '';
+						$this->Session->setFlash(__('Muutoksia ei voitu tallentaa. Ryhmän nimi on jo käytössä.', true));
+						$this->data['Author']['confirmPassword'] = '';
 						$this->redirect(array('action' => 'group', $id));
 					}
 				}
 				else
 				{
-					//$this->data['confirmPassword'] = '';
-					//$this->set('passwordWrong', true);
-					$this->Session->setFlash(__('Virheellinen salasana. Muutoksia ei tallennettu', true));
+					$this->Session->setFlash(__('Virheellinen salasana.', true));
+					
+					//Tyhjennetään salasanakentät
+					//$this->data['Author']['password']="";
+					//$this->data['Author']['passwordRetyped']="";
+					$this->data['Author']['confirmPassword'] = '';
+					
 					$this->redirect(array('action' => 'group', $id));
 				}
 			}
@@ -559,8 +587,8 @@ class AuthorsController extends AppController
 		//Asetetaan sivun otsikko
 		$this->set('title_for_layout', __(' - Omien tietojen hallinta', true));
 		
-		$groups = $this->Author->Group->find('all');
-		$this->set(compact('groups'));
+		//Ryhmät
+		$this->set('groups', $this->Author->query("SELECT groups.id, groups.groupname FROM groups;"));
 	}
 	
 	//Profiili - Käyttäjänimen muokkaaminen
@@ -615,24 +643,51 @@ class AuthorsController extends AppController
 			}
 			if (!empty($this->data)) {
 			
-				$pw = $this->Auth->password($this->data['Author']['password']);
- 
-				if($this->Author->query("UPDATE authors SET password = '$pw'  WHERE id = $id;"))
-				{
-					$this->Session->setFlash(__('Käyttäjän salasanaan tehdyt muutokset on tallennettu', true));
-					$this->redirect(array('action' => 'view'));
-				} else {
-					$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
-				}
+				// Id of authorized editor
+				$editorId = $this->Auth->user('id');
 				
-			/*
-				if ($this->Author->save($this->data)) {
-					$this->Session->setFlash(__('Käyttäjän salasanaan tehdyt muutokset on tallennettu', true));
-					$this->redirect(array('action' => 'profile'));
-				} else {
-					$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+				//Authorized user's password
+				$AuthorizedPassword =  $this->Author->query("SELECT authors.password FROM authors WHERE authors.id=$editorId;");
+				$AuthorizedPassword = $AuthorizedPassword['0']['authors']['password'];
+			
+				//Confirm password
+				$confirmPassword = $this->Auth->password($this->data['Author']['confirmPassword']);
+		
+				// IF Authorized user's password == Confirm password
+				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
+				{
+					if(strcmp($this->data['Author']['pwd'], $this->data['Author']['retypedPassword'])==0)
+					{
+						$pw = $this->Auth->password($this->data['Author']['pwd']);
+	 
+						if($this->Author->query("UPDATE authors SET password = '$pw'  WHERE id = $id;"))
+						{
+							$this->Session->setFlash(__('Käyttäjän salasanaan tehdyt muutokset on tallennettu', true));
+							$this->redirect(array('action' => 'profile'));
+						} else {
+							$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+							$this->data['Author']['confirmPassword'] = '';
+							$this->data['Author']['pwd'] = "";
+							$this->data['Author']['retypedPassword'] = "";
+							$this->redirect(array('action' => 'profile_password', $id));
+						}
+					}
+					else
+					{
+						$this->Session->setFlash(__('Salasanat eivät täsmää. Muutoksia ei tallennettu.', true));
+						$this->redirect(array('action' => 'profile_password', $id));
+					}
 				}
-			*/
+				else
+				{
+					//$this->data['confirmPassword'] = '';
+					//$this->set('passwordWrong', true);
+					$this->Session->setFlash(__('Virheellinen salasanavarmistus. Muutoksia ei tallennettu.', true));
+					$this->data['Author']['confirmPassword'] = '';
+					$this->data['Author']['pwd'] = "";
+					$this->data['Author']['retypedPassword'] = "";
+					$this->redirect(array('action' => 'password', $id));
+				}
 			}
 			if (empty($this->data)) {
 				$this->data = $this->Author->read(null, $id);

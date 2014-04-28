@@ -10,7 +10,7 @@
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Group');
-    echo $this->Form->input('groupname', array('label' => __('Ryhmän nimi', true), 'title' => __('Ryhmän nimen on oltava vähintään 3 merkkiä pitkä', true), 'after'=> '<span class="afterInput">' . __('Syötä ryhmän uusi nimi.', true) . '</span>'));
+    echo $this->Form->input('groupname', array('label' => __('Ryhmän nimi', true), 'autofocus' => 'autofocus', 'title' => __('Ryhmän nimen on oltava vähintään 3 merkkiä pitkä', true), 'after'=> '<span class="afterInput">' . __('Syötä ryhmän uusi nimi.', true) . '</span>'));
 	
 	echo ("<br><br>");
 	

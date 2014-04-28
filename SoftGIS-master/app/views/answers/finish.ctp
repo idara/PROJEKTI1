@@ -8,9 +8,9 @@
 <br/><br/><br/><br/>
 
 <?php if ($test): ?>
-    <h3>Huom. Testivastaus, vastauksia ei tallennettu</h3>
+    <h3><?php __('Huom. Testivastaus, vastauksia ei tallennettu'; ?></h3>
     <?php echo $this->Html->link(
-        'Takaisin kyselynäkymään',
+        __('Takaisin kyselynäkymään', true),
         array(
             'controller' => 'polls',
             'action' => 'view',
@@ -19,5 +19,5 @@
         array('class' => 'button')
     ); ?>
 <?php else: ?>
-    <p><h3>Voit sulkea selainikkunan</h3></p>
+    <p><h3><?php __('Voit sulkea selainikkunan'); ?></h3></p>
 <?php endif; ?>

@@ -9,7 +9,7 @@
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('pwd', array('type'=>'password', 'label' => __('Salasana', true), 'title' => __('Älä tallenna muokkaamatonta salasanaa!', true)));
+    echo $this->Form->input('pwd', array('type'=>'password', 'label' => __('Salasana', true), 'autofocus' => 'autofocus'));
 	echo $this->Form->input('retypedPassword', array('type'=>'password', 'label' => __('Vahvista salasana', true), 'title' => __('Vaihtaakesesi salasanan, syötä uusi salasana molempiin kenttiin.', true), 'after' => '<span class="afterInput">Kirjoitusvirheiden ehkäisemiseksi, syötä uusi salasana molempiin kenttiin.</span>'));
 	
 	echo ("<br><br>");

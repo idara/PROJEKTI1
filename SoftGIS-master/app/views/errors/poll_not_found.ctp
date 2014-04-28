@@ -1,1 +1,1 @@
-<h3>Kyselyä ei löytynyt</h3>
+<h3><?php __('Kyselyä ei löytynyt'); ?></h3>

@@ -11,10 +11,15 @@ class Request extends AppModel
         )
     );
 	
-	public $validate = array(
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->validate = array(
             'minLength' => array(
                 'rule' => array('minLength', 10),
-                'message' => 'Pyynnön täytyy olla tarpeeksi selkä. Käytä vähintään 10 merkkiä.'
+                'message' => __('Pyynnön täytyy olla tarpeeksi selkä. Käytä vähintään 10 merkkiä.', true)
             )
-    );
+		);
+	}
 }

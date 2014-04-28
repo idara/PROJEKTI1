@@ -19,7 +19,7 @@
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('email', array('label' => __('Sähköpostiosoite', true), 'title' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi.', true)));
+    echo $this->Form->input('email', array('label' => __('Sähköpostiosoite', true), 'autofocus' => 'autofocus', 'title' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi.', true)));
 	echo $this->Form->input('emailRetyped', array('label' => __('Vahvista sähköpostiosoite', true), 'after'=> '<span class="afterInput">' . __('Kirjoitusvirheiden ehkäisemiseksi, syötä sähköpostiosoite molempiin kenttiin.', true) . '</span>'));
 	
 	echo ("<br><br>");

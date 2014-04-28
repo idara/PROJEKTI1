@@ -175,30 +175,30 @@ function center(){ //we try to center and zoom the map on init
 
 
 <div class="form">
-    <h1>Karttakuvan tiedot</h1>
+    <h1><?php __('Karttakuvan tiedot'); ?></h1>
     <div class="subnav">
         <?php 
             if ($this->data['Overlay']['author_id'] == $author) {
                 echo $this->Html->link(
-                    'Muokkaa', 
+                    __('Muokkaa', true), 
                     array('action' => 'edit', $this->data['Overlay']['id']),
-                    array('class' => 'button','title' => 'Muokkaa karttakuvaa')
+                    array('class' => 'button','title' => __('Muokkaa karttakuvaa', true))
                 );
             }
 
             echo $this->Html->link(
-                'Kopioi', 
+                __('Kopioi', true), 
                 array('action' => 'copy', $this->data['Overlay']['id']),
-                array('class' => 'button','title' => 'Kopioi aineisto'),
-                'Oletko varma että haluat kopioida karttakuvan?'
+                array('class' => 'button','title' => __('Kopioi aineisto', true)),
+                __('Oletko varma että haluat kopioida karttakuvan?', true)
             );
             
             if ($this->data['Overlay']['author_id'] == $author) {
                 echo $this->Html->link(
-                    'Poista', 
+                    __('Poista', true), 
                     array('action' => 'delete', $this->data['Overlay']['id']),
-                    array('class' => 'button','title' => 'Poista aineisto'),
-                    'Oletko varma että haluat poistaa karttakuvan?'
+                    array('class' => 'button','title' => __('Poista aineisto', true)),
+                    __('Oletko varma että haluat poistaa karttakuvan?', true)
                 );
             }
         ?>
@@ -208,33 +208,33 @@ function center(){ //we try to center and zoom the map on init
 
     <div hidden>
         <?php echo $this->Form->create('Overlay'); ?>
-        <?php echo $this->Form->input('name', array('label' => 'Nimi','placeholder'=>'Anna nimi','required'=> true)); ?>
-        <?php echo $this->Form->input('content', array('label' => 'Sisältö')); ?>
+        <?php echo $this->Form->input('name', array('label' => __('Nimi', true),'placeholder'=> __('Anna nimi', true),'required'=> true)); ?>
+        <?php echo $this->Form->input('content', array('label' => __('Sisältö', true))); ?>
     </div>
     <div class="input map-container">
         <?php if (!file_exists(APP.'webroot'.DS.'overlayimages'.DS.$this->data['Overlay']['image'])) {
-            echo '<div style="color:#FF0000">Kuvatiedostoa ei löytynyt</div>';
+            echo '<div style="color:#FF0000">'. __('Kuvatiedostoa ei löytynyt', true) . '</div>';
         } ?>
         <div id="map" class="map"></div>
     </div>
 
     <div hidden>
-        <?php echo $this->Form->input('image', array('label' => 'Kuvatiedosto', 'type' => 'hidden')); ?>
-        <h3>Koordinaatit</h3>
+        <?php echo $this->Form->input('image', array('label' => __('Kuvatiedosto', true), 'type' => 'hidden')); ?>
+        <h3><?php __('Koordinaatit'); ?></h3>
         <?php echo $this->Form->input('ne_lat', 
-            array('label' => 'Pohjoinen (NE lat) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Pohjoinen', true) . ' (NE lat) ', 'div' => "inline", "class" => "small")); ?>
         <?php echo $this->Form->input('ne_lng', 
-            array('label' => 'Itä (NE lng) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Itä', true) . ' (NE lng) ', 'div' => "inline", "class" => "small")); ?>
         <?php echo $this->Form->input('sw_lat', 
-            array('label' => 'Etelä (SW lat) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Etelä', true) . ' (SW lat) ', 'div' => "inline", "class" => "small")); ?>
         <?php echo $this->Form->input('sw_lng', 
-            array('label' => 'Länsi (SW lng) ', 'div' => "inline", "class" => "small")); ?>
+            array('label' => __('Länsi', true) . ' (SW lng) ', 'div' => "inline", "class" => "small")); ?>
 
     </div>
 
     <div class="submit">
         <br>
-        <?php echo $this->Html->link('Takaisin', 
+        <?php echo $this->Html->link(__('Takaisin', true), 
             array('action' => 'index'), 
             array('class' => 'button cancel')); 
         ?>

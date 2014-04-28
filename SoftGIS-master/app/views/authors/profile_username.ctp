@@ -9,7 +9,7 @@
 <?php
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'title' > __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä.', true)));
+    echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'autofocus' => 'autofocus', 'title' > __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä.', true)));
 ?>
 
 <!-- Tallenna muutokset -->

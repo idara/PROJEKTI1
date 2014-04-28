@@ -13,30 +13,35 @@ class Author extends AppModel
         )
     );
 
-    public $validate = array(
-        'username' => array(
-            'isUnique' => array(
-                'rule' => 'isUnique',
-                'message' => 'Käyttäjätunnus on jo käytössä.'
-            ),
-            'minLength' => array(
-                'rule' => array('minLength', 3),
-                'message' => 'Käyttäjänimen täytyy olla vähintään 3 merkkiä pitkä.'
-            ),
-            'maxLength' => array(
-                'rule' => array('maxLength', 50),
-                'message' => 'Käyttäjänimi ei saa olla yli 50 merkkiä pitkä.'
-            )
-        ),
-        'password' => array(
-            'notEmpty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Salasana ei voi olla tyhjä.'
-            )
-        ),
-        'email' => array(
-            'rule' => 'email',
-            'message' => 'Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi'
-        )
-    );
+    function __construct()
+	{
+		parent::__construct();
+
+		$this->validate = array(
+			'username' => array(
+				'isUnique' => array(
+					'rule' => 'isUnique',
+					'message' => __('Käyttäjätunnus on jo käytössä.', true)
+				),
+				'minLength' => array(
+					'rule' => array('minLength', 3),
+					'message' => __('Käyttäjätunnuksen täytyy olla vähintään 3 merkkiä pitkä.', true)
+				),
+				'maxLength' => array(
+					'rule' => array('maxLength', 50),
+					'message' => __('Käyttäjätunnus ei saa olla yli 50 merkkiä pitkä.', true)
+				)
+			),
+			'password' => array(
+				'notEmpty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Salasana ei voi olla tyhjä.', true)
+				)
+			),
+			'email' => array(
+				'rule' => 'email',
+				'message' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi', true)
+			)
+		);
+	}
 }

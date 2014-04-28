@@ -11,7 +11,7 @@
     echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
     
-	echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'title' => __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä', true), 'after'=> '<span class="afterInput">' . __('Syötä uuden käyttäjän käyttäjätunnus.', true) . '</span>'));
+	echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'autofocus' => 'autofocus', 'title' => __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä', true), 'after'=> '<span class="afterInput">' . __('Syötä uuden käyttäjän käyttäjätunnus.', true) . '</span>'));
 	
 	echo ("<br><br>");
     

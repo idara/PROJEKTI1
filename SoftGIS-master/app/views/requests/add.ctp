@@ -72,7 +72,8 @@
 			'label' => $textareaLabel, 
 			'title' => __('Tukipyynnön on oltava vähintään 10 merkkiä pitkä', true), 
 			'type' => 'text', 
-			'rows' => '10', 'cols' => '1'
+			'rows' => '10', 'cols' => '1',
+			'autofocus' => 'autofocus'
 		)
 	);
 	echo $this->Form->hidden('author_id', 

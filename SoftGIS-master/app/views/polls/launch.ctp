@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 <div class="subnav">
     <?php echo $this->Html->link(
-        'Takaisin',
+        __('Takaisin', true),
         array(
             'action' => 'view',
             $poll['Poll']['id']
@@ -23,7 +23,7 @@ $(document).ready(function() {
 <?php echo $this->Form->create('Poll'); ?>
 
 <div class="input text">
-    <label>Alkamispäivä</label>
+    <label><?php __('Alkamispäivä'); ?></label>
     <?php echo $this->Form->text(
         'launch',
         array(
@@ -34,7 +34,7 @@ $(document).ready(function() {
 </div>
 
 <div class="input text">
-    <label>Päättymispäivä</label>
+    <label><?php __('Päättymispäivä'); ?></label>
     <?php echo $this->Form->text(
         'end',
         array(
@@ -45,10 +45,10 @@ $(document).ready(function() {
 </div>
 
 <button type="submit" id="saveButton">
-    Tallenna muutokset
+    <?php __('Tallenna muutokset'); ?>
 </button>
 <?php echo $this->Html->link(
-    'Peruuta',
+    __('Peruuta', true),
     array(
         'action' => 'view',
         $poll['Poll']['id']
@@ -60,6 +60,6 @@ $(document).ready(function() {
 <?php echo $this->Form->end(); ?>
 
 <div class="help">
-    <p>Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja päättymispäivä sisältyvät aukioloaikaan.</p>
-    <p>Kysely on suljettu, jos alkamispäivämäärää ei ole asettetu.</p>
+    <p><?php __('Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja päättymispäivä sisältyvät aukioloaikaan.'); ?></p>
+    <p><?php __('Kysely on suljettu, jos alkamispäivämäärää ei ole asettetu.'); ?></p>
 </div>
