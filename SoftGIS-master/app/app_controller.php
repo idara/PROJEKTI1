@@ -4,6 +4,10 @@ class AppController extends Controller
 {	
 	function beforeFilter()
 	{
+		// Default timezone
+		// http://php.net/manual/en/function.date-default-timezone-set.php
+		// http://www.php.net/manual/en/timezones.europe.php
+		date_default_timezone_set('Europe/Helsinki');
 	
 		// Localization
 		// http://nuts-and-bolts-of-cakephp.com/tag/cakephp-localization/
@@ -26,7 +30,19 @@ class AppController extends Controller
 		
 		// / Localization
 		
+		//      Onko käyttäjällä oikeutta käyttäjähallintaan?
+		//		Tulostetaanko käyttäjähallintalinkki tiedostossa Views->Layouts->Author.ctp
 		
+			if($this->Auth->user('group_id')==1)
+			{
+				$this->set('accessToUserControl', 1);
+			}
+			else
+			{
+				$this->set('accessToUserControl', 0);
+			}
+		
+		//    / Onko käyttäjällä oikeutta käyttäjähallintaan?
 		
 		// Käsittelemättömien tukipyyntöjen määrän näyttö
 		if( (strcmp($this->params['action'], "login")!=0) && (strcmp($this->params['action'], "register")!=0) && (strcmp($this->params['action'], "logout")!=0) )

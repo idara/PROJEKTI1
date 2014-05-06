@@ -133,11 +133,16 @@ $( document ).ready(function() {
                 array('controller' => 'overlays', 'action' => 'index'),
                 array('class' => 'button')
             );?>
-			<?php echo $this->Html->link(
-				__('Käyttäjähallinta', true),
-				array('controller' => 'authors', 'action' => 'view'),
-				array('class' => 'button cancel')
-			);?>
+			<?php
+				if($accessToUserControl==1)
+				{
+					echo $this->Html->link(
+						__('Käyttäjähallinta', true),
+						array('controller' => 'authors', 'action' => 'view'),
+						array('class' => 'button cancel')
+					);
+				}
+			?>
 			<?php echo $this->Html->link(
 				__('Profiili', true),
 				array('controller' => 'authors', 'action' => 'profile'),

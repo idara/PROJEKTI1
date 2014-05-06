@@ -23,7 +23,7 @@ class AuthorsController extends AppController
     {
         
     }
-
+	
     public function register()
     {
         $secret = 'kalapuikko';
@@ -72,11 +72,6 @@ class AuthorsController extends AppController
     }
 	
 	//KÄYTTÄJÄHALLINTA
-
-	//Sivutuskäyttäjälistalle
-	var $paginate = array(
-        'limit' => 25,
-    );
 	
 	//Kaikkien käyttäjien listaus
 	public function view() {
@@ -92,6 +87,14 @@ class AuthorsController extends AppController
 		}
 		else
 		{		
+			//Sivutuskäyttäjälistalle
+			$this->paginate = array(
+				'limit' => 25,
+				'order' => array(
+					'Author.id' => 'asc'
+				)
+			);
+		
 			//Käyttäjälista
 			$this->Author->recursive = 0;
 			$this->set('authors', $this->paginate());
@@ -795,7 +798,7 @@ class AuthorsController extends AppController
 		else
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjienhallintaan.', true));
-			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
+			$this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
 	}
 	
@@ -803,21 +806,105 @@ class AuthorsController extends AppController
 	
 	//   / KÄYTTÄJÄHALLINTA
 	
-	function kokeilu($id = null) {
-		
+	//  VARMUUSKOPIOINTI
 	
-		if(($this->Auth->user('group_id'))==1)
-		{
-			
+	//Alkusivu - Listaa varmuuskopiot
+	public function backup()
+    {	
+        //Asetetaan layout -> Navigointi näkyviin
+		$this->layout = 'author';
 		
-			$this->Session->setFlash('Id: ' . $_POST['id'] . ' Salasana: ' . $_POST['confirmPassword']);
-			$this->redirect(array('action'=>'view'));
-		}
-		else
+		//Asetetaan sivun otsikko
+		$this->set('title_for_layout', __(' - Varmuuskopiointi', true));
+    }
+	
+	// Luo uusi varmuuskopio
+	public function backup_exec()
+    {
+		if(($this->Auth->user('group_id'))!=1)
 		{
 			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjienhallintaan.', true));
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
-	}
+		else
+		{	
+			//Varmuuskopiotiedoston tiedostonimi
+			$backupFilename = 'soft-gis_backup_' . date('Y-m-d_H-i-s') . '.sql';
+			
+			//Suoritettava komento
+			$command = 'mysqldump -u projekti_1 -pprojekti_1_salasana projekti_1 > ' . WWW_ROOT . 'backups' . DIRECTORY_SEPARATOR . $backupFilename;
+			
+			//Suoritetaan komento järjestelmässä |  $retval = paluuarvo
+			system($command, $retval);
+			
+			//Reagoidaan paluuarvon perusteella
+			if($retval==0)
+			{
+			/*
+			// Tarvittaessa voidaan asettaa luodulle tiedostolle oikeudet
+				if(chmod(WWW_ROOT . 'backups' . DIRECTORY_SEPARATOR . $backupFilename, 0666))
+				{
+					$this->Session->setFlash(__('Varmuuskopiointi onnistui', true) . '<br>' . __('Viimeistelläksesi varmuuskopioinnin, lataa varmuuskopiotiedosto palvelimelta omalle koneellesi tai siirrettävälle tietovälineelle. Muista myös huolehtia varmuuskopion riittävästä tietoturvasta.', true));
+				}
+				else
+				{
+					$this->Session->setFlash(__('Luodun tiedoston oikeuksia ei voitu muuttaa', true));
+				}
+			*/
+				// Kommentoi alla oleva, jos poistat kommentoinnin ylläolevasta
+				$this->Session->setFlash(__('Varmuuskopiointi onnistui', true) . '<br>' . __('Viimeistelläksesi varmuuskopioinnin, lataa varmuuskopiotiedosto palvelimelta omalle koneellesi tai siirrettävälle tietovälineelle. Muista myös huolehtia varmuuskopion riittävästä tietoturvasta.', true));
+			}
+			else
+			{
+				$this->Session->setFlash(__('Varmuuskopiointi epäonnistui', true) . '<br>' . __('Mysqldump virhekoodi:', true) . ' ' . $retval);
+			}
+			
+			//Ohjataan käyttäjä takaisin varmuuskopioinninaloitussivulle
+			$this->redirect(array('controller' => 'authors', 'action' => 'backup'));
+		}
+		
+		//Asetetaan layout -> Navigointi näkyviin
+		$this->layout = 'author';
+		
+		//Asetetaan sivun otsikko
+		$this->set('title_for_layout', __(' - Varmuuskopiointi', true));
+    }
 	
+	// Poista varmuuskopio palvelimelta
+	public function backup_delete($fileName = null)
+    {	
+		$file = $path = WWW_ROOT . "backups" . DIRECTORY_SEPARATOR . $fileName;
+/*	
+//FOR DEBUG
+		$this->Session->setFlash(
+			"fileName: " . $file . "<br>" .
+			"file_exists: " . file_exists($file) . "<br>" .
+			"is_file: " . is_file($file) . "<br>" .
+			"is_executable: " . is_executable($file) . "<br>" .
+			"is_readable: " . is_readable($file) . "<br>" .
+			"is_writable: " . is_writable($file) . "<br>" .
+			"fileperms: " . fileperms($file)
+		);
+*/		
+		if(is_readable($file))
+		{
+			if(unlink($file))
+			{
+				$this->Session->setFlash(__('Varmuuskopion poistaminen onnistui', true));
+			}
+			else
+			{
+				$this->Session->setFlash(__('Varmuuskopion poistaminen epäonnistui', true));
+			}
+		}
+		else
+		{
+			$this->Session->setFlash(__('Tiedostoa ei voitu lukea', true));
+		}
+		
+		//Ohjataan käyttäjä takaisin varmuuskopioinninaloitussivulle
+		$this->redirect(array('controller' => 'authors', 'action' => 'backup'));
+    }
+	
+	//  / VARMUUSKOPIOINTI
 }

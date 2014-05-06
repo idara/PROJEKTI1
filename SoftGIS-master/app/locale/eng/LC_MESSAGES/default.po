@@ -4,28 +4,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2014-04-17 08:03+0000\n"
-"PO-Revision-Date: 2014-04-17 11:37+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-04-17 09:44+0000\n"
+"PO-Revision-Date: 2014-05-06 09:04+0200\n"
+"Last-Translator: Ida Viinikka <ida.viinikka@student.oulu.fi>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
 "Language: en\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: \app_controller.php:48
 msgid "käsittelemätöntä tukipyyntöä"
-msgstr "untreated support request"
+msgstr "unprocessed support requests"
 
 #: \controllers\authors_controller.php:42
 msgid "Rekisteröinti onnistui<br>Voit nyt kirjautua sisään"
-msgstr "Registration successful<br>You can now log in."
+msgstr "Registeration successful<br>You can now log in"
 
 #: \controllers\authors_controller.php:55
 msgid "Rekisteröinti ei onnistunut. Ole hyvä ja yritä uudestaan."
-msgstr "Registration not successful. Please try again."
+msgstr "Registeration was unsuccessful. Please try again."
 
 #: \controllers\authors_controller.php:56;168
 msgid "Salasanat eivät täsmää."
@@ -33,11 +34,11 @@ msgstr "Passwords do not match."
 
 #: \controllers\authors_controller.php:90;118;251;337;412;478;555;628;707;749;797;818
 msgid "Sinulla ei ole oikeutta käyttäjienhallintaan."
-msgstr "You do not have the access to the users control."
+msgstr "You do not have rights to user management."
 
 #: \controllers\authors_controller.php:106
 msgid " - Käyttäjälista"
-msgstr " - Userlist"
+msgstr "- User list"
 
 #: \controllers\authors_controller.php:140
 msgid "Uusi käyttäjä lisätty"
@@ -49,7 +50,7 @@ msgstr "New user could not be added. Please try again."
 
 #: \controllers\authors_controller.php:155;379
 msgid "Sähköpostiosoitteet eivät täsmää."
-msgstr "E-mail addresses do not match."
+msgstr "Email addresses do not match."
 
 #: \controllers\authors_controller.php:187
 msgid " - Lisää uusi käyttäjä"
@@ -57,489 +58,503 @@ msgstr " - Add new user"
 
 #: \controllers\authors_controller.php:197;271;348;490;602;641;763
 msgid "Käyttäjää ei löydy"
-msgstr "User does not exist"
+msgstr "User not found"
 
 #: \controllers\authors_controller.php:216;607
 msgid "Käyttäjän käyttäjänimeen tehdyt muutokset on tallennettu"
-msgstr ""
+msgstr "Modifications for user's username saved."
 
 #: \controllers\authors_controller.php:219
 msgid "Muutoksia ei voitu tallentaa. Käyttäjätunnus on jo käytössä."
-msgstr ""
+msgstr "Modifications could not be saved. User account already in use."
 
 #: \controllers\authors_controller.php:226;387;519
 #: \controllers\groups_controller.php:112
 msgid "Virheellinen salasana."
-msgstr ""
+msgstr "Incorrect password."
 
 #: \controllers\authors_controller.php:247
 msgid " - Muokkaa käyttäjän käyttäjänimeä"
-msgstr ""
+msgstr " - Edit user's user name"
 
 #: \controllers\authors_controller.php:295;665
 msgid "Käyttäjän salasanaan tehdyt muutokset on tallennettu"
-msgstr ""
+msgstr "Modifications for user's password saved"
 
 #: \controllers\authors_controller.php:298;372;610;668;771
 #: \controllers\requests_controller.php:141;166
 msgid "Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan."
-msgstr ""
+msgstr "Saving the modifications was unsuccessful. Please try again."
 
 #: \controllers\authors_controller.php:307;677
 msgid "Salasanat eivät täsmää. Muutoksia ei tallennettu."
-msgstr ""
+msgstr "Passwords do not match. Modifications not saved."
 
 #: \controllers\authors_controller.php:315;685
 msgid "Virheellinen salasanavarmistus. Muutoksia ei tallennettu."
-msgstr ""
+msgstr "Incorrect password confirmation. Modifications not saved."
 
 #: \controllers\authors_controller.php:333
 msgid " - Muokkaa käyttäjän salasanaa"
-msgstr ""
+msgstr " - Edit user's password"
 
 #: \controllers\authors_controller.php:369
 msgid "Käyttäjän sähköpostiosoitteeseen tehdyt muutokset on tallennettu"
-msgstr ""
+msgstr "Modifications for user's email address saved"
 
 #: \controllers\authors_controller.php:408
 msgid " - Muokkaa käyttäjän sähköpostiosoitetta"
-msgstr ""
+msgstr " - Edit user's email address"
 
 #: \controllers\authors_controller.php:430;721
 msgid "Käyttäjää ei löytynyt."
-msgstr ""
+msgstr "User not found."
 
 #: \controllers\authors_controller.php:457;735
 msgid "Poistit oman käyttäjätunnuksesi"
-msgstr ""
+msgstr "You removed your own user account"
 
 #: \controllers\authors_controller.php:462;740
 msgid "Käyttäjä poistettu."
-msgstr ""
+msgstr "User removed."
 
 #: \controllers\authors_controller.php:466;744
 msgid "Käyttäjää ei voitu poistaa."
-msgstr ""
+msgstr "User removal was unsuccessful."
 
 #: \controllers\authors_controller.php:472
 msgid "Virheellinen salasana"
-msgstr ""
+msgstr "Incorrect password"
 
 #: \controllers\authors_controller.php:509;768
 msgid "Käyttäjään tehdyt muutokset on tallennettu"
-msgstr ""
+msgstr "Modifications for user saved"
 
 #: \controllers\authors_controller.php:512
 #: \controllers\groups_controller.php:100
 msgid "Muutoksia ei voitu tallentaa. Ryhmän nimi on jo käytössä."
-msgstr ""
+msgstr "Modifications could not be saved. Group name already in use."
 
 #: \controllers\authors_controller.php:551;793
 msgid " - Vaihda ryhmää"
-msgstr ""
+msgstr " - Change group"
 
 #: \controllers\authors_controller.php:588
 msgid " - Omien tietojen hallinta"
-msgstr ""
+msgstr " - Management of personal information"
 
 #: \controllers\authors_controller.php:624
 msgid " - Muokkaa omaa käyttäjätunnusta"
-msgstr ""
+msgstr " - Edit your own username"
 
 #: \controllers\authors_controller.php:703
 msgid " - Muokkaa omaa salasanaa"
-msgstr ""
+msgstr " - Edit your own password"
 
 #: \controllers\groups_controller.php:13;40;71;138
 msgid "Sinulla ei ole oikeutta käyttäjien hallintaan."
-msgstr ""
+msgstr "You do not have rights to user management."
 
 #: \controllers\groups_controller.php:25
 #: \controllers\requests_controller.php:34;63
 msgid " - Ryhmälista"
-msgstr ""
+msgstr " - Group list"
 
 #: \controllers\groups_controller.php:48
 msgid "Uusi ryhmä lisätty"
-msgstr ""
+msgstr "New group added"
 
 #: \controllers\groups_controller.php:51
 msgid "Uutta ryhmää ei voitu lisätä. Ole hyvä ja yritä uudestaan."
-msgstr ""
+msgstr "New group could not be added. Please try again."
 
 #: \controllers\groups_controller.php:62
 msgid " - Lisää uusi ryhmä"
-msgstr ""
+msgstr " - Addnew group"
 
 #: \controllers\groups_controller.php:77
 msgid "Ryhmää ei löydy"
-msgstr ""
+msgstr "Group not found"
 
 #: \controllers\groups_controller.php:97
 msgid "Ryhmään tehdyt muutokset on tallennettu"
-msgstr ""
+msgstr "Modifications fo group saved"
 
 #: \controllers\groups_controller.php:129
 msgid " - Muokkaa ryhmää"
-msgstr ""
+msgstr " - Edit group"
 
 #: \controllers\groups_controller.php:144
 msgid "Ryhmää ei löytynyt."
-msgstr ""
+msgstr "Group not found."
 
 #: \controllers\groups_controller.php:148
 msgid "Ryhmä poistettu."
-msgstr ""
+msgstr "Group removed."
 
 #: \controllers\groups_controller.php:151
 msgid "Ryhmää ei voitu poistaa."
-msgstr ""
+msgstr "Group could not be removed."
 
 #: \controllers\markers_controller.php:34;118;141
 msgid "Merkkiä ei löytynyt"
-msgstr ""
+msgstr "Mark not found"
 
 #: \controllers\markers_controller.php:51
 msgid "Voit muokata vain omia karttamerkkejä"
-msgstr ""
+msgstr "You can only edit your own map marks"
 
 #: \controllers\markers_controller.php:74
 msgid "Merkki tallennettu"
-msgstr ""
+msgstr "Mark saved"
 
 #: \controllers\markers_controller.php:132
 #: \controllers\overlays_controller.php:138
 #: \controllers\paths_controller.php:138
 msgid "Poistaminen ei onnistunut"
-msgstr ""
+msgstr "Removal was unsuccessful"
 
 #: \controllers\markers_controller.php:138
 msgid "Merkki poistettu"
-msgstr ""
+msgstr "Mark removed"
 
 #: \controllers\overlays_controller.php:15;170
 msgid ""
 "hakemistoa ei ole tai sinne ei ole kirjoitusoikeuksia. Lähetä tämä "
 "virheilmoitus palvelimen ylläpitäjälle, hän voi korjata asian."
 msgstr ""
+"directory not found or permission denied. Send this error message to server "
+"administrator so he can fix it."
 
 #: \controllers\overlays_controller.php:40;60;124;155
 msgid "Karttakuvaa ei löytynyt"
-msgstr ""
+msgstr "Map image not found"
 
 #: \controllers\overlays_controller.php:56
 msgid "Voit muokata vain omia kuvia"
-msgstr ""
+msgstr "You can only edit your own images"
 
 #: \controllers\overlays_controller.php:75
 msgid "Karttakuva tallennettu"
-msgstr ""
+msgstr "Map image saved"
 
 #: \controllers\overlays_controller.php:78;202
 #: \controllers\paths_controller.php:96 \controllers\polls_controller.php:277
 #: \controllers\markers_controller.php:77
 msgid "Tallentaminen epäonnistui"
-msgstr ""
+msgstr "Saving was unsuccessful"
 
 #: \controllers\overlays_controller.php:112;116
 msgid "kuvatiedotoa ei löytynyt"
-msgstr ""
+msgstr "image file not found"
 
 #: \controllers\overlays_controller.php:144
 msgid "Karttakuva poistettu"
-msgstr ""
+msgstr "Map image removed"
 
 #: \controllers\overlays_controller.php:146
 msgid "Merkintä poistettu, kuvatiedotoa ei ollut"
-msgstr ""
+msgstr "Entry removed, image file did not exist"
 
 #: \controllers\overlays_controller.php:178
 msgid "Valitse ladattava tiedosto"
-msgstr ""
+msgstr "Choose file to upload"
 
 #: \controllers\overlays_controller.php:183
 msgid "Tiedosto on liian suuri"
-msgstr ""
+msgstr "File too large"
 
 #: \controllers\overlays_controller.php:187
 msgid "Tapahtui joku virhe, yritä uudelleen"
-msgstr ""
+msgstr "An error occurred, please try again"
 
 #: \controllers\overlays_controller.php:187
-msgid "(virhekoodi "
-msgstr ""
+msgid "virhekoodi "
+msgstr "error code"
 
 #: \controllers\paths_controller.php:38;124;147
 msgid "Aineistoa ei löytynyt"
-msgstr ""
+msgstr "Data not found"
 
 #: \controllers\paths_controller.php:64
 msgid "Voit muokata vain omia aineistoja"
-msgstr ""
+msgstr "You can only edit your own data"
 
 #: \controllers\paths_controller.php:93
 msgid "Aineisto tallennettu"
-msgstr ""
+msgstr "Data saved"
 
 #: \controllers\paths_controller.php:144
 msgid "Aineisto poistettu"
-msgstr ""
+msgstr "Sata removed"
 
 #: \controllers\polls_controller.php:53 \views\polls\answers.ctp:122;245;335
 #: \views\polls\modify.ctp:53
 msgid "Ei tekstivastausta"
-msgstr ""
+msgstr "No text response"
 
 #: \controllers\polls_controller.php:54 \views\polls\answers.ctp:126;246;336
 #: \views\polls\modify.ctp:54
 msgid "Teksti"
-msgstr ""
+msgstr "Text"
 
 #: \controllers\polls_controller.php:55 \views\polls\answers.ctp:130;247;337
-msgid "Kyllä, ei, en osaa sanoa"
-msgstr ""
+#: \views\polls\modify.ctp:55
+msgid "Kyllä, Ei, En osaa sanoa"
+msgstr "Yes, No, I can not say"
 
 #: \controllers\polls_controller.php:56 \views\polls\answers.ctp:134;248;338
-msgid "1 - 5, en osaa sanoa"
-msgstr ""
+#: \views\polls\modify.ctp:56
+msgid "1 - 5, En osaa sanoa"
+msgstr "1 -5, I can not say"
 
 #: \controllers\polls_controller.php:57 \views\polls\answers.ctp:138;249;339
-msgid "1 - 7, en osaa sanoa"
-msgstr ""
+#: \views\polls\modify.ctp:57
+msgid "1 - 7, En osaa sanoa"
+msgstr "1 -7, I can not say"
 
 #: \controllers\polls_controller.php:58 \views\polls\answers.ctp:142;250;340
 #: \views\polls\modify.ctp:58
 msgid "Monivalinta (max 9)"
-msgstr ""
+msgstr "Multiple choice (max 9)"
 
 #: \controllers\polls_controller.php:61 \views\polls\answers.ctp:96;255;345
 #: \views\polls\modify.ctp:62
 msgid "Ei karttaa"
-msgstr ""
+msgstr "No map"
 
 #: \controllers\polls_controller.php:62 \views\polls\answers.ctp:100;256;346
 #: \views\polls\modify.ctp:63
 msgid "Kartta, ei vastausta"
-msgstr ""
+msgstr "Map, no response"
 
 #: \controllers\polls_controller.php:63 \views\polls\answers.ctp:104;257;347
 #: \views\polls\modify.ctp:64
 msgid "Kartta, 1 merkki"
-msgstr ""
+msgstr "Map, 1 mark"
 
 #: \controllers\polls_controller.php:64 \views\polls\answers.ctp:108;258;348
 #: \views\polls\modify.ctp:65
 msgid "Kartta, monta merkkiä"
-msgstr ""
+msgstr "Map, multiple marks"
 
 #: \controllers\polls_controller.php:65
 msgid "Kartta, polku"
-msgstr ""
+msgstr "Map, track"
 
 #: \controllers\polls_controller.php:66 \views\polls\answers.ctp:116;260;350
 #: \views\polls\modify.ctp:67
 msgid "Kartta, alue"
-msgstr ""
+msgstr "Map, area"
 
 #: \controllers\polls_controller.php:218
 msgid "Kyselyyn on vastattu, joten sitä ei voida enään muokata"
-msgstr ""
+msgstr "Poll has responses so it is no longer available for editing"
 
 #: \controllers\polls_controller.php:274
 msgid "Kysely tallennettu"
-msgstr ""
+msgstr "Poll saved"
 
 #: \controllers\polls_controller.php:432
 msgid "Kysely poistettu"
-msgstr ""
+msgstr "Poll removed"
 
 #: \controllers\polls_controller.php:478
 msgid "Aika"
-msgstr ""
+msgstr "Time"
 
 #: \controllers\polls_controller.php:605
 msgid "Kysely on jo julkaistu"
-msgstr ""
+msgstr "Poll already published"
 
 #: \controllers\polls_controller.php:647
 msgid "Virheellinen lukumäärä"
-msgstr ""
+msgstr "Incorrect amount"
 
 #: \controllers\polls_controller.php:673
 msgid "Muutokset tallennettu"
-msgstr ""
+msgstr "Modifications saved"
 
 #: \controllers\polls_controller.php:676
 msgid "Tallennus epäonnistui"
-msgstr ""
+msgstr "Saving was unsuccessful"
 
 #: \controllers\requests_controller.php:14;43;103;126;151
 msgid "Sinulla ei ole oikeutta tukipyyntöjen käsittelyyn."
-msgstr ""
+msgstr "You do not have rights to manage support requests"
 
 #: \controllers\requests_controller.php:83
 msgid "Tukipyyntö tallennettu"
-msgstr ""
+msgstr "Support request saved"
 
 #: \controllers\requests_controller.php:86
 msgid "Tukipyyntöä ei voitu tallentaa. Ole hyvä ja yritä uudestaan."
-msgstr ""
+msgstr "Support request could not be saved. Please try again."
 
 #: \controllers\requests_controller.php:94
 msgid " - Lähetä tukipyyntö"
-msgstr ""
+msgstr " - Send support request"
 
 #: \controllers\requests_controller.php:109
 msgid "Tukipyyntöä ei löytynyt."
-msgstr ""
+msgstr "Support request not found."
 
 #: \controllers\requests_controller.php:113
 msgid "Tukipyyntö poistettu."
-msgstr ""
+msgstr "Support request removed."
 
 #: \controllers\requests_controller.php:116
 msgid "Tukipyyntöä ei voitu poistaa."
-msgstr ""
+msgstr "Support request could not be removed."
 
 #: \controllers\requests_controller.php:132;157
 msgid "Tukipyyntöä ei löydy"
-msgstr ""
+msgstr "Support request not found"
 
 #: \controllers\requests_controller.php:136
 msgid "Tukipyyntö merkitty käsitellyksi"
-msgstr ""
+msgstr "Support request marked as processed"
 
 #: \controllers\requests_controller.php:161
 msgid "Tukipyyntö merkitty käsittelemättömäksi"
-msgstr ""
+msgstr "Support request marked as unprocessed"
 
 #: \models\author.php:24
 msgid "Käyttäjätunnus on jo käytössä."
-msgstr "The user name is already in use."
+msgstr "Username already in use."
 
 #: \models\author.php:28
 msgid "Käyttäjätunnuksen täytyy olla vähintään 3 merkkiä pitkä."
-msgstr "The username must be at least 3 characters long."
+msgstr "Username must be atleast 3 characters long."
 
 #: \models\author.php:32
 msgid "Käyttäjätunnus ei saa olla yli 50 merkkiä pitkä."
-msgstr "User must not be more than 50 characters in length."
+msgstr "Username can not be over 50 characters long."
 
 #: \models\author.php:38
 msgid "Salasana ei voi olla tyhjä."
-msgstr ""
+msgstr "Password can not be empty."
 
 #: \models\author.php:43
 msgid "Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi"
-msgstr "The email address must be in the format name@example.com"
+msgstr "Email address has to be form user@example.com."
 
 #: \models\group.php:32
 msgid "Ryhmän nimi on jo käytössä."
-msgstr "The group name is already in use."
+msgstr "Group name already in use."
 
 #: \models\group.php:36
 msgid "Ryhmän nimen täytyy olla vähintään 3 merkkiä pitkä."
-msgstr ""
+msgstr "Group name has to be at least 3 characters long."
 
 #: \models\group.php:40
 msgid "Ryhmän nimi ei saa olla yli 50 merkkiä pitkä."
-msgstr ""
+msgstr "Group name can not be longer than 50 characters."
 
 #: \models\marker.php:32
 msgid "Anna merkille nimi."
-msgstr ""
+msgstr "Set mark name."
 
 #: \models\marker.php:36
 msgid "Tämänniminen merkki on jo olemassa, kokeile toista nimeä."
-msgstr ""
+msgstr "Mark with the same name already exists, please try another name."
 
 #: \models\marker.php:42;48
 msgid "Merkillä täytyy olla sijainti, lisää se kartalle."
-msgstr ""
+msgstr "Mark has to have location, add it on the map."
 
 #: \models\overlay.php:19
 msgid "Anna kuvalle nimi"
-msgstr ""
+msgstr "Set image name"
 
 #: \models\overlay.php:23
 msgid "Tämänniminen kuva on jo olemassa"
-msgstr ""
+msgstr "Image witht the same name already exists"
 
 #: \models\overlay.php:29
 msgid "Kuvatiedoston on oltava .png tai .jpg -tyyppinen"
-msgstr ""
+msgstr "Image file has to be type .png or .jpg"
 
 #: \models\overlay.php:33
 msgid "Valitse kuvatiedosto"
-msgstr ""
+msgstr "Choose image file"
 
 #: \models\overlay.php:38;42;46;50
 msgid ""
 "Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan "
 "pisteellä.)"
 msgstr ""
+"Coordinate has to be decimal. (Here decimals are separated with a comma.)"
 
 #: \models\path.php:17
 msgid "Anna aineistolle nimi."
-msgstr ""
+msgstr "Set data name."
 
 #: \models\path.php:21
 msgid "Tämänniminen aineisto on jo olemassa, kokeile toista nimeä."
-msgstr ""
+msgstr "Data with the same name already exists, please try another name."
 
 #: \models\path.php:27
 msgid "Aineistolla täytyy olla sijainti, lisää se kartalle."
-msgstr ""
+msgstr "Data has to have location, add it on the map."
 
 #: \models\poll.php:49 \views\polls\modify.ctp:246
 msgid "Anna kyselylle nimi"
-msgstr ""
+msgstr "Set poll name"
 
 #: \models\poll.php:53
 msgid "Tämänniminen kysely on jo olemassa, kokeile toista nimeä."
-msgstr ""
+msgstr "Poll with the same name already exists, please try another name."
 
 #: \models\request.php:21
 msgid "Pyynnön täytyy olla tarpeeksi selkä. Käytä vähintään 10 merkkiä."
-msgstr ""
+msgstr "Request has to be clear enough. Use at least 10 characters."
 
 #: \views\answers\answer.ctp:50
 msgid "Vastausohjeet"
-msgstr ""
+msgstr "Response guide"
 
 #: \views\answers\answer.ctp:51
 msgid ""
 "Kyselyyn vastataan joko tekstikenttään tai monivalintaan, sekä mahdolliseen "
 "karttavastaukseen."
 msgstr ""
+"In the poll, you answer to the text field or to the multiple choice, and to "
+"a possible map answer."
 
 #: \views\answers\answer.ctp:52
 msgid ""
 "Monivalinnassa valitse vaihtehdoista mielestäsi asiaa parhaiten kuvaava "
 "vaihtoehto."
-msgstr ""
+msgstr "In a multiple choice, choose the best possible alternative."
 
 #: \views\answers\answer.ctp:53
 msgid ""
 "Voit myös kirjoittaa oman vaihtoehtosi \"Joku, muu mikä?\" -tekstikentän "
 "sisälle, mikäli kyselyn laatija on sellaisen laittanut."
 msgstr ""
+"You can write your own option to \"Something else, what?\" text field, if "
+"poll author has provided one."
 
 #: \views\answers\answer.ctp:54
 msgid ""
 "Joidenkin kysymysten yhteydessä kartalla voi näkyä kysymykseen liittyvältä "
 "karttamerkkejä, viivoja, alueita sekä karttakuvia."
 msgstr ""
+"In some questions you may see question related map marks, tracks, areas and "
+"map images included into the map."
 
 #: \views\answers\answer.ctp:55
 msgid "Karttaan vastaaminen"
-msgstr ""
+msgstr "Answering on the map"
 
 #: \views\answers\answer.ctp:56
 msgid ""
 "Karttaa voi liikuttaa hiirellä vetämällä ja zoomata hiiren rullalla, mutta "
 "oletusarvoisesti se on kyselyn laatijan määräämässä sijannissa."
 msgstr ""
+"You can move the map by tracking mouse and zoom with the mouse wheel. By "
+"default the map is on the locations where poll author has set it."
 
 #: \views\answers\answer.ctp:57
 msgid ""
@@ -550,116 +565,121 @@ msgid ""
 "poistaa. Viivoissa ja alueissa kulmapisteiden välissä olevista pallukoista "
 "vetämällä voi luoda uuden kulmapisteen."
 msgstr ""
+"Depending on question, you either can not answer on the map, you can put a "
+"mark or marks or track or area on it. All these are set by clicking the map "
+"with left mouse button. Dot on the map be moved by dragging and remove by "
+"clicking with the right mouse button. You can create a new corner point by "
+"dragging circles between corner points on tracks and areas."
 
 #: \views\answers\answer.ctp:69 \views\answers\welcome.ctp:10
 msgid "Aloita kysely"
-msgstr ""
+msgstr "Start poll"
 
-#: \views\answers\answer.ctp:77
-msgid "Edellinen"
-msgstr ""
+#: \views\answers\answer.ctp:77 \views\authors\view.ctp:266
+#: \views\groups\index.ctp:71 \views\requests\index.ctp:103
+#: \views\requests\viewcomplited.ctp:102
+msgid "edellinen"
+msgstr "previous"
 
 #: \views\answers\answer.ctp:78
 msgid "Kysymys numero"
-msgstr ""
+msgstr "Question number"
 
-#: \views\answers\answer.ctp:79
-msgid "Seuraava"
-msgstr ""
+#: \views\answers\answer.ctp:79 \views\authors\view.ctp:269
+#: \views\groups\index.ctp:74 \views\requests\index.ctp:106
+#: \views\requests\viewcomplited.ctp:105
+msgid "seuraava"
+msgstr "next"
 
 #: \views\answers\answer.ctp:88 \views\polls\index.ctp:57
 #: \views\polls\view.ctp:143;264;270;276
 msgid "Kyllä"
-msgstr ""
+msgstr "Yes"
 
 #: \views\answers\answer.ctp:89 \views\polls\index.ctp:59
 #: \views\polls\view.ctp:143;252;258;264;270;276
 msgid "Ei"
-msgstr ""
+msgstr "No"
 
-#: \views\answers\answer.ctp:90
-msgid "En osaa sanoaa"
-msgstr ""
-
-#: \views\answers\answer.ctp:100;112
+#: \views\answers\answer.ctp:90;100;112
 msgid "En osaa sanoa"
-msgstr ""
+msgstr "I can not say"
 
 #: \views\answers\answer.ctp:167
 msgid "En halua vastata kartalle"
-msgstr ""
+msgstr "I do not want to answer on the map"
 
 #: \views\answers\answer.ctp:171
 msgid "Ohjeteksti"
-msgstr ""
+msgstr "Guide text"
 
 #: \views\answers\answer.ctp:182
 msgid "Aiemmat vastaukset"
-msgstr ""
+msgstr "Previous answers"
 
 #: \views\answers\finish.ctp:11
 msgid "Huom. Testivastaus, vastauksia ei tallennettu"
-msgstr ""
+msgstr "Note! Test response, you responses are not saved"
 
 #: \views\answers\finish.ctp:13
 msgid "Takaisin kyselynäkymään"
-msgstr ""
+msgstr "Back to poll view"
 
 #: \views\answers\finish.ctp:22
 msgid "Voit sulkea selainikkunan"
-msgstr ""
+msgstr "You can close browser window"
 
 #: \views\authors\add.ctp:6;45 \views\elements\authors_menu.ctp:23
 msgid "Lisää käyttäjä"
-msgstr ""
+msgstr "Add user"
 
 #: \views\authors\add.ctp:14 \views\authors\profile_username.ctp:12
 #: \views\authors\username.ctp:22 \views\authors\view.ctp:75
 #: \views\requests\index.ctp:40 \views\requests\viewcomplited.ctp:39
 msgid "Käyttäjätunnus"
-msgstr ""
+msgstr "Username"
 
 #: \views\authors\add.ctp:14
 msgid "Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä"
-msgstr ""
+msgstr "Username must be at least 3 characters long"
 
 #: \views\authors\add.ctp:14
 msgid "Syötä uuden käyttäjän käyttäjätunnus."
-msgstr ""
+msgstr "Input new user's username"
 
 #: \views\authors\add.ctp:18 \views\authors\login.ctp:10
 #: \views\authors\password.ctp:12 \views\authors\profile_password.ctp:12
 #: \views\authors\register.ctp:27 \views\authors\view.ctp:193
 msgid "Salasana"
-msgstr ""
+msgstr "Password"
 
 #: \views\authors\add.ctp:19 \views\authors\password.ctp:13
 #: \views\authors\profile_password.ctp:13 \views\authors\register.ctp:28
 msgid "Vahvista salasana"
-msgstr ""
+msgstr "Confirm password"
 
 #: \views\authors\add.ctp:19 \views\authors\register.ctp:28
 msgid "Kirjoitusvirheiden ehkäisemiseksi, syötä salasana molempiin kenttiin."
-msgstr ""
+msgstr "To avoid misspelling, insert password to both fields."
 
 #: \views\authors\add.ctp:23 \views\authors\email.ctp:22
 #: \views\requests\index.ctp:41 \views\requests\viewcomplited.ctp:40
 msgid "Sähköpostiosoite"
-msgstr ""
+msgstr "Email address"
 
 #: \views\authors\add.ctp:24 \views\authors\email.ctp:23
 msgid "Vahvista sähköpostiosoite"
-msgstr ""
+msgstr "Confirm email address"
 
 #: \views\authors\add.ctp:24 \views\authors\email.ctp:23
 msgid ""
 "Kirjoitusvirheiden ehkäisemiseksi, syötä sähköpostiosoite molempiin kenttiin."
-msgstr ""
+msgstr "To avoid misspelling, insert email address to both fields."
 
 #: \views\authors\add.ctp:37 \views\authors\group.ctp:29
 #: \views\authors\profile_group.ctp:25 \views\authors\view.ctp:97;225
 msgid "Ryhmä"
-msgstr ""
+msgstr "Group"
 
 #: \views\authors\add.ctp:50 \views\authors\email.ctp:37
 #: \views\authors\group.ctp:44 \views\authors\password.ctp:26
@@ -670,33 +690,33 @@ msgstr ""
 #: \views\paths\edit.ctp:264 \views\polls\launch.ctp:51
 #: \views\requests\add.ctp:102
 msgid "Peruuta"
-msgstr ""
+msgstr "Cancel"
 
 #: \views\authors\email.ctp:7 \views\authors\password.ctp:7
 #: \views\authors\profile_password.ctp:7 \views\authors\profile_username.ctp:7
 #: \views\authors\username.ctp:7
 msgid "Vaihda käyttäjän"
-msgstr ""
+msgstr "Change user's"
 
 #: \views\authors\email.ctp:7
 msgid "sähköpostiosoite"
-msgstr ""
+msgstr "email address"
 
 #: \views\authors\email.ctp:22
 msgid "Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi."
-msgstr ""
+msgstr "Email address has to be in form user@example.com."
 
 #: \views\authors\email.ctp:27 \views\authors\group.ctp:35
 #: \views\authors\password.ctp:17 \views\authors\profile_password.ctp:17
 #: \views\authors\username.ctp:26 \views\groups\edit.ctp:17
 msgid "Syötä salasanasi"
-msgstr ""
+msgstr "Insert password"
 
 #: \views\authors\email.ctp:27 \views\authors\group.ctp:35
 #: \views\authors\password.ctp:17 \views\authors\profile_password.ctp:17
 #: \views\authors\username.ctp:26 \views\groups\edit.ctp:17
 msgid "Turvallisuussyistä johtuen, syötä salasanasi vahvistaaksesi muutokset."
-msgstr ""
+msgstr "Due to security reasons, insert your password to confirm changes."
 
 #: \views\authors\email.ctp:31 \views\authors\group.ctp:39
 #: \views\authors\password.ctp:21 \views\authors\profile_group.ctp:33
@@ -704,127 +724,127 @@ msgstr ""
 #: \views\authors\profile_username.ctp:16 \views\authors\username.ctp:31
 #: \views\groups\edit.ctp:21 \views\polls\launch.ctp:48
 msgid "Tallenna muutokset"
-msgstr ""
+msgstr "Save changes"
 
 #: \views\authors\group.ctp:7
 msgid "Vaihda ryhmää, johon käyttäjä"
-msgstr ""
+msgstr "Change group where user"
 
 #: \views\authors\group.ctp:7 \views\authors\profile_group.ctp:7
 msgid "kuuluu"
-msgstr ""
+msgstr "belongs to"
 
 #: \views\authors\login.ctp:6 \views\authors\register.ctp:23
 #: \views\authors\view.ctp:95
 msgid "Käyttäjänimi"
-msgstr ""
+msgstr "Username"
 
 #: \views\authors\login.ctp:13
 msgid "Kirjaudu"
-msgstr ""
+msgstr "Sign in"
 
 #: \views\authors\password.ctp:7 \views\authors\profile_password.ctp:7
 msgid "salasana"
-msgstr ""
+msgstr "password"
 
 #: \views\authors\password.ctp:13 \views\authors\profile_password.ctp:13
 msgid "Vaihtaakesesi salasanan, syötä uusi salasana molempiin kenttiin."
-msgstr ""
+msgstr "To change password, insert new password to both fields."
 
 #: \views\authors\profile.ctp:73
 msgid "Vaihda salasana"
-msgstr ""
+msgstr "Change password"
 
 #: \views\authors\profile.ctp:81 \views\authors\view.ctp:112
 msgid "Vaihda oma salasanasi"
-msgstr ""
+msgstr "Change your own password"
 
 #: \views\authors\profile.ctp:128
 msgid "Tukipyyntö"
-msgstr ""
+msgstr "Support request"
 
 #: \views\authors\profile.ctp:135
 msgid "Jätä tukipyyntö järjestelmänvalvojalle"
-msgstr ""
+msgstr "Leave support request to system supervisor"
 
 #: \views\authors\profile.ctp:154
 msgid "Käyttäjän kaikkien kyselyiden yhteismäärä"
-msgstr ""
+msgstr "Total quantity of user's all polls"
 
 #: \views\authors\profile.ctp:175
 msgid "Käyttäjän julkisten kyselyiden määrä"
-msgstr ""
+msgstr "Quantity of user's public users"
 
 #: \views\authors\profile.ctp:196
 msgid "Käyttäjän avoimien kyselyiden määrä"
-msgstr ""
+msgstr "Quantity of user's open polls"
 
 #: \views\authors\profile_group.ctp:7
 msgid "Vaihda ryhmää, johon"
-msgstr ""
+msgstr "Change group where"
 
 #: \views\authors\profile_username.ctp:7 \views\authors\username.ctp:7
 msgid "käyttäjätunnus"
-msgstr ""
+msgstr "username"
 
 #: \views\authors\profile_username.ctp:12 \views\authors\username.ctp:22
 msgid "Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä."
-msgstr ""
+msgstr "Username has to be at least 3 characters long."
 
 #: \views\authors\register.ctp:32 \views\authors\view.ctp:96;209
 msgid "Sähköposti"
-msgstr ""
+msgstr "Email"
 
 #: \views\authors\register.ctp:38
 msgid "Tunniste"
-msgstr ""
+msgstr "Identifier"
 
 #: \views\authors\register.ctp:40
 msgid "Tunnisteen saat sivuston ylläpitäjältä"
-msgstr ""
+msgstr "You get identifier from site admin"
 
 #: \views\authors\register.ctp:43
 msgid "Tunniste ei täsmännyt. Saat tunnisteen sivuston ylläpitäjältä."
-msgstr ""
+msgstr "Identifier did not match. You can get identifier from site admin"
 
 #: \views\authors\register.ctp:48
 msgid "Rekisteröidy"
-msgstr ""
+msgstr "Register"
 
 #: \views\authors\username.ctp:22
 msgid "Syötä uusi käyttäjätunnus."
-msgstr ""
+msgstr "Insert new username."
 
 #: \views\authors\view.ctp:73
 msgid "Vahvista poisto"
-msgstr ""
+msgstr "Confirm removal"
 
 #: \views\authors\view.ctp:78
 msgid "Haluatko varmsti poistaa käyttäjätunnuksen ja kaikki käyttäjän kyselyt?"
-msgstr ""
+msgstr "Are you sure you want to remove username and all user's polls?"
 
 #: \views\authors\view.ctp:83
 msgid "Vahvista salasanallasi"
-msgstr ""
+msgstr "Confirm with your password"
 
 #: \views\authors\view.ctp:84
 msgid "Syötä salasanasi vahvistaaksesi muutosoikeutesi"
-msgstr ""
+msgstr "Insert password to confirm your modification rights"
 
 #: \views\authors\view.ctp:89
 msgid "Käyttäjät"
-msgstr ""
+msgstr "Users"
 
 #: \views\authors\view.ctp:98
 msgid "Kyselyitä"
-msgstr ""
+msgstr "Polls"
 
 #: \views\authors\view.ctp:99 \views\groups\index.ctp:26
 #: \views\markers\index.ctp:15 \views\overlays\index.ctp:15
 #: \views\overlays\view.ctp:183 \views\paths\index.ctp:20
 #: \views\polls\index.ctp:20;68 \views\polls\view.ctp:32
 msgid "Muokkaa"
-msgstr ""
+msgstr "Edit"
 
 #: \views\authors\view.ctp:100;242 \views\groups\index.ctp:45
 #: \views\markers\index.ctp:18 \views\overlays\index.ctp:18
@@ -832,243 +852,235 @@ msgstr ""
 #: \views\polls\index.ctp:21;80 \views\polls\modify.ctp:379
 #: \views\polls\view.ctp:90
 msgid "Poista"
-msgstr ""
+msgstr "Remove"
 
 #: \views\authors\view.ctp:109
 msgid "Muokkaa omaa käyttäjätunnustasi"
-msgstr ""
+msgstr "Edit your own username"
 
 #: \views\authors\view.ctp:115
 msgid "Vaihda oma sähköpostiosoitteesi"
-msgstr ""
+msgstr "Change your own email address"
 
 #: \views\authors\view.ctp:118
 msgid "Vaihda ryhmää, johon kuulut"
-msgstr ""
+msgstr "Change group where you belong to"
 
 #: \views\authors\view.ctp:121
 msgid "Poista oma käyttäjätunnuksesi ja kaikki kyselysi"
-msgstr ""
+msgstr "Remove your own user account and all your polls"
 
 #: \views\authors\view.ctp:122
 msgid "Haluatko varmasti poistaa oman käyttäjätunnuksesi"
-msgstr ""
+msgstr "Are you sure you want to remove your user account"
 
 #: \views\authors\view.ctp:128
 msgid "Muokkaa käyttäjätunnusta"
-msgstr ""
+msgstr "Edit username"
 
 #: \views\authors\view.ctp:131
 msgid "Vaihda käyttäjän salasana"
-msgstr ""
+msgstr "Change user's password"
 
 #: \views\authors\view.ctp:134
 msgid "Vaihda käyttäjän sähköpostiosoite"
-msgstr ""
+msgstr "Change user's email address"
 
 #: \views\authors\view.ctp:137
 msgid "Vaihda ryhmää, johon käyttäjä kuuluu"
-msgstr ""
+msgstr "Change group which user belongs to"
 
 #: \views\authors\view.ctp:140
 msgid "Poista käyttäjä ja kaikki käyttäjän kyselyt"
-msgstr ""
+msgstr "Remove user and all user's polls"
 
 #: \views\authors\view.ctp:141
 msgid "Haluatko varmasti poistaa käyttäjän"
-msgstr ""
-
-#: \views\authors\view.ctp:266 \views\groups\index.ctp:71
-#: \views\requests\index.ctp:103 \views\requests\viewcomplited.ctp:102
-msgid "edellinen"
-msgstr ""
-
-#: \views\authors\view.ctp:269 \views\groups\index.ctp:74
-#: \views\requests\index.ctp:106 \views\requests\viewcomplited.ctp:105
-msgid "seuraava"
-msgstr ""
+msgstr "Are you sure you want to remove user"
 
 #: \views\elements\authors_menu.ctp:3 \views\layouts\author.ctp:137
 msgid "Käyttäjähallinta"
-msgstr ""
+msgstr "User management"
 
 #: \views\elements\authors_menu.ctp:9
 msgid "Näytä käyttäjät"
-msgstr ""
+msgstr "Show users"
 
 #: \views\elements\authors_menu.ctp:16
 msgid "Näytä kaikki käyttäjät"
-msgstr ""
+msgstr "Show all users"
 
 #: \views\elements\authors_menu.ctp:30
 msgid "Lisää uusi käyttäjä"
-msgstr ""
+msgstr "Add new user"
 
 #: \views\elements\authors_menu.ctp:37
 msgid "Näytä ryhmät"
-msgstr ""
+msgstr "Show groups"
 
 #: \views\elements\authors_menu.ctp:44
 msgid "Näytä kaikki ryhmät"
-msgstr ""
+msgstr "Show all  groups"
 
 #: \views\elements\authors_menu.ctp:51 \views\groups\add.ctp:7;16
 msgid "Lisää ryhmä"
-msgstr ""
+msgstr "Add group"
 
 #: \views\elements\authors_menu.ctp:58
 msgid "Lisää uusi ryhmä"
-msgstr ""
+msgstr "Add new group"
 
 #: \views\elements\authors_menu.ctp:65 \views\requests\index.ctp:35
 msgid "Avoimet tukipyynnöt"
-msgstr ""
+msgstr "Open support requests"
 
 #: \views\elements\authors_menu.ctp:72
 msgid "Näytä avoimet tukipyynnöt"
-msgstr ""
+msgstr "Show open support requests"
 
 #: \views\elements\authors_menu.ctp:79 \views\requests\viewcomplited.ctp:34
 msgid "Käsitellyt tukipyynnöt"
-msgstr ""
+msgstr "Processed support requests"
 
 #: \views\elements\authors_menu.ctp:86
 msgid "Näytä käsitellyt tukipyynnöt"
-msgstr ""
+msgstr "Show processed support requests"
 
 #: \views\elements\profile_header.ctp:3
 msgid "Omien tietojen hallinta"
-msgstr ""
+msgstr "Management of own information"
 
 #: \views\errors\invalid_hash.ctp:1
 msgid "Tunnisteesi on virheellinen tai se on jo käytetty"
-msgstr ""
+msgstr "Your identifier is incorrect or it has been used"
 
 #: \views\errors\poll_closed.ctp:1
 msgid "Kysely on suljettu"
-msgstr ""
+msgstr "Poll closed"
 
 #: \views\errors\poll_not_found.ctp:1
 msgid "Kyselyä ei löytynyt"
-msgstr ""
+msgstr "Poll not found"
 
 #: \views\errors\poll_not_published.ctp:1
 msgid "Kyselyä ei ole vielä julkaistu"
-msgstr ""
+msgstr "Poll not yet published"
 
 #: \views\groups\add.ctp:13 \views\groups\edit.ctp:13
 #: \views\groups\index.ctp:13
 msgid "Ryhmän nimi"
-msgstr ""
+msgstr "Group name"
 
 #: \views\groups\add.ctp:13 \views\groups\edit.ctp:13
 msgid "Ryhmän nimen on oltava vähintään 3 merkkiä pitkä"
-msgstr ""
+msgstr "Group name has to be at least 3 characters long"
 
 #: \views\groups\add.ctp:13
 msgid "Syötä uuden ryhmän nimi."
-msgstr ""
+msgstr "Insert new group's name."
 
 #: \views\groups\edit.ctp:7 \views\groups\index.ctp:34
 msgid "Muokkaa ryhmän nimeä"
-msgstr ""
+msgstr "Edit group name"
 
 #: \views\groups\edit.ctp:13
 msgid "Syötä ryhmän uusi nimi."
-msgstr ""
+msgstr "Insert group's new name."
 
 #: \views\groups\index.ctp:7
 msgid "Ryhmät"
-msgstr ""
+msgstr "Groups"
 
 #: \views\groups\index.ctp:14
 msgid "Toiminnot"
-msgstr ""
+msgstr "Functions"
 
 #: \views\groups\index.ctp:42
 msgid "Haluatko varmasti poistaa ryhmän"
-msgstr ""
+msgstr "Are you sure you want to remove group"
 
 #: \views\groups\index.ctp:53
 msgid "Poista ryhmä"
-msgstr ""
+msgstr "Remove group"
 
 #: \views\groups\index.ctp:68 \views\requests\index.ctp:100
 #: \views\requests\viewcomplited.ctp:99
-msgid "Sivu %page% / %pages%"
-msgstr ""
+msgid "Sivu"
+msgstr "Page"
 
 #: \views\layouts\author.ctp:6 \views\layouts\default.ctp:6
 msgid "SoftGIS"
-msgstr ""
+msgstr "SoftGIS"
 
 #: \views\layouts\author.ctp:112 \views\polls\index.ctp:13
 msgid "Omat kyselyt"
-msgstr ""
+msgstr "Own polls"
 
 #: \views\layouts\author.ctp:117
 msgid "Luo uusi kysely"
-msgstr ""
+msgstr "Create new poll"
 
 #: \views\layouts\author.ctp:122 \views\polls\modify.ctp:321
 #: \views\polls\view.ctp:188
 msgid "Karttamerkit"
-msgstr ""
+msgstr "Map marks"
 
 #: \views\layouts\author.ctp:127
 msgid "Vektoriaineistot"
-msgstr ""
+msgstr "Vector data"
 
 #: \views\layouts\author.ctp:132 \views\polls\modify.ctp:326
 #: \views\polls\view.ctp:216
 msgid "Karttakuvat"
-msgstr ""
+msgstr "Map images"
 
 #: \views\layouts\author.ctp:142
 msgid "Profiili"
-msgstr ""
+msgstr "Profile"
 
 #: \views\layouts\author.ctp:147
 msgid "Kirjaudu ulos"
-msgstr ""
+msgstr "Log out"
 
 #: \views\markers\edit.ctp:109 \views\overlays\edit.ctp:326
 #: \views\overlays\upload.ctp:14 \views\paths\edit.ctp:194
 #: \views\paths\import.ctp:131 \views\polls\modify.ctp:267
 msgid "Ohje"
-msgstr ""
+msgstr "Guide"
 
 #: \views\markers\edit.ctp:112 \views\markers\view.ctp:39
 msgid "Karttamerkki"
-msgstr ""
+msgstr "Map mark"
 
 #: \views\markers\edit.ctp:115
 msgid "Karttamerkin asettaminen kartalle"
-msgstr ""
+msgstr "Setting map mark on the map"
 
 #: \views\markers\edit.ctp:116
 msgid ""
 "Klikkaamalla karttaa voit asettaa merkin kartalle. Klikkaamalla merkkiä "
 "hiiren oikealla painikkeella voit poistaa sen kartalta."
 msgstr ""
+"You can set a mark on the map by clicking. You can remove it by clicking it "
+"with right mouse button."
 
 #: \views\markers\edit.ctp:125 \views\polls\modify.ctp:494
 #: \views\polls\view.ctp:250
 msgid "Sijainti"
-msgstr ""
+msgstr "Location"
 
 #: \views\markers\edit.ctp:129 \views\overlays\edit.ctp:369
 #: \views\paths\edit.ctp:262
 msgid "Tallenna"
-msgstr ""
+msgstr "Save"
 
 #: \views\markers\index.ctp:4
 msgid "Luo uusi karttamerkki"
-msgstr ""
+msgstr "Create new map mark"
 
 #: \views\markers\index.ctp:10
 msgid "Käyttäjän karttamerkit"
-msgstr ""
+msgstr "User's map marks"
 
 #: \views\markers\index.ctp:14 \views\markers\view.ctp:66
 #: \views\overlays\edit.ctp:341 \views\overlays\index.ctp:14
@@ -1076,103 +1088,99 @@ msgstr ""
 #: \views\paths\index.ctp:19 \views\paths\view.ctp:137
 #: \views\polls\index.ctp:17 \views\polls\modify.ctp:296
 msgid "Nimi"
-msgstr ""
+msgstr "Name"
 
 #: \views\markers\index.ctp:16 \views\overlays\index.ctp:16
 #: \views\paths\index.ctp:21
 msgid "Muokattu"
-msgstr ""
+msgstr "Edited"
 
 #: \views\markers\index.ctp:17 \views\overlays\index.ctp:17
 #: \views\overlays\view.ctp:190 \views\paths\index.ctp:22
 #: \views\polls\index.ctp:22;93 \views\polls\view.ctp:102
 msgid "Kopioi"
-msgstr ""
+msgstr "Copy"
 
 #: \views\markers\index.ctp:19 \views\overlays\index.ctp:19
 #: \views\paths\index.ctp:24
 msgid "Käytössä"
-msgstr ""
+msgstr "In use"
 
 #: \views\markers\index.ctp:29
 msgid "Katsele karttakerkkiä"
-msgstr ""
+msgstr "View map mark"
 
 #: \views\markers\index.ctp:35 \views\markers\view.ctp:43
 #: \views\overlays\index.ctp:36 \views\paths\index.ctp:40
 #: \views\paths\view.ctp:107
 msgid "muokkaa"
-msgstr ""
+msgstr "edit"
 
 #: \views\markers\index.ctp:37 \views\markers\view.ctp:45
 msgid "Muokkaa karttakerkkiä"
-msgstr ""
+msgstr "Edit map mark"
 
 #: \views\markers\index.ctp:46;91 \views\markers\view.ctp:48
 #: \views\overlays\index.ctp:47;99 \views\paths\index.ctp:51
 #: \views\paths\view.ctp:114
 msgid "kopioi"
-msgstr ""
+msgstr "copy"
 
 #: \views\markers\index.ctp:49 \views\markers\view.ctp:51
 msgid "Oletko varma että haluat kopioida karttakerkin?"
-msgstr ""
+msgstr "Are you sure you want to copy map mark?"
 
 #: \views\markers\index.ctp:55 \views\markers\view.ctp:54
 #: \views\overlays\index.ctp:56 \views\paths\index.ctp:60
 #: \views\paths\view.ctp:122
 msgid "poista"
-msgstr ""
+msgstr "remove"
 
 #: \views\markers\index.ctp:58 \views\markers\view.ctp:57
 msgid "Oletko varma että haluat poistaa karttakerkin?"
-msgstr ""
+msgstr "Are you sure you want to remove map mark?"
 
 #: \views\markers\index.ctp:85 \views\paths\index.ctp:34;90
 msgid "Katsele aineistoa"
-msgstr ""
+msgstr "View data"
 
 #: \views\markers\index.ctp:94 \views\paths\index.ctp:54;99
 #: \views\paths\view.ctp:117
 msgid "Oletko varma että haluat kopioida aineiston?"
-msgstr ""
+msgstr "Are you sure you want to copy data?"
 
 #: \views\markers\view.ctp:50
 msgid "Kopioi karttamerkki"
-msgstr ""
+msgstr "Copy map mark"
 
 #: \views\markers\view.ctp:56
 msgid "Poista karttamerkki"
-msgstr ""
+msgstr "Remove map mark"
 
 #: \views\markers\view.ctp:67 \views\overlays\edit.ctp:342
 #: \views\overlays\view.ctp:212 \views\paths\edit.ctp:223
 #: \views\paths\view.ctp:141
 msgid "Sisältö"
-msgstr ""
+msgstr "Content"
 
 #: \views\markers\view.ctp:68
 msgid "Kuvake"
-msgstr ""
-
-#: \views\markers\view.ctp:69
-msgid "hidden"
-msgstr ""
+msgstr "Icon"
 
 #: \views\markers\view.ctp:76 \views\overlays\upload.ctp:33
 #: \views\overlays\view.ctp:237 \views\paths\import.ctp:155
 #: \views\paths\view.ctp:180 \views\polls\answers.ctp:219
 #: \views\polls\hashes.ctp:3 \views\polls\launch.ctp:12
 msgid "Takaisin"
-msgstr ""
+msgstr "Back"
 
 #: \views\overlays\edit.ctp:330 \views\overlays\view.ctp:178
 msgid "Karttakuvan tiedot"
-msgstr ""
+msgstr "Map image information"
 
 #: \views\overlays\edit.ctp:333
 msgid "Koordinaattien syöttäminen"
-msgstr ""
+msgstr "Inserting the coordinates"
 
 #: \views\overlays\edit.ctp:334
 msgid ""
@@ -1181,10 +1189,14 @@ msgid ""
 "on läpinäkyvä kohdistamisen helpottamiseksi, mutta kyselyssä läpinäkyvyyttä "
 "ei ole."
 msgstr ""
+"You can enter image's southwest and northeast coordinaters to fields "
+"reserved for them and the program will set the image on the map. In preview "
+"map image is transparent to make the alignment easier but there will be no "
+"transparency in the poll."
 
 #: \views\overlays\edit.ctp:335
 msgid "Kulmamerkit kartalle"
-msgstr ""
+msgstr "Corner marks on the map"
 
 #: \views\overlays\edit.ctp:336
 msgid ""
@@ -1193,137 +1205,146 @@ msgid ""
 "paikaksi. Kulmien merkkejä voi vetämällä siirtää, tai hiiren oikealla "
 "klikkauksella poistaa."
 msgstr ""
+"You may also set the map image to it's place by clicking the map's southwest "
+"and northeast corners. There will be marks on the map to indicate the "
+"corners. You can move marks by dragging or remove them by clicking with "
+"right mouse button."
 
 #: \views\overlays\edit.ctp:341 \views\overlays\view.ctp:211
 #: \views\paths\edit.ctp:219
 msgid "Anna nimi"
-msgstr ""
+msgstr "Give name"
 
 #: \views\overlays\edit.ctp:345 \views\paths\edit.ctp:258
 msgid "Esikatselu"
-msgstr ""
+msgstr "Preview"
 
 #: \views\overlays\edit.ctp:347 \views\overlays\view.ctp:216
 msgid "Kuvatiedostoa ei löytynyt"
-msgstr ""
+msgstr "Image file not found"
 
 #: \views\overlays\edit.ctp:354 \views\overlays\index.ctp:20
 #: \views\overlays\view.ctp:222
 msgid "Kuvatiedosto"
-msgstr ""
+msgstr "Image file"
 
 #: \views\overlays\edit.ctp:355 \views\overlays\view.ctp:223
 #: \views\paths\edit.ctp:254 \views\paths\view.ctp:170
 msgid "Koordinaatit"
-msgstr ""
+msgstr "Coordinates"
 
 #: \views\overlays\edit.ctp:357 \views\overlays\view.ctp:225
 msgid "Pohjoinen"
-msgstr ""
+msgstr "North"
 
 #: \views\overlays\edit.ctp:359 \views\overlays\view.ctp:227
 msgid "Itä"
-msgstr ""
+msgstr "East"
 
 #: \views\overlays\edit.ctp:361 \views\overlays\view.ctp:229
 msgid "Etelä"
-msgstr ""
+msgstr "South"
 
 #: \views\overlays\edit.ctp:363 \views\overlays\view.ctp:231
 msgid "Länsi"
-msgstr ""
+msgstr "West"
 
 #: \views\overlays\index.ctp:4
 msgid "Luo uusi karttakuva"
-msgstr ""
+msgstr "Create new map image"
 
 #: \views\overlays\index.ctp:10
 msgid "Käyttäjän karttakuvat "
-msgstr ""
+msgstr "User's map images"
 
 #: \views\overlays\index.ctp:30;93
 msgid "Katsele karttakuvaa"
-msgstr ""
+msgstr "View map image"
 
 #: \views\overlays\index.ctp:38 \views\overlays\view.ctp:185
 msgid "Muokkaa karttakuvaa"
-msgstr ""
+msgstr "Edit map image"
 
 #: \views\overlays\index.ctp:49;101 \views\overlays\view.ctp:192
 #: \views\paths\index.ctp:53;98 \views\paths\view.ctp:116
 msgid "Kopioi aineisto"
-msgstr ""
+msgstr "Copy data"
 
 #: \views\overlays\index.ctp:50;102 \views\overlays\view.ctp:193
 msgid "Oletko varma että haluat kopioida karttakuvan?"
-msgstr ""
+msgstr "Are you sure you want to copy map image?"
 
 #: \views\overlays\index.ctp:58 \views\overlays\view.ctp:200
 #: \views\paths\index.ctp:62 \views\paths\view.ctp:124
 msgid "Poista aineisto"
-msgstr ""
+msgstr "Remove data"
 
 #: \views\overlays\index.ctp:59 \views\overlays\view.ctp:201
 msgid "Oletko varma että haluat poistaa karttakuvan?"
-msgstr ""
+msgstr "Are you sure you want to remove map image?"
 
 #: \views\overlays\index.ctp:68
 msgid "Löytyy"
-msgstr ""
+msgstr "Can be found"
 
 #: \views\overlays\index.ctp:70
 msgid "Hukassa"
-msgstr ""
+msgstr "Missing"
 
 #: \views\overlays\upload.ctp:17;20
 msgid "Karttakuvan lataaminen"
-msgstr ""
+msgstr "Downloading map image"
 
 #: \views\overlays\upload.ctp:21
 msgid ""
 "Voit tuoda kuvatiedoston omalta tietokoneeltasi painamalla \"Selaa..\" -"
 "nappia. "
 msgstr ""
+"You can import your own image file from your computer by clicking \"browse\" "
+"button."
 
 #: \views\overlays\upload.ctp:22
 msgid ""
 "Karttakuva voi olla gif, jpeg, png tai jpg tyyppinen ja enintään 1,5Mt "
 "kokoinen."
 msgstr ""
+"Map image can be type gif, jpeg, png or jpg and maximum size is 1.5 Mt."
 
 #: \views\overlays\upload.ctp:23
 msgid "Karttakuvan luominen"
-msgstr ""
+msgstr "Importing map image"
 
 #: \views\overlays\upload.ctp:24
 msgid "SoftGIS järjestelmän kartan käyttämä koordinaattijärjestelmä on WGS84."
-msgstr ""
+msgstr "SoftGIS system's maps use WGS84 coordinate system."
 
 #: \views\overlays\upload.ctp:24
 msgid "Lisätietoa asiasta täältä (englanniksi)."
-msgstr ""
+msgstr "More information here (in English)."
 
 #: \views\overlays\upload.ctp:31 \views\paths\import.ctp:153
 msgid "Jatka"
-msgstr ""
+msgstr "Continue"
 
 #: \views\paths\edit.ctp:200
 msgid "Aineiston muokkaaminen"
-msgstr ""
+msgstr "Editing the data"
 
 #: \views\paths\edit.ctp:201 \views\paths\view.ctp:145
 msgid "Aineiston tyyppi"
-msgstr ""
+msgstr "Data type"
 
 #: \views\paths\edit.ctp:202
 msgid ""
 "Valitse muokattavan aineiston tyypiksi joko viiva tai alue. Kartalla olevat "
 "aineistot päivittyvät valinnan mukaan."
 msgstr ""
+"Choose track or area for the type for modified data. Data on the map will "
+"update according to the choice."
 
 #: \views\paths\edit.ctp:203
 msgid "Viivan väri, opasiteetti ja paksuus"
-msgstr ""
+msgstr "Track color, opacity and thickness"
 
 #: \views\paths\edit.ctp:204
 msgid ""
@@ -1331,24 +1352,28 @@ msgid ""
 "viivaa, muuten näkyvissä on vain viiva. Voit valita viivalle värin, "
 "opasiteetin (läpinäkyvyysasteen) sekä paksuuden."
 msgstr ""
+"If you have chosen track as data type, track means areas outline, otherwise "
+"you will see only a track. You can choose track color, opacity and thickness."
 
 #: \views\paths\edit.ctp:205
 msgid "Täytön väri ja opasiteetti"
-msgstr ""
+msgstr "Fill color and opacity"
 
 #: \views\paths\edit.ctp:206
 msgid ""
 "Jos tyypiksi on valittu alue, voit valita alueen täyttövärin, sekä täytön "
 "opasiteetin (läpinäkyvyyden)."
 msgstr ""
+"If you have chosen area as a type, you can choose area fill color and fill "
+"opacity."
 
 #: \views\paths\edit.ctp:207
 msgid "Aineisto kartalla"
-msgstr ""
+msgstr "Data on the map"
 
 #: \views\paths\edit.ctp:208
 msgid "Lisääminen"
-msgstr ""
+msgstr "Adding"
 
 #: \views\paths\edit.ctp:209
 msgid ""
@@ -1357,10 +1382,14 @@ msgid ""
 "muuten luodaan uusi aineito. Kartalla olevia aineistoja, jotka koostuvat "
 "vain yhdestä kulmapisteestä, ei tallenneta."
 msgstr ""
+"You can create new data by clicking the map. If there already is data with "
+"one corner point, adding new data will create a new corner point, otherwise "
+"new data will be created. Data with only one corner point on the map will "
+"not be saved."
 
 #: \views\paths\edit.ctp:210
 msgid "Muokkaaminen"
-msgstr ""
+msgstr "Editing"
 
 #: \views\paths\edit.ctp:211
 msgid ""
@@ -1368,56 +1397,59 @@ msgid ""
 "vetämällä voit siirtää niiden paikkaa. Kulmapisteiden välissä olevasta "
 "haaleammasta pallukasta voit luoda uuden kulmapisteen aineistoon."
 msgstr ""
+"When there is data on the map with at least two corner points, you can move "
+"them by dragging. You can create a new corner point by clicking a faded "
+"circle between corner points."
 
 #: \views\paths\edit.ctp:212
 msgid "Poistaminen"
-msgstr ""
+msgstr "Removing"
 
 #: \views\paths\edit.ctp:213
 msgid ""
 "Klikkaamalla aineiston kulmapistettä hiiren oikealla painikkeella voit "
 "poistaa kyseisen kulmpisteen."
-msgstr ""
+msgstr "You can remove a corner point by clicking it with right mouse button."
 
 #: \views\paths\edit.ctp:227
 msgid "Aineiston tyyppi, true)"
-msgstr ""
+msgstr "Data type, true)"
 
 #: \views\paths\edit.ctp:227 \views\paths\view.ctp:145
 msgid "Viiva"
-msgstr ""
+msgstr "Track"
 
 #: \views\paths\edit.ctp:227 \views\paths\view.ctp:145
 msgid "Alue"
-msgstr ""
+msgstr "Area"
 
 #: \views\paths\edit.ctp:231 \views\paths\view.ctp:149
 msgid "Viivan väri"
-msgstr ""
+msgstr "Track color"
 
 #: \views\paths\edit.ctp:235 \views\paths\view.ctp:153
 msgid "Viivan opasitetti"
-msgstr ""
+msgstr "Track opacity"
 
 #: \views\paths\edit.ctp:239 \views\paths\view.ctp:157
 msgid "Viivan paksuus"
-msgstr ""
+msgstr "Track thickness"
 
 #: \views\paths\edit.ctp:244
 msgid "Täytön väri"
-msgstr ""
+msgstr "Fill color"
 
 #: \views\paths\edit.ctp:248 \views\paths\view.ctp:165
 msgid "Täytön opasitetti"
-msgstr ""
+msgstr "Fill opacity"
 
 #: \views\paths\import.ctp:135
 msgid "Tuo aineisto"
-msgstr ""
+msgstr "Import data"
 
 #: \views\paths\import.ctp:138
 msgid "Aineiston tuominen"
-msgstr ""
+msgstr "Importing data"
 
 #: \views\paths\import.ctp:139
 msgid ""
@@ -1426,53 +1458,58 @@ msgid ""
 "kopioimalla tiedoston koko sisällön laatikkoon alle. Ohjelma muuntaa sen "
 "automaattisesti Google Mapsin ymmärtämään muotoon."
 msgstr ""
+"You can import data from mif (MapInfo Interchange Format) file by clicking "
+"the button or by copying contents of the file inside the box below. Program "
+"will automatically change the format to a Google Maps format."
 
 #: \views\paths\index.ctp:1 \views\polls\modify.ctp:316
 #: \views\polls\view.ctp:202
 msgid "Viivat ja alueet"
-msgstr ""
+msgstr "Tracks and areas"
 
 #: \views\paths\index.ctp:4
 msgid "Luo uusi aineisto"
-msgstr ""
+msgstr "Create new data"
 
 #: \views\paths\index.ctp:9
 msgid "Tuo aineisto tiedostosta"
-msgstr ""
+msgstr "Import data from file"
 
 #: \views\paths\index.ctp:15
 msgid "Käyttäjän aineistot"
-msgstr ""
+msgstr "User's data"
 
 #: \views\paths\index.ctp:42 \views\paths\view.ctp:109
 msgid "Muokkaa aineistoa"
-msgstr ""
+msgstr "Edit data"
 
 #: \views\paths\index.ctp:63 \views\paths\view.ctp:125
 msgid "Oletko varma että haluat poistaa aineiston?"
-msgstr ""
+msgstr "Are you sure you want to remove data?"
 
 #: \views\paths\view.ctp:102
 msgid "Aineiston tiedot"
-msgstr ""
+msgstr "Data information"
 
 #: \views\polls\answers.ctp:112;259;349 \views\polls\modify.ctp:66
 msgid "Kartta, viiva"
-msgstr ""
+msgstr "Map, track"
 
 #: \views\polls\answers.ctp:231
 msgid "Comma-separated values (CSV)"
-msgstr ""
+msgstr "Comma-separated values (CSV)"
 
 #: \views\polls\answers.ctp:233
 msgid "Lataa CSV-tiedostona"
-msgstr "Download as CSV-file"
+msgstr "Download as CSV file"
 
 #: \views\polls\answers.ctp:236
 msgid ""
 "Vastaukset on esitetty CSV muodossa siten että jokaisen vastaajan vastaukset "
 "ovat yhdellä rivillä, pilkulla erotettuina."
 msgstr ""
+"Responses are presented in CSV format and arranged in a way that each "
+"respondent's answers are in one line, separated with a comma."
 
 #: \views\polls\answers.ctp:237
 msgid ""
@@ -1481,6 +1518,10 @@ msgid ""
 "kysymyksen numero karttavastauksen tyyppi. Vastausten tyyppien selitteet "
 "ohjeen lopussa."
 msgstr ""
+"First line is headline where there is first text 'time' and after that for "
+"each question a number of the question, text response type, question number "
+"and map response type. You can find explanations for types at the end of "
+"this guide."
 
 #: \views\polls\answers.ctp:238
 msgid ""
@@ -1489,12 +1530,15 @@ msgid ""
 "(leveyspiiri, pituuspiiri), jossa leveys- ja pituuspiirisarjoja voi olla "
 "monta tai ei yhtään kapplaetta"
 msgstr ""
+"On rest of the lines first value is response time. After that values follow "
+"this series: text response, (latitude, longitude), where latitude and "
+"longitude series can be many or none"
 
 #: \views\polls\answers.ctp:239
 msgid ""
 "Voit ladata vastaukset csv -tiedostona ohjeen yläpuolella olevasta "
 "painikkeesta."
-msgstr ""
+msgstr "You can download responses in csv form by clicking button above."
 
 #: \views\polls\answers.ctp:240
 msgid ""
@@ -1504,26 +1548,32 @@ msgid ""
 "jokaisessa sarakkeessa pitäisi kuitenkin olla sarakkeen otsikossa mainittuun "
 "kysymykseen annetut vastaukset."
 msgstr ""
+"Note: In responses the answers are not necessarily in number order because "
+"this problem was noticed in the late phaise of this project. After you have "
+"shifted responses to a spreadsheet, there should be right responses in right "
+"columns according to headline."
 
-#: \views\polls\answers.ctp:244;334
-msgid "Tekstivastauksen tyyppi:"
-msgstr ""
+#: \views\polls\answers.ctp:244;323;334 \views\polls\modify.ctp:286;394
+#: \views\polls\view.ctp:242
+msgid "Tekstivastauksen tyyppi"
+msgstr "Text response type"
 
-#: \views\polls\answers.ctp:254;344
-msgid "Karttavastauksen tyyppi:"
-msgstr ""
+#: \views\polls\answers.ctp:254;318;344 \views\polls\modify.ctp:288;488
+#: \views\polls\view.ctp:246
+msgid "Karttavastauksen tyyppi"
+msgstr "Map response type"
 
 #: \views\polls\answers.ctp:266
 msgid "MapInfo Interchange Format"
-msgstr ""
+msgstr "MapInfo Interchange Format"
 
 #: \views\polls\answers.ctp:268
 msgid "Lataa MIF-tiedosto"
-msgstr "Download as MIF-file"
+msgstr "Download MIF file"
 
 #: \views\polls\answers.ctp:270
 msgid "Lataa MID-tiedosto"
-msgstr "Download as MID-file"
+msgstr "Download MID file"
 
 #: \views\polls\answers.ctp:274
 msgid ""
@@ -1531,72 +1581,68 @@ msgid ""
 "tiedosto sisältää varsinaisen paikkatiedon ja mid-tiedosto paikkatietoihin "
 "liittyvän tekstimuotoisen datan."
 msgstr ""
+"Responses are in MapInfo Interchange Format and mif file contains the actual "
+"geographic information and mid file contains textual data related to "
+"geographic information."
 
 #: \views\polls\answers.ctp:275
 msgid "Vastaukset ovat vastauskertojen mukaisessa järjestyksessä."
-msgstr ""
+msgstr "Responses are in order according to response times"
 
 #: \views\polls\answers.ctp:276
 msgid ""
 "Voit ladata vastaukset mif ja mid -tiedostoina ohjeen yläpuolella olevista "
 "painikkeista."
 msgstr ""
+"You can download responses as mif and mid files by cilcking buttons above."
 
 #: \views\polls\answers.ctp:280
 msgid "MIF -tiedoston HEADER -osio"
-msgstr ""
+msgstr "HEADER section of the MIF file"
 
 #: \views\polls\answers.ctp:303
 msgid "MID-tiedoston sarakkeet"
-msgstr ""
+msgstr "Columns of the MID file"
 
 #: \views\polls\answers.ctp:308
 msgid "Kysymyksen numero"
-msgstr ""
+msgstr "Question's number"
 
 #: \views\polls\answers.ctp:313
 msgid "Kysymys"
-msgstr ""
-
-#: \views\polls\answers.ctp:318 \views\polls\modify.ctp:288;488
-#: \views\polls\view.ctp:246
-msgid "Karttavastauksen tyyppi"
-msgstr ""
-
-#: \views\polls\answers.ctp:323 \views\polls\modify.ctp:286;394
-#: \views\polls\view.ctp:242
-msgid "Tekstivastauksen tyyppi"
-msgstr ""
+msgstr "Question"
 
 #: \views\polls\answers.ctp:328
 msgid "Vastaus"
-msgstr ""
+msgstr "Response"
 
 #: \views\polls\hashes.ctp:14;26 \views\polls\view.ctp:67
 msgid "Varmenteet"
-msgstr ""
+msgstr "Certificates"
 
 #: \views\polls\hashes.ctp:15
 msgid "Luo uusia varmenteita, kpl."
-msgstr ""
+msgstr "Create new certificates, quantity."
 
 #: \views\polls\hashes.ctp:21
 msgid "Luo"
-msgstr ""
+msgstr "Create"
 
 #: \views\polls\hashes.ctp:30
 msgid "Varmenne"
-msgstr ""
+msgstr "Certificate"
 
 #: \views\polls\hashes.ctp:31
 msgid "Vastausosoite varmenteen kanssa"
-msgstr ""
+msgstr "Response address with certificate"
 
 #: \views\polls\hashes.ctp:53
 msgid ""
 "Vihrellä merkatut varmenteet ovat käyttämättömiä ja punaisella merkatut "
 "käytettyjä."
 msgstr ""
+"Certificates marked with green are unsed and certificates marked with read "
+"are used."
 
 #: \views\polls\hashes.ctp:54
 msgid ""
@@ -1604,128 +1650,124 @@ msgid ""
 "vasta kun vastausprosessi saadaan päätökseen ja vastaukset tallennetaan "
 "tietokantaan."
 msgstr ""
+"Each certificate can be used only once. Certificate is changed to used after "
+"the response process is finished and responses are saved in to database."
 
 #: \views\polls\index.ctp:3
 msgid ""
 "Haluatko varmasti julkaista kyselyn? Julkaisun jälkeen kyselyä ei voida enää "
 "muokata"
 msgstr ""
+"Are you sure you want to publish poll? You can not make changes after "
+"publication"
 
 #: \views\polls\index.ctp:18;44
 msgid "Testaa"
-msgstr ""
+msgstr "Test"
 
 #: \views\polls\index.ctp:19
 msgid "Julkinen"
-msgstr ""
+msgstr "Public"
 
 #: \views\polls\index.ctp:23 \views\polls\view.ctp:119
 msgid "Vastauksia"
-msgstr ""
+msgstr "Responses"
 
 #: \views\polls\index.ctp:38
 msgid "Tarkastele kyselyä"
-msgstr ""
+msgstr "View poll"
 
 #: \views\polls\index.ctp:51
 msgid "Testikäytä kyselyä"
-msgstr ""
+msgstr "Test-use poll"
 
 #: \views\polls\index.ctp:61
 msgid "hashit"
-msgstr ""
+msgstr "hashs"
 
 #: \views\polls\index.ctp:74 \views\polls\view.ctp:39
 msgid "Muokkaa kyselyä"
-msgstr ""
+msgstr "Edit poll"
 
 #: \views\polls\index.ctp:86 \views\polls\view.ctp:97
 msgid "Poista kysely"
-msgstr ""
+msgstr "Remove poll"
 
 #: \views\polls\index.ctp:88 \views\polls\view.ctp:99
 msgid "Oletko varma että haluat poistaa kyselyn?"
-msgstr ""
+msgstr "Are you sure you want to remove poll?"
 
 #: \views\polls\index.ctp:99 \views\polls\view.ctp:109
 msgid "Kopioi uudeksi kyselyksi"
-msgstr ""
+msgstr "Copy as a new poll"
 
 #: \views\polls\index.ctp:101 \views\polls\view.ctp:111
 msgid "Oletko varma että haluat kopioida kyselyn?"
-msgstr ""
+msgstr "Are you sure you want to copy poll?"
 
 #: \views\polls\launch.ctp:26
 msgid "Alkamispäivä"
-msgstr ""
+msgstr "Starting date"
 
 #: \views\polls\launch.ctp:37
 msgid "Päättymispäivä"
-msgstr ""
+msgstr "Ending date"
 
 #: \views\polls\launch.ctp:63
 msgid ""
 "Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja "
 "päättymispäivä sisältyvät aukioloaikaan."
 msgstr ""
+"Respondents can answer to poll when it is open. Opening and ending dates are "
+"included to opening hours."
 
 #: \views\polls\launch.ctp:64
 msgid "Kysely on suljettu, jos alkamispäivämäärää ei ole asettetu."
-msgstr ""
-
-#: \views\polls\modify.ctp:55
-msgid "Kyllä, Ei, En osaa sanoa"
-msgstr ""
-
-#: \views\polls\modify.ctp:56
-msgid "1-5, En osaa sanoa"
-msgstr ""
-
-#: \views\polls\modify.ctp:57
-msgid "1-7, En osaa sanoa"
-msgstr ""
+msgstr "Poll is closed if there is no opening date."
 
 #: \views\polls\modify.ctp:130
 msgid "Haluatko varmasti poistaa kysymyksen numero"
-msgstr ""
+msgstr "Are you sure you want to remove question number"
 
 #: \views\polls\modify.ctp:171
 msgid ""
 "Viivaa tai aluetta ei löytynyt, Lisää viiva tai alue  \"Vektoriaineistot\" "
 "välilehden kautta"
 msgstr ""
+"Track or area was not found. Add track or area in \"Vector data\" interleaf"
 
 #: \views\polls\modify.ctp:185
 msgid "Merkkiä ei löytynyt, Lisää merkki  \"Karttamerkit\" välilehden kautta"
-msgstr ""
+msgstr "Mark not found. Add mark in \"Map marks\" interleaf"
 
 #: \views\polls\modify.ctp:201
 msgid "Kuvaa ei löytynyt, Lisää kuva  \"Tuo kuva\" välilehden kautta"
-msgstr ""
+msgstr "Image not found. Add image in \"Import image\" interleaf"
 
 #: \views\polls\modify.ctp:217
 msgid "Kyselyssä pitää olla vähintään yksi kysymys"
-msgstr ""
+msgstr "There has to be at least one question in the poll"
 
 #: \views\polls\modify.ctp:222
 msgid "Lisää kysymysteksti kysymykselle"
-msgstr ""
+msgstr "Add question text to the question"
 
 #: \views\polls\modify.ctp:237
 msgid "Anna ainakin yksi monivalinnan vaihtoehto kysymykselle"
-msgstr ""
+msgstr "Give at least one one option for multiple choise question"
 
 #: \views\polls\modify.ctp:270;274
 msgid "Kyselyn tiedot"
-msgstr ""
+msgstr "Poll information"
 
 #: \views\polls\modify.ctp:273
 msgid "Kyselyn muokkaaminen"
-msgstr ""
+msgstr "Editing poll"
 
 #: \views\polls\modify.ctp:275
 msgid "Nimi (pakollinen), kuvaus, kiitosteksti ja Kaikille avoin -valinta"
 msgstr ""
+"Name (compulsory), description, thank-you text and Open for everyone option"
 
 #: \views\polls\modify.ctp:276
 msgid ""
@@ -1734,10 +1776,13 @@ msgid ""
 "halutaan vastata ns. henkilökohtaisilla linkeillä (=varmenteilla), ”täppä” "
 "tulee poistaa."
 msgstr ""
+"By default open for everyone choice is selected, so that poll can be "
+"responded with identified link after publication. If you want responses with "
+"personal links (=certifications), remove the selection."
 
 #: \views\polls\modify.ctp:277
 msgid "Kyselyyn liittyvät merkit, aineistot ja kuvat"
-msgstr ""
+msgstr "Question related marks, data and images"
 
 #: \views\polls\modify.ctp:278
 msgid ""
@@ -1749,24 +1794,32 @@ msgid ""
 "ruksi, josta painamalla valinnan voi poistaa. Voit luoda näitä aineistoja, "
 "yllä olevilla välilehdillä."
 msgstr ""
+"You can select map marks, vector data and map images visible in poll in to "
+"these fields. By clicking the field you will open a list of attachable data. "
+"You can include data by clicking it (you can only see your own data, not "
+"others'). You can select multiple data to each field. There is a cross after "
+"data which you can remove by clicking. You can create data in interleafs "
+"above."
 
 #: \views\polls\modify.ctp:279;332 \views\polls\view.ctp:230
 msgid "Kysymykset"
-msgstr ""
+msgstr "Questions"
 
 #: \views\polls\modify.ctp:280;340
 msgid "Luo uusi kysymys"
-msgstr ""
+msgstr "Create new question"
 
 #: \views\polls\modify.ctp:281
 msgid ""
 "Luo uusi kysymys -painikkeesta voit luoda kysymyksiä kyselyyn. Kyselyssä "
 "tulee olla vähintään yksi kysymys, että se voidaan tallentaa."
 msgstr ""
+"By clicking Create new question button you can create questions to poll. "
+"There has to be at least one question in the poll for it to be published."
 
 #: \views\polls\modify.ctp:282
 msgid "Kysymyksen otsikko"
-msgstr ""
+msgstr "Headline of the question"
 
 #: \views\polls\modify.ctp:283
 msgid ""
@@ -1775,14 +1828,18 @@ msgid ""
 "tiedot ja poista painike poistaa kyseisen kysymyksen kyselystä. Voit "
 "uudellenjärjestää kysymyksiä vetämällä niitä otsikosta uuteen järjestykseen."
 msgstr ""
+"In the question headline there is a question serial number, question text "
+"and show and remove buttons. Remove button dimishes or opens question "
+"information and remove button removes the question. You can rearrange "
+"questions by dragging them from headlines."
 
 #: \views\polls\modify.ctp:284
 msgid "Kysymysteksti (pakollinen)"
-msgstr ""
+msgstr "Question text (compulsory)"
 
 #: \views\polls\modify.ctp:285
 msgid "Kysymysteksti, joka näkyy vastaajalle vastatessa kyysmykseen."
-msgstr ""
+msgstr "Question text visible to respondent when answering to the question."
 
 #: \views\polls\modify.ctp:287
 msgid ""
@@ -1796,6 +1853,13 @@ msgid ""
 "täytetyt kentät tulevat mukaan vastausvaihtoehdoiksi ja vähintään yksi "
 "kenttä tulee täyttää, että kusely voidaan tallentaa."
 msgstr ""
+"You can choose from the list what kind of text answer you want. 'No text "
+"answer', 'Text' and 'Yes, No, I can not say' do not give other options. To "
+"'1-5, I can not say' and '1-7, I can not say' options you have to add text "
+"to smallest and biggest values. To 'Multiple choise' you can choose the "
+"amount of options. To 'Something else, what?' option respondent can write "
+"the answer. Only fields that are filled are in the poll and you have to fill "
+"at least one field in order to publish the poll."
 
 #: \views\polls\modify.ctp:289
 msgid ""
@@ -1809,10 +1873,17 @@ msgid ""
 "'Valitse sijainti kartalta' painikkeen kautta voit kohdistaa kartan "
 "haluamaasi vastaussijaintiin."
 msgstr ""
+"You can choose from the list what kind of map answer you want. 'No map' "
+"option there will be no map. 'Map, no answer' option there will be a map but "
+"respondent can not add marks on it. With other options respondent can add on "
+"the map different kind of marks for response. In each option except 'No map' "
+"there will open a 'Location' extra options. To 'Coordinate' and 'Zoom level' "
+"fields you can write location of the response map or you can focus the "
+"locations from 'Choose location from the map' button."
 
 #: \views\polls\modify.ctp:290;519 \views\polls\view.ctp:268
 msgid "Vastaukset näkyvissä muille vastaajille"
-msgstr ""
+msgstr "Responses are visible to other respondents"
 
 #: \views\polls\modify.ctp:291
 msgid ""
@@ -1820,62 +1891,65 @@ msgid ""
 "mutta valittuasi 'Vastaukset näkyvissä muille vastaajille' -valinan "
 "kysymykseen aiemmin vastatut vastaukset näkyvät seuraaville vastaajille."
 msgstr ""
+"By default previous responses are not visible to next respondents, but if "
+"you check 'Responses visible to other respondents' box, previoius responses "
+"will be visible."
 
 #: \views\polls\modify.ctp:297
 msgid "Kyselyn nimi"
-msgstr ""
+msgstr "Poll name"
 
 #: \views\polls\modify.ctp:301
 msgid "Kyselyn kuvaus"
-msgstr ""
+msgstr "Poll description"
 
 #: \views\polls\modify.ctp:302
 msgid "Kyselyn kuvaus näkyy vastaajalle ennen kysymyksiä"
-msgstr ""
+msgstr "Poll description is visible to respondent before questions"
 
 #: \views\polls\modify.ctp:306 \views\polls\view.ctp:161
 msgid "Kiitosteksti"
-msgstr ""
+msgstr "Thank-you text"
 
 #: \views\polls\modify.ctp:307
 msgid "Kiitosteksti näkyy vastaajalle kysymysten jälkeen"
-msgstr ""
+msgstr "Thank-you text is visible to the respondent after questions"
 
 #: \views\polls\modify.ctp:312 \views\polls\view.ctp:142
 msgid "Kaikille avoin"
-msgstr ""
+msgstr "Open for everyone"
 
 #: \views\polls\modify.ctp:348
 msgid "Tallenna kysely"
-msgstr ""
+msgstr "Save poll"
 
 #: \views\polls\modify.ctp:382
 msgid "Näytä"
-msgstr ""
+msgstr "Show"
 
 #: \views\polls\modify.ctp:389
 msgid "Kysymysteksti"
-msgstr ""
+msgstr "Question text"
 
 #: \views\polls\modify.ctp:401
 msgid "Ääripäiden tekstit"
-msgstr ""
+msgstr "Extremities' text"
 
 #: \views\polls\modify.ctp:404
 msgid "Pienin"
-msgstr ""
+msgstr "Smallest"
 
 #: \views\polls\modify.ctp:410
 msgid "Suurin"
-msgstr ""
+msgstr "Largest"
 
 #: \views\polls\modify.ctp:421
 msgid "Vastauksen vaihtoehdot"
-msgstr ""
+msgstr "Options for response"
 
 #: \views\polls\modify.ctp:422
 msgid "HUOM: Täytä niin monta kenttää kuin haluat vaihtoehtoja"
-msgstr ""
+msgstr "NOTE: Fill as many fields as you want options"
 
 #: \views\polls\modify.ctp:424
 msgid ""
@@ -1883,150 +1957,154 @@ msgid ""
 "vastaajalle näytetään tekstikenttä, johon hän voi kirjoittaa oman "
 "vaihtoehtonsa."
 msgstr ""
+"If you choose Something else, what? option, respondent will see a text field "
+"where he can write his own option."
 
 #: \views\polls\modify.ctp:429;435;441;447;453;459;465;471
 msgid "vaihtoehto"
-msgstr ""
+msgstr "option"
 
 #: \views\polls\modify.ctp:477
 msgid "Joku muu, mikä?"
-msgstr ""
+msgstr "Something else, what?"
 
 #: \views\polls\modify.ctp:498
 msgid "Valitse sijainti kartalta"
-msgstr ""
+msgstr "Choose location on the map"
 
 #: \views\polls\modify.ctp:502
 msgid "Koordinaatti"
-msgstr ""
+msgstr "Coordinate"
 
 #: \views\polls\modify.ctp:508 \views\polls\view.ctp:256
 msgid "Zoom-taso"
-msgstr ""
+msgstr "Zoom level"
 
 #: \views\polls\view.ctp:43
 msgid "Kokeile"
-msgstr ""
+msgstr "Try"
 
 #: \views\polls\view.ctp:51
 msgid ""
 "Voit kokeilla kyselyyn vastaamista ennen sen julkaisua. Kokeiluvastauksia ei "
 "tallenneta."
 msgstr ""
+"You can try answering the questions before publication. Trial responses will "
+"not be saved."
 
 #: \views\polls\view.ctp:55
 msgid "Aseta aukioloaika"
-msgstr ""
+msgstr "Set opening hours"
 
 #: \views\polls\view.ctp:62
 msgid "Määrittele mistä mihin kysely on vastattavissa."
-msgstr ""
+msgstr "Define starting and ending time of the poll."
 
 #: \views\polls\view.ctp:74
 msgid ""
 "Luo ja tarkastele varmenteita, joiden avulla kyselyyn vastaajat todennetaan."
-msgstr ""
+msgstr "Create and view certifications which identify the respondents."
 
 #: \views\polls\view.ctp:79
 msgid "Vastaukset"
-msgstr ""
+msgstr "Responses"
 
 #: \views\polls\view.ctp:86
 msgid "Tarkastele kyselyn vastauksia"
-msgstr ""
+msgstr "View poll responses"
 
 #: \views\polls\view.ctp:116
 msgid "Yleistiedot"
-msgstr ""
+msgstr "General information"
 
 #: \views\polls\view.ctp:123
 msgid "Aukioloaika"
-msgstr ""
+msgstr "Opening hours"
 
 #: \views\polls\view.ctp:133
 msgid "Ei päättymispäivää"
-msgstr ""
+msgstr "No ending date"
 
 #: \views\polls\view.ctp:136
 msgid "Ei aukioloaikaa"
-msgstr ""
+msgstr "No opening hours"
 
 #: \views\polls\view.ctp:146
 msgid "Muuta suljetuksi"
-msgstr ""
+msgstr "Change to closed"
 
 #: \views\polls\view.ctp:148
 msgid "Muuta kysely suljetuksi"
-msgstr ""
+msgstr "Change poll to closed"
 
 #: \views\polls\view.ctp:150
 msgid "Muuta avoimeksi"
-msgstr ""
+msgstr "Change to open"
 
 #: \views\polls\view.ctp:152
 msgid "Muuta kysely avoimeksi"
-msgstr ""
+msgstr "Change poll to open"
 
 #: \views\polls\view.ctp:157
 msgid "Kuvaus"
-msgstr ""
+msgstr "Description"
 
 #: \views\polls\view.ctp:165
 msgid "Vastausosoite"
-msgstr ""
+msgstr "Response address"
 
 #: \views\polls\view.ctp:169
 msgid "Katso varmenteet"
-msgstr ""
+msgstr "View certificates"
 
 #: \views\polls\view.ctp:198
 msgid "Kyselyn yhteydessä ei ole näytettäviä karttamerkkejä"
-msgstr ""
+msgstr "There are no observable poll related map marks"
 
 #: \views\polls\view.ctp:212
 msgid "Kyselyn yhteydessä ei ole näytettäviä viivoja tai alueita"
-msgstr ""
+msgstr "There are no observable poll related tracks or areas"
 
 #: \views\polls\view.ctp:226
 msgid "Kyselyn yhteydessä ei ole näytettäviä karttakuvia"
-msgstr ""
+msgstr "There are no observable poll related map images"
 
 #: \views\requests\add.ctp:62
 msgid "Lähetä tukipyyntö"
-msgstr ""
+msgstr "Send support request"
 
 #: \views\requests\add.ctp:66
 msgid "Tukipyyntösi"
-msgstr ""
+msgstr "Your support request"
 
 #: \views\requests\add.ctp:73
 msgid "Tukipyynnön on oltava vähintään 10 merkkiä pitkä"
-msgstr ""
+msgstr "Support request has to be at least 10 characters long"
 
 #: \views\requests\add.ctp:97
 msgid "Lähetä"
-msgstr ""
+msgstr "Send"
 
 #: \views\requests\index.ctp:44 \views\requests\viewcomplited.ctp:43
 msgid "Merkitse"
-msgstr ""
+msgstr "Mark"
 
 #: \views\requests\index.ctp:78
 msgid "Käsitellyksi"
-msgstr ""
+msgstr "Processed"
 
 #: \views\requests\index.ctp:86
 msgid "Merkitse tukioyyntö käsitellyksi"
-msgstr ""
+msgstr "Mark support request as processed"
 
 #: \views\requests\viewcomplited.ctp:77
 msgid "Käsittelemättömäksi"
-msgstr ""
+msgstr "Unprocessed"
 
 #: \views\requests\viewcomplited.ctp:85
 msgid "Merkitse tukipyyntö käsittelemättömäksi"
-msgstr ""
+msgstr "Mark support request as unprosessed"
 
 #: \webroot\test.php:88
 msgid "Debug setting does not allow access to this url."
-msgstr ""
+msgstr "Debug setting does not allow access to this url."

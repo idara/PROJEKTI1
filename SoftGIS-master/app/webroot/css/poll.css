@@ -65,6 +65,7 @@ a {
 
 #navbar {
   max-width: 870px;
+  text-align:center;
   margin: 0 auto; }
   #navbar ul {
     margin: 0; }
