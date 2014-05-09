@@ -33,9 +33,15 @@ class Author extends AppModel
 				)
 			),
 			'email' => array(
-				'rule' => 'email',
-				'message' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi', true)
-			)
+				'isUnique' => array(
+					'rule' => 'isUnique',
+					'message' => __('Sähköpostiosoite on jo käytössä.', true)
+				),
+				'isEmail' => array(
+					'rule' => 'email',
+					'message' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi', true)
+				)
+			),
 		);
 	}
 }
