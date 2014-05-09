@@ -544,7 +544,7 @@
 		
 		//CSV
 		//document.getElementById("csv").innerHTML = csvData;
-        document.getElementById("csv_lataus").href = "data:application/csv;charset=utf-8," + "sep=,%0A" + csvData.replace(/\n/g,'%0A');
+        document.getElementById("csv_lataus").href = "data:application/csv;charset=utf-8," + "sep=,%0A" + csvData.replace(/\n/g,'%0A').replace(/ /g,'%20');
         document.getElementById("csv_lataus").download = pollNam.replace(/ /g,"_") + '_vastaukset.csv';
 		
 		//MIF

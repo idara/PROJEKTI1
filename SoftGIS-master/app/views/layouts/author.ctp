@@ -134,13 +134,16 @@ $( document ).ready(function() {
                 array('class' => 'button')
             );?>
 			<?php
-				if($accessToUserControl==1)
+				if(isset($accessToUserControl))
 				{
-					echo $this->Html->link(
-						__('Käyttäjähallinta', true),
-						array('controller' => 'authors', 'action' => 'view'),
-						array('class' => 'button cancel')
-					);
+					if($accessToUserControl==1)
+					{
+						echo $this->Html->link(
+							__('Käyttäjähallinta', true),
+							array('controller' => 'authors', 'action' => 'view'),
+							array('class' => 'button cancel')
+						);
+					}
 				}
 			?>
 			<?php echo $this->Html->link(

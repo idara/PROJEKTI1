@@ -4,6 +4,10 @@ class RequestsController extends AppController
 {
 	var $name = 'Requests';
 	
+	function beforeFilter() {
+        $this->Auth->allow('forgotpassword');
+	}
+	
 	//  Tukipyynnöt
 
 	//Avoimien tukipyyntöjen listaus
@@ -92,6 +96,33 @@ class RequestsController extends AppController
 		
 		//Asetetaan layout -> Navigointi näkyviin
 		$this->layout = 'author';
+		
+		//Asetetaan sivun otsikko
+		$this->set('title_for_layout', __(' - Lähetä tukipyyntö', true));
+	}
+	
+	//Salasana unohtunut -> Uuden salasanan pyytäminen kirjautumissivulta
+	function forgotpassword() {
+		
+		$this->set('timestamp', date("Y-m-d H:i:s"));
+	
+		if (!empty($this->data))
+		{
+			$this->Request->create();
+			
+			// Haetaan käyttäjän id sähköpostiosoitteen perusteella
+			//$this->Request->query("SELECT requests.author_id, authors.username, authors.email FROM requests INNER JOIN authors ON requests.author_id=authors.id GROUP BY requests.author_id;")
+			
+			if ($this->Request->save($this->data)) {
+				$this->Session->setFlash(__('Salasanan uusimispyyntö lähetetty', true));
+				$this->redirect(array('controller' => 'authors', 'action' => 'profile'));
+			} else {
+				$this->Session->setFlash(__('Salasanan uusimispyyntöä ei voitu lähettää. Ole hyvä ja yritä uudestaan.', true));
+			}
+		}	
+		
+		//Asetetaan layout -> Navigointi näkyviin
+		//$this->layout = 'author';
 		
 		//Asetetaan sivun otsikko
 		$this->set('title_for_layout', __(' - Lähetä tukipyyntö', true));
