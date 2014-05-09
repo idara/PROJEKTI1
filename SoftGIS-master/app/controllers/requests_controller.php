@@ -73,6 +73,9 @@ class RequestsController extends AppController
 	//Uuden tukipyynnön lähettäminen
 	function add() {
 		
+		// Sähköpostiosoitteen syöttämisen muistutus
+		$this->set('emailLen', strlen($this->Auth->user('email')));
+		
 		$this->set('AuthorizedUserId', $this->Auth->user('id'));
 		$this->set('timestamp', date("Y-m-d H:i:s"));
 	

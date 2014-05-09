@@ -379,7 +379,7 @@ $( document ).ready(function() {
 			<div class="expand"><?php __('Poista'); ?></div>
 			</td>
             <td class="button" data-bind="click: toggle">
-                <div class="expand"><?php __('Näytä'); ?></div>
+                <div class="expand"  data-bind="click: toggle"><?php __('Näytä'); ?></div>
             </td>
         </tr>
     </table>

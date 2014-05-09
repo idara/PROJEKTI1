@@ -61,7 +61,17 @@
 
 <h3><?php __('Lähetä tukipyyntö'); ?></h3><br>
 
-<!-- Lomake ryhmän luomiselle -->
+<?php
+	//  Ilmoitus sähköpostiosoitteen puuttumisesta
+	if($emailLen==0)
+	{
+		echo ("<div class=\"emailNotification\">");
+		echo (__('Et ole lisännyt sähköpostiosoitettasi järjestelmään. Järjestelmänvalvojat eivät voi vastata tukipyyntöösi ennen kuin olet lisännyt sähköpostiosoitteesi järjestelmään.'));
+		echo ("</div><br>");
+	}
+?>
+
+<!-- Lomake tukipyynnön luomiselle -->
 <?php
 	$textareaLabel = __('Tukipyyntösi', true) . "<span id=\"counter\" style=\"float:right;\"><span>0</span> / 65535</span>";
 

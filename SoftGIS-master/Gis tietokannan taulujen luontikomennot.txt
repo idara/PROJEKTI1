@@ -13,8 +13,25 @@ CREATE TABLE `authors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `group_id` int(11) NOT NULL,
+  `email` tinytext DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+INSERT INTO `authors` (`id`, `username`, `password`, `group_id`, `email`) VALUES
+(1, 'admin', MD5('admin'), 1, 'admin@osoite.fi');
+
+CREATE TABLE `groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `groupname` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `groups` (`id`, `groupname`) VALUES
+(1, 'Admins');
+
+INSERT INTO `groups` (`id`, `groupname`) VALUES
+(2, 'Users');
 
 CREATE TABLE `hashes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

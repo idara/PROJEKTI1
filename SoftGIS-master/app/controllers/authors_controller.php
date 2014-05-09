@@ -35,29 +35,39 @@ class AuthorsController extends AppController
 		
 				$this->data['Author']['group_id'] = $lowestGroup['0']['groups']['id'];
 				
-				// Tarkistetaan salasanojen oikeinkirjoitus
-				if(strcmp($this->data['Author']['password'], $this->Auth->password($this->data['Author']['passwordRetyped']))==0)
+				if( (isset($this->data['Author']['pw'])) AND (strlen($this->data['Author']['pw'])!=0) )
 				{
-					if ($this->Author->save($this->data)) {
-						$this->Session->setFlash(__('Rekisteröinti onnistui<br>Voit nyt kirjautua sisään', true));
-						//$this->Session->setFlash(__('Rekisteröinti onnistui'));
-						//$this->Session->setFlash(__('Voit nyt kirjautua sisään'));
-						$this->redirect(array('action' => 'login'));
-					} else {
-						$this->data['Author']['password'] = '';
+					$this->data['Author']['password'] = $this->Auth->password($this->data['Author']['pw']);
+					
+					// Tarkistetaan salasanojen oikeinkirjoitus
+					if(strcmp($this->data['Author']['password'], $this->Auth->password($this->data['Author']['passwordRetyped']))==0)
+					{
+						if ($this->Author->save($this->data)) {
+							$this->Session->setFlash(__('Rekisteröinti onnistui<br>Voit nyt kirjautua sisään', true));
+							//$this->Session->setFlash(__('Rekisteröinti onnistui'));
+							//$this->Session->setFlash(__('Voit nyt kirjautua sisään'));
+							$this->redirect(array('action' => 'login'));
+						} else {
+							$this->data['Author']['password'] = '';
+						}
+					}
+					else
+					{
+						//$this->Session->setFlash(__('Salasanat eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
+						//$this->redirect(array('action' => 'add
+						
+						$this->Session->setFlash(__('Rekisteröinti ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+						$this->Author->invalidate( 'passwordRetyped', __('Salasanat eivät täsmää.', true) );
+						
+						//Tyhjennetään salasanakentät
+						$this->data['Author']['password']="";
+						$this->data['Author']['passwordRetyped']="";
 					}
 				}
 				else
 				{
-					//$this->Session->setFlash(__('Salasanat eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
-					//$this->redirect(array('action' => 'add
-					
 					$this->Session->setFlash(__('Rekisteröinti ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
-					$this->Author->invalidate( 'passwordRetyped', __('Salasanat eivät täsmää.', true) );
-					
-					//Tyhjennetään salasanakentät
-					$this->data['Author']['password']="";
-					$this->data['Author']['passwordRetyped']="";
+					$this->Author->invalidate( 'pw', __('Salasana on pakollinen.', true) );
 				}
             } else {
                 $this->data['Author']['password'] = '';
@@ -126,55 +136,64 @@ class AuthorsController extends AppController
 			if (!empty($this->data)) {
 				$this->Author->create();
 				
-			/*	$this->Session->setFlash(
-					"Tunnus: " . $this->data['Author']['username'] . 
-					"<br><br>Salasana: " . $this->data['Author']['password'] . 
-					"<br>Varmistus: " . $this->Auth->password($this->data['Author']['passwordRetyped']) . 
-					"<br><br>Email: " . $this->data['Author']['email'] . 
-					"<br>Varmistus: " . $this->data['Author']['emailRetyped']);
-			*/	
-				// Tarkistetaan salasanojen oikeinkirjoitus
-				if(strcmp($this->data['Author']['password'], $this->Auth->password($this->data['Author']['passwordRetyped']))==0)
+				if( (isset($this->data['Author']['pw'])) AND (strlen($this->data['Author']['pw'])!=0) )
 				{
-					// Tarkistetaan sähköpostiosoitteiden oikeinkirjoitus
-					if(strcmp($this->data['Author']['email'], $this->data['Author']['emailRetyped'])==0)
+					$this->data['Author']['password'] = $this->Auth->password($this->data['Author']['pw']);
+				
+					/*	$this->Session->setFlash(
+							"Tunnus: " . $this->data['Author']['username'] . 
+							"<br><br>Salasana: " . $this->data['Author']['password'] . 
+							"<br>Varmistus: " . $this->Auth->password($this->data['Author']['passwordRetyped']) . 
+							"<br><br>Email: " . $this->data['Author']['email'] . 
+							"<br>Varmistus: " . $this->data['Author']['emailRetyped']);
+					*/	
+					// Tarkistetaan salasanojen oikeinkirjoitus
+					if(strcmp($this->data['Author']['password'], $this->Auth->password($this->data['Author']['passwordRetyped']))==0)
 					{
-						if ($this->Author->save($this->data)) {
-							$this->Session->setFlash(__('Uusi käyttäjä lisätty', true));
-							$this->redirect(array('action' => 'view'));
-						} else {
-							$this->Session->setFlash(__('Uutta käyttäjää ei voitu lisätä. Ole hyvä ja yritä uudestaan.', true));
-							//Tyhjennetään salasanakentät
-							$this->data['Author']['password']="";
-							$this->data['Author']['passwordRetyped']="";
+						// Tarkistetaan sähköpostiosoitteiden oikeinkirjoitus
+						if(strcmp($this->data['Author']['email'], $this->data['Author']['emailRetyped'])==0)
+						{
+							if ($this->Author->save($this->data)) {
+								$this->Session->setFlash(__('Uusi käyttäjä lisätty', true));
+								$this->redirect(array('action' => 'view'));
+							} else {
+								$this->Session->setFlash(__('Uutta käyttäjää ei voitu lisätä. Ole hyvä ja yritä uudestaan.', true));
+								//Tyhjennetään salasanakentät
+								$this->data['Author']['password']="";
+								$this->data['Author']['passwordRetyped']="";
+							}
+						}
+						else
+						{
+						//$this->Session->setFlash(__('Sähköpostiosoitteet eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
+						//$this->redirect(array('action' => 'add'));
+						
+						$this->Session->setFlash(__('Uutta käyttäjää ei voitu lisätä. Ole hyvä ja yritä uudestaan.', true));
+						$this->Author->invalidate( 'emailRetyped', __('Sähköpostiosoitteet eivät täsmää.', true) );
+						
+						//Tyhjennetään salasanakentät
+						$this->data['Author']['password']="";
+						$this->data['Author']['passwordRetyped']="";
 						}
 					}
 					else
 					{
-					//$this->Session->setFlash(__('Sähköpostiosoitteet eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
-					//$this->redirect(array('action' => 'add'));
-					
-					$this->Session->setFlash(__('Uutta käyttäjää ei voitu lisätä. Ole hyvä ja yritä uudestaan.', true));
-					$this->Author->invalidate( 'emailRetyped', __('Sähköpostiosoitteet eivät täsmää.', true) );
-					
-					//Tyhjennetään salasanakentät
-					$this->data['Author']['password']="";
-					$this->data['Author']['passwordRetyped']="";
+						//$this->Session->setFlash(__('Salasanat eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
+						//$this->redirect(array('action' => 'add
+						
+						$this->Session->setFlash(__('Uutta käyttäjää ei voitu lisätä. Ole hyvä ja yritä uudestaan.', true));
+						$this->Author->invalidate( 'passwordRetyped', __('Salasanat eivät täsmää.', true) );
+						
+						//Tyhjennetään salasanakentät
+						$this->data['Author']['password']="";
+						$this->data['Author']['passwordRetyped']="";
 					}
 				}
 				else
 				{
-					//$this->Session->setFlash(__('Salasanat eivät täsmää.', true) . " " . __('Käyttäjää ei luotu.', true));
-					//$this->redirect(array('action' => 'add
-					
-					$this->Session->setFlash(__('Uutta käyttäjää ei voitu lisätä. Ole hyvä ja yritä uudestaan.', true));
-					$this->Author->invalidate( 'passwordRetyped', __('Salasanat eivät täsmää.', true) );
-					
-					//Tyhjennetään salasanakentät
-					$this->data['Author']['password']="";
-					$this->data['Author']['passwordRetyped']="";
+					$this->Session->setFlash(__('Rekisteröinti ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+					$this->Author->invalidate( 'pw', __('Salasana on pakollinen.', true) );
 				}
-				
 			}
 			//$groups = $this->User->Group->find('list');
 			//$this->set(compact('groups'));
@@ -689,7 +708,7 @@ class AuthorsController extends AppController
 					$this->data['Author']['confirmPassword'] = '';
 					$this->data['Author']['pwd'] = "";
 					$this->data['Author']['retypedPassword'] = "";
-					$this->redirect(array('action' => 'password', $id));
+					$this->redirect(array('action' => 'profile_password', $id));
 				}
 			}
 			if (empty($this->data)) {
@@ -754,6 +773,67 @@ class AuthorsController extends AppController
 		}
 	}
 	
+	
+	//Profiili - Sähköpostiosoitteen muokkaaminen
+	function profile_email() {
+	
+		$id = $this->Auth->user('id');
+	
+		if(($this->Auth->user('id'))==$id)
+		{
+			if (!$id && empty($this->data)) {
+				$this->Session->setFlash(__('Käyttäjää ei löydy', true));
+				$this->redirect(array('action' => 'profile'));
+			}
+			if (!empty($this->data)) {
+			
+				//Authorized user's password
+				$AuthorizedPassword =  $this->Author->query("SELECT authors.password FROM authors WHERE authors.id=$editorId;");
+				$AuthorizedPassword = $AuthorizedPassword['0']['authors']['password'];
+			
+				//Confirm password
+				$confirmPassword = $this->Auth->password($this->data['Author']['confirmPassword']);
+		
+				// IF Authorized user's password == Confirm password
+				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
+				{
+					if ($this->Author->save($this->data)) {
+						$this->Session->setFlash(__('Käyttäjän sähköpostiosoitteeseen tehdyt muutokset on tallennettu', true));
+						$this->redirect(array('action' => 'profile'));
+					} else {
+						$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+					}
+				}
+				else
+				{
+					//$this->data['confirmPassword'] = '';
+					//$this->set('passwordWrong', true);
+					$this->Session->setFlash(__('Virheellinen salasanavarmistus. Muutoksia ei tallennettu.', true));
+					$this->data['Author']['confirmPassword'] = '';
+					//$this->data['Author']['pwd'] = "";
+					//$this->data['Author']['retypedPassword'] = "";
+					$this->redirect(array('action' => 'profile_email', $id));
+				}
+			}
+			if (empty($this->data)) {
+				$this->data = $this->Author->read(null, $id);
+			}
+			
+			//Käyttäjän tiedot näkymälle tulostettavaksi
+			$this->set('user', $this->Author->read(null, $id));
+			
+			//Asetetaan layout -> Navigointi näkyviin
+			$this->layout = 'author';
+			
+			//Asetetaan sivun otsikko
+			$this->set('title_for_layout', __(' - Muokkaa omaa sähköpostiosoitettasi', true));
+		}
+		else
+		{
+			$this->Session->setFlash(__('Sinulla ei ole oikeutta käyttäjienhallintaan.', true));
+			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
+		}
+	}
 	
 	//Ryhmän vaihtaminen
 	function profile_group() {

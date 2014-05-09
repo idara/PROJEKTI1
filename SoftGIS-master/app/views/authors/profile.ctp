@@ -21,7 +21,23 @@
 			style: {
 				classes: "ui-tooltip-help ui-tooltip-shadow"
 			}
-		});		
+		});	
+
+		//Title -> tooltip FOR IMAGE
+		$('img[title]').qtip({
+			show: {
+				delay: 300
+			},
+			position: {
+				my: "bottom center",
+				at: "top center"
+				// my: "right center",
+				// at: "left center"
+			},
+			style: {
+				classes: "ui-tooltip-help ui-tooltip-shadow"
+			}
+		});	
 	});
 </script>
 
@@ -70,11 +86,11 @@
 			<!-- Linkki salasanan muokkaamiseen -->
 			<?php
 				echo $this->Html->link(
-					__('Vaihda salasana', true),
+					__('Salasana', true),
 					array(
 						'controller' => 'authors',
 						'action' => 'profile_password',
-						$author['0']['authors']['id']
+						//$author['0']['authors']['id']
 					),
 					array(
 						'class' => 'button small profileEditButton',
@@ -82,6 +98,23 @@
 					)
 				);
 			?>
+			
+			<!-- Linkki ryhmän muokkaamiseen -->
+			<?php
+				echo $this->Html->link(
+					__('Sähköposti', true),
+					array(
+						'controller' => 'authors',
+						'action' => 'profile_email',
+						//$author['0']['authors']['id']
+					),
+					array(
+						'class' => 'button small profileEditButton',
+						'title' => __('Vaihda sähköpostiosoitettasi', true)
+					)
+				);
+			?>
+			
 			
 			<!-- Linkki ryhmän muokkaamiseen -->
 				<?php
@@ -147,9 +180,9 @@
 				Yhteensä
 				<?php
 					echo $this->Html->image(
-						'information-icon.png',
+						'helpsmall.png',
 						array(
-							'alt' => 'CakePHP',
+							'alt' => 'infoIcon',
 							'class' => 'infoIcon',
 							'title' => __('Käyttäjän kaikkien kyselyiden yhteismäärä', true)
 						)
@@ -168,9 +201,9 @@
 				Julkisia
 				<?php
 					echo $this->Html->image(
-						'information-icon.png',
+						'helpsmall.png',
 						array(
-							'alt' => 'CakePHP',
+							'alt' => 'infoIcon',
 							'class' => 'infoIcon',
 							'title' => __('Käyttäjän julkisten kyselyiden määrä', true)
 						)
@@ -189,9 +222,9 @@
 				Aktiivisia
 				<?php
 					echo $this->Html->image(
-						'information-icon.png',
+						'helpsmall.png',
 						array(
-							'alt' => 'CakePHP',
+							'alt' => 'infoIcon',
 							'class' => 'infoIcon',
 							'title' => __('Käyttäjän avoimien kyselyiden määrä', true)
 						)

@@ -34,6 +34,8 @@
 		
 	} // / createCSV
 	
+	
+	// createMIF()
 	function createMIF()
 	{
 		// http://resource.mapinfo.com/static/files/document/1074660800077/interchange_file.pdf
@@ -46,9 +48,174 @@
 		var textanswertype = '';
 
 		//header
+		text = text + "VERSION 300\nCHARSET \"UTF-8\" \nDELIMITER \",\" \nCoordSys Earth Projection 1, 104\n";
+		text = text + "\nCOLUMNS 5 \nQUESTIONNUM char (65535) \nQUESTION char (65535) \nMAPANSWERTYPE char (65535) \nTEXTANSWERTYPE char (65535) \nTEXTANSWER char (65535) \n";
+		text = text + "\nDATA";
+
+		//answers
+		for (var i = 0; i < responses.length; i++) {
+			//text = text + responses[i].date;
+			for (var x = 0; x < responses[i].answer.length; x++) {
+				var map = responses[i].answer[x].map; //if the old database does not contain a value at map.
+				if (map) {
+					map = google.maps.geometry.encoding.decodePath(map).toString();
+				} else {
+					map = "";
+				}
+				
+				// Käännetään koordinaattipari oikein päin paikkatietoohjelmistoille
+				map = map.split("),(");
+				var tuloste = "";
+				var mapPrintable = "";
+				for (var k = 0; k < map.length; k++)
+				{
+					//Turhat merkit pois
+					map[k] = map[k].replace(/\(/g,"").replace(/\)/g,"");
+					map[k] = map[k].split(", ");
+					tmp0 = map[k][0];
+					tmp1 = map[k][1];
+					map[k] = tmp1 + " " + tmp0;
+					
+					mapPrintable = mapPrintable + map[k] + "\n";
+				}
+				
+				/*
+				Karttavastauksen tyyppi:
+				0 = Ei karttaa
+				1 = Kartta, ei vastausta
+				2 = Kartta, 1 merkki
+				3 = Kartta, monta merkkiä
+				4 = Kartta, viiva
+				5 = Kartta, alue
+				
+				Tekstivastauksen tyyppi:
+				0 = Ei tekstivastausta
+				1 = Teksti
+				2 = Kyllä, Ei, En osaa sanoa
+				3 = 1 - 5, En osaa sanoa
+				4 = 1 - 7, en osaa sanoa
+				5 = Monivalinta (max 9)
+				
+				MID-Tiedosto
+					COLUMNS 5
+						QUESTIONNUM integer
+						QUESTION char (65535)
+						MAPANSWERTYPE integer
+						TEXTANSWERTYPE integer
+						TEXTANSWER char (65535)
+				*/
+				
+
+				
+				// Karttavastauksen tyypin muunto
+				if(head.answer[x].map == 0)
+				{
+					mapanswertype = '<?php echo __('Ei karttaa', true); ?>';
+				}
+				else if(head.answer[x].map == 1)
+				{
+					mapanswertype = '<?php echo __('Kartta, ei vastausta', true); ?>';
+				}
+				else if(head.answer[x].map == 2)
+				{
+					mapanswertype = '<?php echo __('Kartta, 1 merkki', true); ?>';
+				}
+				else if(head.answer[x].map == 3)
+				{
+					mapanswertype = '<?php echo __('Kartta, monta merkkiä', true); ?>';
+				}
+				else if(head.answer[x].map == 4)
+				{
+					mapanswertype = '<?php echo __('Kartta, viiva', true); ?>';
+				}
+				else if(head.answer[x].map == 5)
+				{
+					mapanswertype = '<?php echo __('Kartta, alue', true); ?>';
+				}
+				
+				// Tekstivastauksen tyypin muunto
+				if(head.answer[x].text == 0)
+				{
+					textanswertype = '<?php echo __('Ei tekstivastausta', true); ?>';
+				}
+				else if(head.answer[x].text == 1)
+				{
+					textanswertype = '<?php echo __('Teksti', true); ?>';
+				}
+				else if(head.answer[x].text == 2)
+				{
+					textanswertype = '<?php echo __('Kyllä, Ei, En osaa sanoa', true); ?>';
+				}
+				else if(head.answer[x].text == 3)
+				{
+					textanswertype = '<?php echo __('1 - 5, En osaa sanoa', true); ?>';
+				}
+				else if(head.answer[x].text == 4)
+				{
+					textanswertype = '<?php echo __('1 - 7, En osaa sanoa', true); ?>';
+				}
+				else if(head.answer[x].text == 5)
+				{
+					textanswertype = '<?php echo __('Monivalinta (max 9)', true); ?>';
+				}
+				
+				// Luodaan rivi MID-tiedostoon
+				mid_text = mid_text + head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""') + ',\n';
+				
+				// Koordinaattien lukumäärä
+				var pointCount = map.length;
+
+				// Muotoillaan tiedostoon lisättävä rivi kyskymystyypin mukaan
+				if(head.answer[x].map == 0) // Ei karttaa
+				{
+					//text = text + '\n' + '\nEi karttaa \n' + pointCount + '\n' + mapPrintable + '\n';
+				}
+				else if(head.answer[x].map == 1) // Kartta, ei vastausta
+				{
+					//text = text + '\nKartta, ei vastausta \n' + pointCount + '\n' + mapPrintable + '\n';
+				}
+				else if(head.answer[x].map == 2) // Kartta, 1 merkki
+				{
+					text = text + '\nPOINT ' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
+				}
+				else if(head.answer[x].map == 3) // Kartta, monta merkkiä
+				{
+					text = text + '\nMULTIPOINT ' + pointCount + '\n' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
+				}
+				else if(head.answer[x].map == 4) // Kartta, viiva
+				{
+					text = text + '\nPLINE \n' + pointCount + '\n' + mapPrintable + 'PEN (2,2,0)\n';
+				}
+				else if(head.answer[x].map == 5) // Kartta, alue
+				{
+					text = text + '\nREGION 1 \n' + pointCount + '\n' + mapPrintable + 'PEN (2,2,0)\nBRUSH (1,0,65280)\n';
+				}
+			}
+		}
 		
-		text = text + "VERSION 300\nCHARSET \"UTF-8\" \nDELIMITER \";\" \nCoordSys Earth Projection 1, 104 \n";
-		text = text + "\nCOLUMNS 5 \nQUESTIONNUM integer \nQUESTION char (65535) \nMAPANSWERTYPE integer \nTEXTANSWERTYPE integer \nTEXTANSWER char (65535) \n";
+		var fileData = new Array(2);
+		fileData['mif'] = text;
+        fileData['mid'] = mid_text;
+		
+		return fileData;
+		
+	} //  / createMIF()
+	
+	// createMIF2()
+	function createMIF2()
+	{
+		// http://resource.mapinfo.com/static/files/document/1074660800077/interchange_file.pdf
+
+		var responses = <?php echo json_encode($answers); ?>;
+		var head = <?php echo json_encode($header); ?>;
+		var text = "";
+		var mid_text = "";
+		var mapanswertype = '';
+		var textanswertype = '';
+
+		//header
+		text = text + "VERSION 300\nCHARSET \"UTF-8\" \nDELIMITER \";\" \nCoordSys Earth Projection 1\; 104\n";
+		text = text + "\nCOLUMNS 5 \nQUESTIONNUM char (65535) \nQUESTION char (65535) \nMAPANSWERTYPE char (65535) \nTEXTANSWERTYPE char (65535) \nTEXTANSWER char (65535) \n";
 		text = text + "\nDATA";
 
 		//answers
@@ -159,7 +326,7 @@
 				}
 				
 				// Luodaan rivi MID-tiedostoon
-				mid_text = mid_text + head.answer[x].num + ';' + head.answer[x].questionText + ';' + mapanswertype + ';' + textanswertype + ';' + responses[i].answer[x].text.replace(/"/g,'""') + '\n';
+				mid_text = mid_text + head.answer[x].num + ';' + head.answer[x].questionText + ';' + mapanswertype + ';' + textanswertype + ';' + responses[i].answer[x].text.replace(/"/g,'""') + ';\n';
 				
 				// Koordinaattien lukumäärä
 				var pointCount = map.length;
@@ -174,6 +341,172 @@
 					//text = text + '\nKartta, ei vastausta \n' + pointCount + '\n' + mapPrintable + '\n';
 				}
 				else if(head.answer[x].map == 2) // Kartta, 1 merkki
+				{
+					text = text + '\nPOINT ' + mapPrintable + 'SYMBOL \(67;16711680;10\)\n';
+				}
+				else if(head.answer[x].map == 3) // Kartta, monta merkkiä
+				{
+					text = text + '\nMULTIPOINT ' + pointCount + '\n' + mapPrintable + 'SYMBOL \(67;16711680;10\)\n';
+				}
+				else if(head.answer[x].map == 4) // Kartta, viiva
+				{
+					text = text + '\nPLINE \n' + pointCount + '\n' + mapPrintable + 'PEN (2;2;0)\n';
+				}
+				else if(head.answer[x].map == 5) // Kartta, alue
+				{
+					text = text + '\nREGION 1 \n' + pointCount + '\n' + mapPrintable + 'PEN (2;2;0)\nBRUSH (1;0;65280)\n';
+				}
+			}
+		}
+		
+		var fileData = new Array(2);
+		fileData['mif'] = text;
+        fileData['mid'] = mid_text;
+		
+		return fileData;
+		
+	} //  / createMIF2()
+	
+	// createMIF3()
+	function createMIF3()
+	{
+		// http://resource.mapinfo.com/static/files/document/1074660800077/interchange_file.pdf
+
+		var responses = <?php echo json_encode($answers); ?>;
+		var head = <?php echo json_encode($header); ?>;
+		var text = "";
+		var mid_text = "";
+		var mapanswertype = '';
+		var textanswertype = '';
+
+		//header
+		text = text + "VERSION 300\nCHARSET \"UTF-8\" \nDELIMITER \",\" \nCoordSys Earth Projection 1\, 104\n";
+		text = text + "\nCOLUMNS 5 \nQUESTIONNUM char (65535) \nQUESTION char (65535) \nMAPANSWERTYPE char (65535) \nTEXTANSWERTYPE char (65535) \nTEXTANSWER char (65535) \n";
+		text = text + "\nDATA";
+
+		//answers
+		for (var i = 0; i < responses.length; i++) {
+			//text = text + responses[i].date;
+			for (var x = 0; x < responses[i].answer.length; x++) {
+				var map = responses[i].answer[x].map; //if the old database does not contain a value at map.
+				if (map) {
+					map = google.maps.geometry.encoding.decodePath(map).toString();
+				} else {
+					map = "";
+				}
+				
+				// Käännetään koordinaattipari oikein päin WGS84:lle
+				map = map.split("),(");
+				var tuloste = "";
+				var mapPrintable = "";
+				for (var k = 0; k < map.length; k++)
+				{
+					//Turhat merkit pois
+					map[k] = map[k].replace(/\(/g,"").replace(/\)/g,"");
+					map[k] = map[k].split(", ");
+					tmp0 = map[k][0];
+					tmp1 = map[k][1];
+					map[k] = tmp1 + " " + tmp0;
+					
+					mapPrintable = mapPrintable + map[k] + "\n";
+				}
+				
+				/*
+				Karttavastauksen tyyppi:
+				0 = Ei karttaa
+				1 = Kartta, ei vastausta
+				2 = Kartta, 1 merkki
+				3 = Kartta, monta merkkiä
+				4 = Kartta, viiva
+				5 = Kartta, alue
+				
+				Tekstivastauksen tyyppi:
+				0 = Ei tekstivastausta
+				1 = Teksti
+				2 = Kyllä, Ei, En osaa sanoa
+				3 = 1 - 5, En osaa sanoa
+				4 = 1 - 7, en osaa sanoa
+				5 = Monivalinta (max 9)
+				
+				MID-Tiedosto
+					COLUMNS 5
+						QUESTIONNUM integer
+						QUESTION char (65535)
+						MAPANSWERTYPE integer
+						TEXTANSWERTYPE integer
+						TEXTANSWER char (65535)
+				*/
+				
+
+				
+				// Karttavastauksen tyypin muunto
+				if(head.answer[x].map == 0)
+				{
+					mapanswertype = '<?php echo __('Ei karttaa', true); ?>';
+				}
+				else if(head.answer[x].map == 1)
+				{
+					mapanswertype = '<?php echo __('Kartta - ei vastausta', true); ?>';
+				}
+				else if(head.answer[x].map == 2)
+				{
+					mapanswertype = '<?php echo __('Kartta - 1 merkki', true); ?>';
+				}
+				else if(head.answer[x].map == 3)
+				{
+					mapanswertype = '<?php echo __('Kartta - monta merkkiä', true); ?>';
+				}
+				else if(head.answer[x].map == 4)
+				{
+					mapanswertype = '<?php echo __('Kartta - viiva', true); ?>';
+				}
+				else if(head.answer[x].map == 5)
+				{
+					mapanswertype = '<?php echo __('Kartta - alue', true); ?>';
+				}
+				
+				// Tekstivastauksen tyypin muunto
+				if(head.answer[x].text == 0)
+				{
+					textanswertype = '<?php echo __('Ei tekstivastausta', true); ?>';
+				}
+				else if(head.answer[x].text == 1)
+				{
+					textanswertype = '<?php echo __('Teksti', true); ?>';
+				}
+				else if(head.answer[x].text == 2)
+				{
+					textanswertype = '<?php echo __('Kyllä - Ei - En osaa sanoa', true); ?>';
+				}
+				else if(head.answer[x].text == 3)
+				{
+					textanswertype = '<?php echo __('1 - 5 - En osaa sanoa', true); ?>';
+				}
+				else if(head.answer[x].text == 4)
+				{
+					textanswertype = '<?php echo __('1 - 7 - En osaa sanoa', true); ?>';
+				}
+				else if(head.answer[x].text == 5)
+				{
+					textanswertype = '<?php echo __('Monivalinta (max 9)', true); ?>';
+				}
+				
+				// Luodaan rivi MID-tiedostoon
+				mid_text = mid_text + head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""').replace(/,/g,';') + '\n';
+				
+				// Koordinaattien lukumäärä
+				var pointCount = map.length;
+
+				// Muotoillaan tiedostoon lisättävä rivi kyskymystyypin mukaan
+				if(head.answer[x].map == 0) // Ei karttaa
+				{
+					//text = text + '\n' + '\nEi karttaa \n' + pointCount + '\n' + mapPrintable + '\n';
+				}
+				else if(head.answer[x].map == 1) // Kartta, ei vastausta
+				{
+					//text = text + '\nKartta - ei vastausta \n' + pointCount + '\n' + mapPrintable + '\n';
+				}
+				else if(head.answer[x].map == 2) // Kartta - 1 merkki
 				{
 					text = text + '\nPOINT ' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
 				}
@@ -198,11 +531,13 @@
 		
 		return fileData;
 		
-	} //  / createMIF()
+	} //  / createMIF3()
 
 	
 	var csvData = createCSV();
 	var mifData = createMIF();
+	var mifData2 = createMIF2();
+	var mifData3 = createMIF3();
 	
     function setContent() {
         //Update answer content according the arswers
@@ -214,13 +549,37 @@
 		
 		//MIF
         //document.getElementById("mif").innerHTML = mifData['mif'];
-        document.getElementById("mif_lataus").href = "data:application/mif;charset=utf-8," + mifData['mif'].replace(/\n/g,'%0A').replace(/ /g,'%20');
+        document.getElementById("mif_lataus").href = "data:application/mif;charset=utf-8," + mifData['mif'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
         document.getElementById("mif_lataus").download = pollNam.replace(/ /g,"_") + '_vastaukset.mif';
 		
 		//MID
 		//document.getElementById("mid").innerHTML = mifData['mid'];
-        document.getElementById("mid_lataus").href = "data:application/mid;charset=utf-8," + mifData['mid'].replace(/\n/g,'%0A').replace(/ /g,'%20');
+        document.getElementById("mid_lataus").href = "data:application/mid;charset=utf-8," + mifData['mid'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
         document.getElementById("mid_lataus").download = pollNam.replace(/ /g,"_") + '_vastaukset.mid';
+		
+		//========================================================
+		
+		//MIF 2
+        //document.getElementById("mif").innerHTML = mifData['mif'];
+        document.getElementById("mif_lataus2").href = "data:application/mif;charset=utf-8," + mifData2['mif'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
+        document.getElementById("mif_lataus2").download = pollNam.replace(/ /g,"_") + '_2_vastaukset.mif';
+		
+		//MID 2
+		//document.getElementById("mid").innerHTML = mifData['mid'];
+        document.getElementById("mid_lataus2").href = "data:application/mid;charset=utf-8," + mifData2['mid'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
+        document.getElementById("mid_lataus2").download = pollNam.replace(/ /g,"_") + '_2_vastaukset.mid';
+		
+		//========================================================
+		
+		//MIF 3
+        //document.getElementById("mif").innerHTML = mifData['mif'];
+        document.getElementById("mif_lataus3").href = "data:application/mif;charset=utf-8," + mifData3['mif'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
+        document.getElementById("mif_lataus3").download = pollNam.replace(/ /g,"_") + '_3_vastaukset.mif';
+		
+		//MID 3
+		//document.getElementById("mid").innerHTML = mifData['mid'];
+        document.getElementById("mid_lataus3").href = "data:application/mid;charset=utf-8," + mifData3['mid'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
+        document.getElementById("mid_lataus3").download = pollNam.replace(/ /g,"_") + '_3_vastaukset.mid';
     }
 	
 	
@@ -228,7 +587,7 @@
     window.addEventListener("load", setContent, false);
 </script>
 
-<h3>Lataa tulokset</h3>
+<h2><?php __('Vastaukset') ?></h2>
 
 <div class="subnav">
     <?php echo $this->Html->link(
@@ -241,6 +600,36 @@
             'class' => 'button'
         )
     ); ?>
+</div>
+
+<div style="background-color:yellow; padding:10px;">
+	<h3>MIF $ MID</h3>
+	<p>Versio 1
+	</p>
+	<ul>
+		<li>Erottimena: ,</li>
+		<li>Kaikki vastaukset haetaan <a href="http://www.qgis.org" target="_blank">QGis-ohjelmaan</a></li>
+		<li>Ongelma: Osa datasta jää pois objektin ominaisuuksista</li>
+		<li>Ongelmin syynä erottimena toimiva pilkku ja vastausten kirjoittamisessa käytettävät pilkut</li>
+	</ul>
+	
+	<br>
+	
+	<p>Versio 2</p>
+	<ul>
+		<li>Erottimena: ;</li>
+		<li>Vain ensimmäinen vastaus kuhunkin kysymykseen haetaan onnistuneesti <a href="http://www.qgis.org" target="_blank">QGis-ohjelmaan</a></li>
+		<li>Ongelman varsinainen syy on arvoitus. Joko ongelma on pelkästään QGIs-ohjelmassa, jolloin tämä versio saattaa toimia Mapinfon kanssa. Tai sitten kyseessä on laajempi ongelma ja versio ei toimi muissakaan paikkatieto-ohjelmissa.</li>
+	</ul>
+	
+	<br>
+	
+	<p>Versio 3</p>
+	<ul>
+		<li>Erottimena: ,</li>
+		<li>Kaikki vastaukset haetaan <a href="http://www.qgis.org" target="_blank">QGis-ohjelmaan</a> onnistuneesti</li>
+		<li>Version 1 ongelma kierretään korvaamalla käyttäjien kirjoittamista vastauksista pilkut puolipisteellä (tai muulla halutulla merkillä)</li>
+	</ul>
 </div>
 
 <div class="csv_area">
@@ -280,10 +669,22 @@
 
 <div class="mif_area">
     <h4><?php __('MapInfo Interchange Format'); ?></h4>
-
-    <a class="button" id="mif_lataus" download="example.mif" href="data:application/mif;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MIF-tiedosto'); ?></a>
-
-    <a class="button" id="mid_lataus" download="example.mid" href="data:application/mid;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MID-tiedosto'); ?></a>
+		
+    <a class="button" id="mif_lataus" download="example.mif" href="data:application/mif;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MIF-tiedosto versio 1'); ?></a>
+	
+	<a class="button" id="mid_lataus" download="example.mid" href="data:application/mid;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MID-tiedosto versio 1'); ?></a>
+	
+	<br>
+	
+	<a class="button" id="mif_lataus2" download="example.mif" href="data:application/mif;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MIF-tiedosto versio 2'); ?></a>
+	
+	<a class="button" id="mid_lataus2" download="example.mid" href="data:application/mid;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MID-tiedosto versio 2'); ?></a>
+	
+	<br>
+	
+	<a class="button" id="mif_lataus3" download="example.mif" href="data:application/mif;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MIF-tiedosto versio 3'); ?></a>
+	
+	<a class="button" id="mid_lataus3" download="example.mid" href="data:application/mid;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MID-tiedosto versio 3'); ?></a>
 
 	
 	<div class="help answersArea">
@@ -300,15 +701,15 @@
 				<td>300</td>
 			</tr>
 			<tr>
-				<td>nDELIMITER</td>
-				<td>;</td>
+				<td>DELIMITER</td>
+				<td>,</td>
 			</tr>
 			<tr>
 				<td>CoordSys</td>
 				<td>Earth Projection 1, 104</td>
 			</tr>
 			<tr>
-				<td>nCHARSET</td>
+				<td>CHARSET</td>
 				<td>utf-8</td>
 			</tr>
 		

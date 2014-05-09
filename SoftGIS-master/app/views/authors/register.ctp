@@ -24,7 +24,7 @@ $(document).ready(function() {
 	
 	echo ("<br><br>");
 	
-    echo $this->Form->input('password', array('label' => __('Salasana', true)));
+    echo $this->Form->input('pw', array('type'=>'password', 'label' => __('Salasana', true)));
 	echo $this->Form->input('passwordRetyped', array('type'=>'password', 'label' => __('Vahvista salasana', true), 'after'=> '<span class="afterInput">' . __('Kirjoitusvirheiden ehkäisemiseksi, syötä salasana molempiin kenttiin.', true) . '</span>'));
 	
 	echo ("<br><br>");

@@ -4,10 +4,16 @@ class AppController extends Controller
 {	
 	function beforeFilter()
 	{
-		// Default timezone
+		// Set Default timezone
 		// http://php.net/manual/en/function.date-default-timezone-set.php
+		// http://www.php.net/manual/en/timezones.php
+		// http://www.php.net/manual/en/timezones.others.php
 		// http://www.php.net/manual/en/timezones.europe.php
+		
 		date_default_timezone_set('Europe/Helsinki');
+		//date_default_timezone_set('UTC');
+		//date_default_timezone_set('GMT');
+		
 	
 		// Localization
 		// http://nuts-and-bolts-of-cakephp.com/tag/cakephp-localization/
@@ -44,9 +50,12 @@ class AppController extends Controller
 		
 		//    / Onko käyttäjällä oikeutta käyttäjähallintaan?
 		
-		// Käsittelemättömien tukipyyntöjen määrän näyttö
+		// Käsittelemättömien tukipyyntöjen määrän näyttö ja Sähköpostiosoitteen syöttämisen muistutus
 		if( (strcmp($this->params['action'], "login")!=0) && (strcmp($this->params['action'], "register")!=0) && (strcmp($this->params['action'], "logout")!=0) )
 		{
+			$notificationCount = 0;
+		
+			//Käsittelemättömien tukipyyntöjen määrä
 			if(($this->Auth->user('group_id'))==1)
 			{
 				$db = ConnectionManager::getInstance();
@@ -61,20 +70,56 @@ class AppController extends Controller
 				
 				if($uncompleteCount!=0)
 				{
-					$this->set('requestNotification', "<div class=\"notification\">" . $uncompleteCount . " " . __('käsittelemätöntä tukipyyntöä', true) . "</div>");
+					if($uncompleteCount==1)
+					{
+						if(!isset($notification))
+						{
+							$notification = "";
+						}
+						
+						$notification = $notification . $uncompleteCount . " " . __('käsittelemätön tukipyyntö', true);
+					}
+					else
+					{
+						if(!isset($notification))
+						{
+							$notification = "";
+						}
+						
+						$notification = $notification . $uncompleteCount . " " . __('käsittelemätöntä tukipyyntöä', true);
+					}
+					$notificationCount++;
+				}
+			}
+			
+			// Sähköpostiosoitteen syöttämisen muistutus
+			if(strlen($this->Auth->user('email'))==0)
+			{
+				if($notificationCount==0)
+				{
+					if(!isset($notification))
+					{
+						$notification = "";
+					}
+						
+					$notification = $notification . __('Muistathan lisätä sähköpostiosoitteen käyttäjätietoihisi.', true);
 				}
 				else
 				{
-					$this->set('requestNotification', "");
-				}
-				
-				/*
-					<div id="flashMessage" class="notification">
-						3 käsittelemätöntä tukipyyntöä 
-					</div>	
-				*/
+					if(!isset($notification))
+					{
+						$notification = "";
+					}
 					
-				//$this->Session->setFlash($uncompleteCount['0']['0']['count'] . ' ' . __('käsittelemätöntä tukipyyntöä', true), $element = 'notification_flash');
+					$notification = $notification . "<br>" . __('Muistathan lisätä sähköpostiosoitteen käyttäjätietoihisi.', true);
+				}
+				$notificationCount++;
+			}
+			
+			if(isset($notification))
+			{
+				$notification = "<div class=\"notification\">" . $notification . "</div>";
+				$this->set('userNotification', $notification);
 			}
 		}
 	}

@@ -39,6 +39,7 @@ $(document).ready(function() {
             'title' => __('Muokkaa kyselyä', true)
         )
     );
+	echo (" ");
     echo $this->Html->link(
         __('Kokeile', true),
         array(
@@ -51,6 +52,7 @@ $(document).ready(function() {
             'title' => __('Voit kokeilla kyselyyn vastaamista ennen sen julkaisua. Kokeiluvastauksia ei tallenneta.', true)
         )
     );
+	echo (" ");
     echo $this->Html->link(
         __('Aseta aukioloaika', true),
         array(
@@ -62,6 +64,7 @@ $(document).ready(function() {
             'title' => __('Määrittele mistä mihin kysely on vastattavissa.', true)
         )
     );
+	echo (" ");
     if ($poll['public'] == 0) {
         echo $this->Html->link(
             __('Varmenteet', true),
@@ -74,6 +77,7 @@ $(document).ready(function() {
                 'title' => __('Luo ja tarkastele varmenteita, joiden avulla kyselyyn vastaajat todennetaan.', true)
             )
         );
+		echo (" ");
     };
     echo $this->Html->link(
         __('Vastaukset', true),
@@ -86,6 +90,7 @@ $(document).ready(function() {
             'title' => __('Tarkastele kyselyn vastauksia', true)
         )
     );
+	echo (" ");
     echo $this->Html->link(
         __('Poista', true),
         array(
@@ -98,6 +103,7 @@ $(document).ready(function() {
         ),
         __('Oletko varma että haluat poistaa kyselyn?', true)
     );
+	echo (" ");
     echo $this->Html->link(
         __('Kopioi', true),
         array(

@@ -99,10 +99,10 @@ $( document ).ready(function() {
         </div>
 		
 		<?php
-			// Notification of uncompleted supportrequests
-			if(isset($requestNotification))
+			//  Ilmoitus käsittelemättömien tukipyyntöjen määrästä
+			if(isset($userNotification))
 			{
-				echo ($requestNotification);
+				echo ($userNotification);
 			}
 		?>
 

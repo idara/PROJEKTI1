@@ -105,6 +105,15 @@ div.notification
 	font-weight: bold;
 }
 
+div.emailNotification
+{
+	color: #fff;
+	background: #c73e14;
+	padding: 0.5em;
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
 div.message {
   clear: both;
   color: #fff;
@@ -596,5 +605,10 @@ table.listVertical {
 {
 	width:15px;
 	height:15px;
+}
+
+.morecontent span
+{
+    display: none;
 }
 /* /Profilepage */

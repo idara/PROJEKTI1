@@ -1,0 +1,22 @@
+Version 300
+Charset "Neutral"
+Delimiter ","
+CoordSys Earth Projection 1, 104
+Columns 5
+  QUESTIONNUM Char(254)
+  QUESTION Char(254)
+  MAPANSWERTYPE Char(254)
+  TEXTANSWERTYPE Char(254)
+  TEXTANSWER Char(254)
+Data
+
+Region 1
+  6
+25.52502 65.05361
+25.6287 65.01013
+25.58544 64.98285
+25.47009 64.97152
+25.38494 65.00897
+25.37258 65.06953
+    Pen (1,2,0)
+    Brush (1,0,16777215)

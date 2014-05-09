@@ -32,12 +32,6 @@ class Author extends AppModel
 					'message' => __('Käyttäjätunnus ei saa olla yli 50 merkkiä pitkä.', true)
 				)
 			),
-			'password' => array(
-				'notEmpty' => array(
-					'rule' => 'notEmpty',
-					'message' => __('Salasana ei voi olla tyhjä.', true)
-				)
-			),
 			'email' => array(
 				'rule' => 'email',
 				'message' => __('Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi', true)
