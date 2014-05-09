@@ -8,7 +8,7 @@
 <br/><br/><br/><br/>
 
 <?php if ($test): ?>
-    <h3><?php __('Huom. Testivastaus, vastauksia ei tallennettu'; ?></h3>
+    <h3><?php __('Huom. Testivastaus, vastauksia ei tallennettu'); ?></h3>
     <?php echo $this->Html->link(
         __('Takaisin kyselynäkymään', true),
         array(
