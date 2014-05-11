@@ -20,20 +20,26 @@ class Group extends AppModel
 		)
 	);
 	
-	public $validate = array(
-        'groupname' => array(
-            'isUnique' => array(
-                'rule' => 'isUnique',
-                'message' => 'Ryhmän nimi on varattu.'
-            ),
-            'minLength' => array(
-                'rule' => array('minLength', 3),
-                'message' => 'Ryhmän nimen täytyy olla vähintään 3 merkkiä pitkä.'
-            ),
-            'maxLength' => array(
-                'rule' => array('maxLength', 50),
-                'message' => 'Ryhmän nimi ei saa olla yli 50 merkkiä pitkä.'
-            )
-        )
-    );
+	
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->validate = array(
+			'groupname' => array(
+				'isUnique' => array(
+					'rule' => 'isUnique',
+					'message' => __('Ryhmän nimi on jo käytössä.', true)
+				),
+				'minLength' => array(
+					'rule' => array('minLength', 3),
+					'message' => __('Ryhmän nimen täytyy olla vähintään 3 merkkiä pitkä.', true)
+				),
+				'maxLength' => array(
+					'rule' => array('maxLength', 50),
+					'message' => __('Ryhmän nimi ei saa olla yli 50 merkkiä pitkä.', true)
+				)
+			)
+		);
+	}
 }

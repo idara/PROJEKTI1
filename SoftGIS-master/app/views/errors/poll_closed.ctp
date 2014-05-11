@@ -1,1 +1,1 @@
-<h3>Kysely on suljettu</h3>
+<h3><?php __('Kysely on suljettu'); ?></h3>

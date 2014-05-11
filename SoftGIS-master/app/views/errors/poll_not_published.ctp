@@ -1,1 +1,1 @@
-<h3>Kyselyä ei ole vielä julkaistu</h3>
+<h3><?php __('Kyselyä ei ole vielä julkaistu'); ?></h3>

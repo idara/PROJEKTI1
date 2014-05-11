@@ -38,18 +38,23 @@ class Poll extends AppModel
         )
     );
 
-    public $validate = array(
-        'name' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Anna kyselylle nimi'
-            ),
-            'unique' => array(
-                'rule' => array('uniqueByUser', 'author_id'),
-                'message' => 'Tämänniminen kysely on jo olemassa, kokeile toista nimeä.'
-            )
-        )
-    );
+    function __construct()
+	{
+		parent::__construct();
+
+		$this->validate = array(
+			'name' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Anna kyselylle nimi', true)
+				),
+				'unique' => array(
+					'rule' => array('uniqueByUser', 'author_id'),
+					'message' => __('Tämänniminen kysely on jo olemassa, kokeile toista nimeä.', true)
+				)
+			)
+		);
+	}
 
     function uniqueByUser($check, $field){
         //$check = automaattisesti tarkastettava kenttä, $field = käyttäjän tunniste

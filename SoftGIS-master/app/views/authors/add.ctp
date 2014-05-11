@@ -10,9 +10,21 @@
 	
     echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
-    echo $this->Form->input('username', array('label' => __('Käyttätunnus', true), 'title' => __('Käyttäjänimen on oltava vähintään 3 merkkiä pitkä', true)));
-    echo $this->Form->input('password', array('label' => __('Salasana', true)));
-
+    
+	echo $this->Form->input('username', array('label' => __('Käyttäjätunnus', true), 'autofocus' => 'autofocus', 'title' => __('Käyttäjätunnuksen on oltava vähintään 3 merkkiä pitkä', true), 'after'=> '<span class="afterInput">' . __('Syötä uuden käyttäjän käyttäjätunnus.', true) . '</span>'));
+	
+	echo ("<br><br>");
+    
+	echo $this->Form->input('pw', array('type'=>'password', 'label' => __('Salasana', true)));
+	echo $this->Form->input('passwordRetyped', array('type'=>'password', 'label' => __('Vahvista salasana', true), 'after'=> '<span class="afterInput">' . __('Kirjoitusvirheiden ehkäisemiseksi, syötä salasana molempiin kenttiin.', true) . '</span>'));
+	
+	echo ("<br><br>");
+	
+	echo $this->Form->input('email', array('label' => __('Sähköpostiosoite', true)));
+	echo $this->Form->input('emailRetyped', array('label' => __('Vahvista sähköpostiosoite', true), 'after'=> '<span class="afterInput">' . __('Kirjoitusvirheiden ehkäisemiseksi, syötä sähköpostiosoite molempiin kenttiin.', true) . '</span>'));
+	
+	echo ("<br><br>");
+	
 	//Luodaan select -elementille asetukset
 	$options = array();
 	//foreach ($groups as $group)// Poista kommentit tältä riviltä ja kommentoi alla oleva rivi, niin saat Select-elementin valinnat käänteiseen järjestykseen. Tarkista myös silmukan sisältö
@@ -27,6 +39,7 @@
 	echo $this->Form->select('group_id', $options, null, array('empty' => false));
 	
 	echo("<br><br>");
+	echo ("<br><br>");
 ?>
 <!-- Tallenna muutokset -->
 <button type="submit"><?php __('Lisää käyttäjä'); ?></button>

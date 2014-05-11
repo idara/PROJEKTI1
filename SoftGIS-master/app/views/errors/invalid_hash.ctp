@@ -1,1 +1,1 @@
-<h3>Tunnisteesi on virheellinen tai se on jo käytetty</h3>
+<h3><?php __('Tunnisteesi on virheellinen tai se on jo käytetty'); ?></h3>

@@ -39,7 +39,8 @@ a {
   display: none; }
 
 #header {
-  padding: 10px 20px 0 20px; }
+  padding: 10px 20px 0 20px;
+  margin-top:25px;  }
 
 #header h1 {
   padding: 0px 30px;
@@ -64,6 +65,7 @@ a {
 
 #navbar {
   max-width: 870px;
+  text-align:center;
   margin: 0 auto; }
   #navbar ul {
     margin: 0; }
@@ -79,7 +81,39 @@ div.subnav {
 div.info {
   width: 250px; }
 
+.langbar
+{
+	position:fixed;
+	top:0px;
+}
+
+.languageFlag
+{
+	width:30px;
+}
 /** Notices and Errors **/
+
+div.notification 
+{
+	position:fixed;
+	top:15px;
+	right:5px;
+	color: #fff;
+	background: #c73e14;
+	padding: 0.5em;
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
+div.emailNotification
+{
+	color: #fff;
+	background: #c73e14;
+	padding: 0.5em;
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
 div.message {
   clear: both;
   color: #fff;
@@ -163,6 +197,12 @@ div.input {
     border: 1px solid #c9c9c9;
     display: block;
     box-sizing: border-box; }
+
+.afterInput
+{
+	font-size:13px;
+	color:gray;
+}
 
 div.map-container div.map {
   width: 100%;
@@ -295,7 +335,49 @@ hr {
   margin-top: 2em;
   text-align: center; }
 
+  
+/* Poll -> answers */
+
+.csv_area
+{
+	width: 49%;
+	float:left;
+	text-align:center;
+}
+
+.mif_area
+{
+	width: 49%;
+	float:right;
+	text-align:center;
+}
+
+.right
+{
+	float:right;
+}
+
+
+table.helpTable
+{
+	
+}
+.helpTable td
+{
+	vertical-align:middle;
+	padding-bottom:5px;
+}
+
+.answersArea
+{
+	height:800px;
+	overflow-y:auto;
+}
+
+/* ---- */
+  
 .help {
+  text-align:justify;
   margin: 1em 0;
   padding: 16px 16px 16px 64px;
   clear: both;
@@ -523,5 +605,10 @@ table.listVertical {
 {
 	width:15px;
 	height:15px;
+}
+
+.morecontent span
+{
+    display: none;
 }
 /* /Profilepage */

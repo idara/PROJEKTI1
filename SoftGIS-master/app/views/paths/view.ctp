@@ -99,30 +99,30 @@ $( document ).ready(function() {
 </script>
 
 
-<h1>Aineiston tiedot</h1>
+<h1><?php __('Aineiston tiedot'); ?></h1>
     <div class="subnav">
         <?php 
             if ($this->data['Path']['author_id'] == $author) {
                 echo $this->Html->link(
-                    'muokkaa', 
+                    __('muokkaa', true), 
                     array('action' => 'edit', $this->data['Path']['id']),
-                    array('class' => 'button','title' => 'Muokkaa aineistoa')
+                    array('class' => 'button','title' => __('Muokkaa aineistoa', true))
                 );
             }
 
             echo $this->Html->link(
-                'kopioi', 
+                __('kopioi', true), 
                 array('action' => 'copy', $this->data['Path']['id']),
-                array('class' => 'button','title' => 'Kopioi aineisto'),
-                'Oletko varma että haluat kopioida aineiston?'
+                array('class' => 'button','title' => __('Kopioi aineisto', true)),
+                __('Oletko varma että haluat kopioida aineiston?', true)
             );
             
             if ($this->data['Path']['author_id'] == $author) {
                 echo $this->Html->link(
-                    'poista', 
+                    __('poista', true), 
                     array('action' => 'delete', $this->data['Path']['id']),
-                    array('class' => 'button','title' => 'Poista aineisto'),
-                    'Oletko varma että haluat poistaa aineiston?'
+                    array('class' => 'button','title' => __('Poista aineisto', true)),
+                    __('Oletko varma että haluat poistaa aineiston?', true)
                 );
             }
         ?>
@@ -134,27 +134,27 @@ $( document ).ready(function() {
 <div hidden>
     <?php echo $this->Form->input(
         'name', 
-        array('label' => 'Nimi')
+        array('label' => __('Nimi', true))
     ); ?>
     <?php echo $this->Form->input(
         'content', 
-        array('label' => 'Sisältö')
+        array('label' => __('Sisältö', true))
     ); ?>
     <?php echo $this->Form->input(
         'type', 
-        array('label' => 'Aineiston tyyppi', 'options' => array('none','Viiva', 'Alue'))
+        array('label' => __('Aineiston tyyppi', true), 'options' => array('none',__('Viiva', true), __('Alue', true)))
     ); ?>
     <?php echo $this->Form->input(
         'stroke_color', 
-        array('label' => 'Viivan väri', 'class' => 'color small')
+        array('label' => __('Viivan väri', true), 'class' => 'color small')
     ); ?>
     <?php echo $this->Form->input(
         'stroke_opacity', 
-        array('label' => 'Viivan opasitetti', 'class' => 'small')
+        array('label' => __('Viivan opasitetti', true), 'class' => 'small')
     ); ?>
     <?php echo $this->Form->input(
         'stroke_weight', 
-        array('label' => 'Viivan paksuus', 'class' => 'small')
+        array('label' => __('Viivan paksuus', true), 'class' => 'small')
     ); ?>
     <?php echo $this->Form->input(
         'fill_color', 
@@ -162,12 +162,12 @@ $( document ).ready(function() {
     );?>
     <?php echo $this->Form->input(
         'fill_opacity', 
-        array('label' => 'Täytön opasitetti', 'class' => 'small')
+        array('label' => __('Täytön opasitetti', true), 'class' => 'small')
     ); ?>
 
     <?php echo $this->Form->input(
         'coordinates', 
-        array('label' => 'Koordinaatit')
+        array('label' => __('Koordinaatit', true))
     ); ?>
 </div>
 <div class="input map-container">
@@ -177,7 +177,7 @@ $( document ).ready(function() {
 </div>
 
 <?php echo $this->Html->link(
-    'Takaisin',
+    __('Takaisin', true),
     array('action' => 'index'),
     array('class' => 'button cancel')
 ); ?>

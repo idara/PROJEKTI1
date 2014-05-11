@@ -1,27 +1,35 @@
-<h2>Viivat ja alueet</h2>
+<h2><?php __('Viivat ja alueet'); ?></h2>
 <div class="subnav">
     <?php echo $this->Html->link(
-        'Luo uusi aineisto',
+        __('Luo uusi aineisto', true),
         array('action' => 'edit'),
         array('class' => 'button')
     );
+	echo (" ");
     echo $this->Html->link(
-        'Tuo aineisto tiedostosta',
+        __('Tuo aineisto MIF-tiedostosta', true),
         array('action' => 'import'),
         array('class' => 'button')
-    ); ?>
+    );
+	/*
+    echo $this->Html->link(
+        __('Tuo aineisto Shapefile-tiedostosta', true),
+        array('action' => 'import_shapefile'),
+        array('class' => 'button')
+    ); */
+	?>
 </div>
 
-<h3>Käyttäjän aineistot</h3>
+<h3><?php __('Käyttäjän aineistot'); ?></h3>
 <table class="list"><!--Käyttäjän omat aineistot-->
     <thead>
         <tr>
-            <th>Nimi</th>
-            <th>Muokkaa</th>
-            <th>Muokattu</th>
-            <th>Kopioi</th>
-            <th>Poista</th>
-            <th>Käytössä</th>
+            <th><?php __('Nimi'); ?></th>
+            <th><?php __('Muokkaa'); ?></th>
+            <th><?php __('Muokattu'); ?></th>
+            <th><?php __('Kopioi'); ?></th>
+            <th><?php __('Poista'); ?></th>
+            <th><?php __('Käytössä'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -31,15 +39,15 @@
                     <?php echo $this->Html->link(
                         $path['Path']['name'], 
                         array('action' => 'view', $path['Path']['id']),
-                        array('title' => 'Katsele aineistoa')
+                        array('title' => __('Katsele aineistoa', true))
                         );
                     ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'muokkaa', 
+                        __('muokkaa', true), 
                         array('action' => 'edit', $path['Path']['id']),
-                        array('title' => 'Muokkaa aineistoa')
+                        array('title' => __('Muokkaa aineistoa', true))
                         );
                     ?>
                 </td>
@@ -48,19 +56,19 @@
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'kopioi', 
+                        __('kopioi', true), 
                         array('action' => 'copy', $path['Path']['id']),
-                        array('title' => 'Kopioi aineisto'),
-                        'Oletko varma että haluat kopioida aineiston?'
+                        array('title' => __('Kopioi aineisto', true)),
+                        __('Oletko varma että haluat kopioida aineiston?', true)
                         );
                     ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'poista', 
+                        __('poista', true), 
                         array('action' => 'delete', $path['Path']['id']),
-                        array('title' => 'Poista aineisto'),
-                        'Oletko varma että haluat poistaa aineiston?'
+                        array('title' => __('Poista aineisto', true)),
+                        __('Oletko varma että haluat poistaa aineiston?', true)
                         );
                     ?>
                 </td>
@@ -87,7 +95,7 @@
                     <?php echo $this->Html->link(
                         $path['Path']['name'], 
                         array('action' => 'view', $path['Path']['id']),
-                        array('title' => 'Katsele aineistoa')
+                        array('title' => __('Katsele aineistoa', true))
                         );
                     ?>
                 </td>
@@ -95,8 +103,8 @@
                     <?php echo $this->Html->link(
                         'kopioi', 
                         array('action' => 'copy', $path['Path']['id']),
-                        array('title' => 'Kopioi aineisto'),
-                        'Oletko varma että haluat kopioida aineiston?'
+                        array('title' => __('Kopioi aineisto'), true),
+                        __('Oletko varma että haluat kopioida aineiston?', true)
                         );
                     ?>
                 </td>

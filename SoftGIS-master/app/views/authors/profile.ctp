@@ -1,3 +1,46 @@
+<script>	
+	
+	$( document ).ready(function() {
+	
+		var dataId;
+		var dataUsername;
+		var dataHref;
+		var dataConfirmPassword;
+	
+		//Title -> tooltip
+		$('a[title]').qtip({
+			show: {
+				delay: 300
+			},
+			position: {
+				my: "bottom center",
+				at: "top center"
+				// my: "right center",
+				// at: "left center"
+			},
+			style: {
+				classes: "ui-tooltip-help ui-tooltip-shadow"
+			}
+		});	
+
+		//Title -> tooltip FOR IMAGE
+		$('img[title]').qtip({
+			show: {
+				delay: 300
+			},
+			position: {
+				my: "bottom center",
+				at: "top center"
+				// my: "right center",
+				// at: "left center"
+			},
+			style: {
+				classes: "ui-tooltip-help ui-tooltip-shadow"
+			}
+		});	
+	});
+</script>
+
 <!-- Käyttäjähallinta - omien tietojen näyttö -->
 <?php
 	echo $this->element('profile_header');
@@ -9,15 +52,22 @@
 	<div class="profileBasicInfo">
 		<h3><?php echo $author['0']['authors']['username']; ?></h3>
 		<p>
-			<?php 
-				$i=(intval($author['0']['authors']['group_id'])-1);
-				echo $groups[$i]['Group']['groupname'];
+			<?php
+				//Käyttäjän ryhmän tulostus
+				foreach($groups as $group)
+				{
+					if($author['0']['authors']['group_id']==$group['groups']['id'])
+					{
+						echo ($group['groups']['groupname']);
+					}
+				}
 			?>
 		</p>
 		
 		<div class="profileElementRight">
 			<!-- Linkki käyttäjänimen muokkaamiseen -->
 			<?php
+			/*
 				echo $this->Html->link(
 					__('Käyttäjänimi', true),
 					array(
@@ -30,6 +80,7 @@
 						'title' => __('Muokkaa omaa käyttäjätunnustasi', true)
 					)
 				);
+				*/
 			?>
 			
 			<!-- Linkki salasanan muokkaamiseen -->
@@ -39,7 +90,7 @@
 					array(
 						'controller' => 'authors',
 						'action' => 'profile_password',
-						$author['0']['authors']['id']
+						//$author['0']['authors']['id']
 					),
 					array(
 						'class' => 'button small profileEditButton',
@@ -49,7 +100,25 @@
 			?>
 			
 			<!-- Linkki ryhmän muokkaamiseen -->
+			<?php
+				echo $this->Html->link(
+					__('Sähköposti', true),
+					array(
+						'controller' => 'authors',
+						'action' => 'profile_email',
+						//$author['0']['authors']['id']
+					),
+					array(
+						'class' => 'button small profileEditButton',
+						'title' => __('Vaihda sähköpostiosoitettasi', true)
+					)
+				);
+			?>
+			
+			
+			<!-- Linkki ryhmän muokkaamiseen -->
 				<?php
+				/*
 					echo $this->Html->link(
 						__('Ryhmä', true),
 						array(
@@ -62,10 +131,12 @@
 							'title' => __('Vaihda ryhmää, johon kuulut', true)
 						)
 					);
+				*/
 				?>
 					
 				<!-- Linkki käyttäjän poistamiseksi -->
 				<?php
+				/*
 					$deleteConfirmString = __('Haluatko varmasti poistaa oman käyttäjätunnuksesi',true);
 				
 					echo $this->Html->link(
@@ -81,6 +152,22 @@
 						),
 						sprintf("%s '%s'?", $deleteConfirmString, $author['0']['authors']['username'])
 					);
+					*/
+				?>
+				
+				<!-- Linkki tukipyynnön jättämiseen -->
+				<?php
+					echo $this->Html->link(
+						__('Tukipyyntö', true),
+						array(
+							'controller' => 'requests',
+							'action' => 'add'
+						),
+						array(
+							'class' => 'button small profileEditButton',
+							'title' => __('Jätä tukipyyntö järjestelmänvalvojalle', true)
+						)
+					);
 				?>
 		</div>
 		
@@ -93,11 +180,11 @@
 				Yhteensä
 				<?php
 					echo $this->Html->image(
-						'information-icon.png',
+						'helpsmall.png',
 						array(
-							'alt' => 'CakePHP',
+							'alt' => 'infoIcon',
 							'class' => 'infoIcon',
-							'title' => 'Käyttäjän kaikkien kyselyiden yhteismäärä'
+							'title' => __('Käyttäjän kaikkien kyselyiden yhteismäärä', true)
 						)
 					);
 				?>
@@ -114,11 +201,11 @@
 				Julkisia
 				<?php
 					echo $this->Html->image(
-						'information-icon.png',
+						'helpsmall.png',
 						array(
-							'alt' => 'CakePHP',
+							'alt' => 'infoIcon',
 							'class' => 'infoIcon',
-							'title' => 'Käyttäjän julkisten kyselyiden määrä'
+							'title' => __('Käyttäjän julkisten kyselyiden määrä', true)
 						)
 					);
 				?>
@@ -135,11 +222,11 @@
 				Aktiivisia
 				<?php
 					echo $this->Html->image(
-						'information-icon.png',
+						'helpsmall.png',
 						array(
-							'alt' => 'CakePHP',
+							'alt' => 'infoIcon',
 							'class' => 'infoIcon',
-							'title' => 'Käyttäjän avoimien kyselyiden määrä'
+							'title' => __('Käyttäjän avoimien kyselyiden määrä', true)
 						)
 					);
 				?>

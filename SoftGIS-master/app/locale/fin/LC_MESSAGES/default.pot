@@ -1,0 +1,210 @@
+#:login.php:11
+msgid "Salasana"
+msgstr "Salasana"
+
+#:login.php:14
+msgid "Kirjaudu"
+msgstr "Kirjaudu"
+
+#:login.php:7
+msgid "Käyttänimi"
+msgstr "Käyttäjänimi"
+
+//authors_controller.php
+msgid "Rekisteröinti onnistui"
+msgstr "Rekisteröinti onnistui"
+
+msgid "Voit nyt kirjautua sisään"
+msgstr Voit nyt kirjautua sisään"
+
+//markers_controller.php
+msgid "Merkkiä ei löytynyt"
+msgstr "Merkkiä ei löytynyt"
+
+msgid "Voit muokata vain omia karttamerkkejä"
+msgstr "Voit muokata vain omia karttamerkkejä"
+
+msgid "Aineistoa ei löytynyt"
+msgstr Aineistoa ei löytynyt"
+
+msgid "Merkki tallennettu"
+msgstr Merkki tallennettu"
+
+msgid "Tallentaminen epäonnistui"
+msgstr "Tallentaminen epäonnistui"
+
+msgid "Poistaminen ei onnistunut"
+msgstr "Poistaminen ei onnistunut"
+
+msgid "Merkki poistettu"
+msgstr ""Merkki poistettu"
+
+msgid "Merkkiä ei löytynyt"
+msgstr "Merkkiä ei löytynyt"
+
+//overlays_controller.php
+msgid "Hakemistoa ei ole tai sinne ei ole kirjoitusoikeuksia. Lähetä tämä virheilmoitus palvelimen ylläpitäjälle, jotta hän voi korjata asian."
+msgstr "Hakemistoa ei ole tai sinne ei ole kirjoitusoikeuksia. Lähetä tämä virheilmoitus palvelimen ylläpitäjälle, jotta hän voi korjata asian."
+
+msgid "Karttakuvaa ei löytynyt"
+msgstr "Karttakuvaa ei löytynyt"
+
+msgid "Voit muokata vain omia kuvia"
+msgstr "Voit muokata vain omia kuvia"
+
+msgid "Karttakuva tallennettu"
+mshstr "Karttakuva tallennettu"
+
+msgid "Karttakuva kopioitu"
+msgstr "Karttakuva kopioitu"
+
+msgid "Kuvatiedostoa ei löytynyt"
+msgstr ""Kuvatiedostoa ei löytynyt"
+
+msgid "Karttakuva poistettu"
+msgstr "Karttakuva poistettu"
+
+msgid "Merkintä poistettu, kuvatiedostoa ei ollut"
+msgstr "Merkintä poistettu, kuvatiedostoa ei ollut"
+
+msgid "Valitse ladattava tiedosto"
+msgstr "Valitse ladattava tiedosto"
+
+msgid "Tiedosto on liian suuri"
+msgstr "Tiedosto on liian suuri"
+
+msgid "Tapahtui virhe, yritä uudelleen"
+msgstr "Tapahtui virhe, yritä uudelleen"
+
+msgid "Kello"
+msgstr "Kello"
+
+msgid "Kello luotu"
+msgstr "Kello luotu"
+
+msgid "Kello (pieni kartta)"
+msgstr "Kello (pieni kartta)"
+
+//paths_controller.php
+msgid "Voit muokata vain omia aineistoja"
+msgstr "Voit muokata vain omia aineistoja"
+
+msgid "Aineisto tallennettu"
+msgstr "Aineisto tallennettu" 
+
+msgid "Aineisto poistettu"
+msgstr "Aineisto poistettu"
+
+//polls-.controller.php
+msgid "Ei tekstivastausta"
+msgstr "Ei tekstivastausta"
+
+msgid "Teksti"
+msgstr "Teksti"
+
+msgid "Kyllä, ei, en osaa sanoa"
+msgstr "Kyllä, ei, en osaa sanoa"
+
+msgid "1 - 5, en osaa sanoa"
+msgstr "1 - 5, en osaa sanoa"
+
+msgid "1 - 7, en osaa sanoa"
+msgstr "1 - 7, en osaa sanoa"
+
+msgid "Monivalinta (max 9)"
+msgstr Monivalinta (max 9)"
+
+msgid "Ei karttaa"
+msgstr "Ei karttaa"
+
+msgid "Kartta, ei vastausta"
+msgstr "Kartta, ei vastausta"
+
+msgid "Kartta, 1 merkki"
+msgstr "Kartta, 1 merkki"
+
+msgid "Kartta, monta merkkiä"
+msgstr "Kartta, monta merkkiä"
+
+msgid "Kartta, polku"
+msgstr "Kartta, polku"
+
+msgid "Kartta, alue"
+msgstr "Kartta, alue"
+
+msgid "Muutokset tallennettu"
+msgstr "Muutokset tallennettu"
+
+msgid "Kyselyyn on vastattu, joten sitä ei voida enään muokata"
+msgstr "Kyselyyn on vastattu, joten sitä ei voida enään muokata"
+
+msgid "Kysely tallennettu"
+msgstr "Kysely tallennettu"
+
+msgid "Kysely poistettu"
+msgstr "Kysely poistettu"
+
+msgid "Aika"
+msgstr "Aika"
+
+msgid "Kysely julkaistu."
+msgstr "Kysely julkaistu."
+
+msgid "Kysely on jo julkaistu"
+msgstr "Kysely on jo julkaistu"
+
+msgid "Virheellinen lukumäärä"
+msgstr "Virheellinen lukumäärä"
+
+//author.php
+msgid "Käyttäjänimi on varattu"
+msgstr "Käyttäjänimi on varattu"
+
+msgid "Käyttäjänimen täytyy olla vähintään 3 merkkiä pitkä"
+msgstr "Käyttäjänimen täytyy olla vähintään 3 merkkiä pitkä"
+
+msgid "Käyttäjänimi ei saa olla yli 50 merkkiä pitkä"
+msgstr "Käyttäjänimi ei saa olla yli 50 merkkiä pitkä"
+
+//marker.php
+msgid "Anna merkille nimi."
+msgstr "Anna merkille nimi."
+
+msgid "Samanniminen merkki on jo olemassa, kokeile toista nimeä."
+msgstr "Samanniminen merkki on jo olemassa, kokeile toista nimeä."
+
+msgid "Merkillä täytyy olla sijainti, lisää se kartalle."
+msgstr "Merkillä täytyy olla sijainti, lisää se kartalle."
+
+//overlay.php
+msgid "Anna kuvalle nimi"
+msgstr "Anna kuvalle nimi"
+
+msgid "Samanniminen kuva on jo olemassa"
+msgstr "Samanniminen kuva on jo olemassa"
+
+msgid "Kuvatiedoston on oltava .png tai .jpg -tyyppinen"
+msgstr "Kuvatiedoston on oltava .png tai .jpg -tyyppinen"
+
+msgid "Valitse kuvatiedosto"
+msgstr "Valitse kuvatiedosto"
+
+msgid "Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan pisteellä.)"
+msgstr "Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan pisteellä.)"
+
+//path.php
+msgid "Anna aineistolle nimi."
+msgstr "Anna aineistolle nimi."
+
+msgid "Samanniminen aineisto on jo olemassa, kokeile toista nimeä."
+msgstr "Samanniminen aineisto on jo olemassa, kokeile toista nimeä."
+
+msgid "Aineistolla täytyy olla sijainti, lisää se kartalle."
+msgstr "Aineistolla täytyy olla sijainti, lisää se kartalle."
+
+//poll.php
+msgid "Anna kyselylle nimi"
+msgstr "Anna kyselylle nimi"
+
+msgid "Samanniminen kysely on jo olemassa, kokeile toista nimeä."
+msgstr "Samanniminen kysely on jo olemassa, kokeile toista nimeä."

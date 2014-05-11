@@ -21,30 +21,35 @@ class Marker extends AppModel
         }
     }
 
-    public $validate = array(
-        'name' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Anna merkille nimi.'
-            ),
-            'unique' => array(
-                'rule' => array('uniqueByUser', 'author_id'),
-                'message' => 'Tämänniminen merkki on jo olemassa, kokeile toista nimeä.'
-            )
-        ),
-        'lat' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Merkillä täytyy olla sijainti, lisää se kartalle.'
-            )
-        ),
-        'lng' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Merkillä täytyy olla sijainti, lisää se kartalle.'
-            )
-        )
-    );
+    function __construct()
+	{
+		parent::__construct();
+
+		$this->validate = array(
+			'name' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Anna merkille nimi.', true)
+				),
+				'unique' => array(
+					'rule' => array('uniqueByUser', 'author_id'),
+					'message' => __('Tämänniminen merkki on jo olemassa, kokeile toista nimeä.', true)
+				)
+			),
+			'lat' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Merkillä täytyy olla sijainti, lisää se kartalle.', true)
+				)
+			),
+			'lng' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Merkillä täytyy olla sijainti, lisää se kartalle.', true)
+				)
+			)
+		);
+	}
 
     function uniqueByUser($check, $field){
         //$check = automaattisesti tarkastettava kenttä, $field = käyttäjän tunniste

@@ -6,7 +6,7 @@
  
 <?php
 	echo $this->Html->link(
-		__('Näytä käyttäjät', true),
+		__('Käyttäjät', true),
 		array(
 			'controller' => 'authors',
 			'action' => 'view'
@@ -34,7 +34,7 @@
 
 <?php
 	echo $this->Html->link(
-		__('Näytä ryhmät', true),
+		__('Ryhmät', true),
 		array(
 			'controller' => 'groups',
 			'action' => 'index'
@@ -60,5 +60,46 @@
 	);
 ?>
 
+<?php
+	echo $this->Html->link(
+		__('Avoimet tukipyynnöt', true),
+		array(
+			'controller' => 'requests',
+			'action' => 'index'
+		),
+		array(
+			'class' => 'button',
+			'title' => __('Näytä avoimet tukipyynnöt', true)
+		)
+	);
+?>
+
+<?php
+	echo $this->Html->link(
+		__('Käsitellyt tukipyynnöt', true),
+		array(
+			'controller' => 'requests',
+			'action' => 'viewcomplited'
+		),
+		array(
+			'class' => 'button',
+			'title' => __('Näytä käsitellyt tukipyynnöt', true)
+		)
+	);
+?>
+
+<?php
+	echo $this->Html->link(
+		__('Varmuuskopiointi', true),
+		array(
+			'controller' => 'authors',
+			'action' => 'backup'
+		),
+		array(
+			'class' => 'button',
+			'title' => __('Datan varmuuskopiointi', true)
+		)
+	);
+?>
 
 <hr>

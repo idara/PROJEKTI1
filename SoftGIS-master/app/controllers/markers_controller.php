@@ -31,7 +31,7 @@ class MarkersController extends AppController
 
             $this->set('author', $this->Auth->user('id'));
         } else {
-            $this->Session->setFlash('Merkkiä ei löytynyt');
+            $this->Session->setFlash(__('Merkkiä ei löytynyt', true));
             $this->redirect(array('action' => 'index'));
         }
     }
@@ -48,7 +48,7 @@ class MarkersController extends AppController
                 $this->Marker->id = $id;
                 $this->data = $this->Marker->read();
                 if ($this->data['Marker']['author_id'] != $this->Auth->user('id')) { //vain omia merkkejä voi muokata
-                    $this->Session->setFlash('Voit muokata vain omia karttamerkkejä');
+                    $this->Session->setFlash(__('Voit muokata vain omia karttamerkkejä', true));
                     $this->redirect(array('action' => 'index'));
                 }
 
@@ -71,10 +71,10 @@ class MarkersController extends AppController
             
             //debug($this->data); die;
             if ($this->data['Marker']['author_id'] == $this->Auth->user('id') && $this->Marker->save($this->data)) {
-                $this->Session->setFlash('Merkki tallennettu');
+                $this->Session->setFlash(__('Merkki tallennettu', true));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash('Tallentaminen epäonnistui');
+                $this->Session->setFlash(__('Tallentaminen epäonnistui', true));
                 //$this->redirect(array('action' => 'index'));
 
                 $errors = $this->Marker->validationErrors;
@@ -115,7 +115,7 @@ class MarkersController extends AppController
             $this->Session->write('marker_temp', $this->data);
             $this->redirect(array('action' => 'edit'));
         } else {
-            $this->Session->setFlash('Merkkiä ei löytynyt');
+            $this->Session->setFlash(__('Merkkiä ei löytynyt', true));
             $this->redirect(array('action' => 'index'));
         }
 
@@ -129,16 +129,16 @@ class MarkersController extends AppController
 
 
             if (empty($this->data) || $this->data['Marker']['author_id'] != $this->Auth->user('id')) {
-                $this->Session->setFlash('Poistaminen ei onnistunut');
+                $this->Session->setFlash(__('Poistaminen ei onnistunut', true));
             } else { //poistetaan
                 //debug($this->data); die;
 
                 $this->Marker->delete($id, false);
 
-                $this->Session->setFlash('Merkki poistettu');
+                $this->Session->setFlash(__('Merkki poistettu', true));
             }
         } else {
-            $this->Session->setFlash('Merkkiä ei löytynyt');
+            $this->Session->setFlash(__('Merkkiä ei löytynyt', true));
         }
 
         $this->redirect(array('action' => 'index'));

@@ -15,14 +15,24 @@
 	$options = array();
 	foreach ($groups as $group)
 	{
-		$options[$group['Group']['id']] = $group['Group']['groupname'];
+		//Karsitaan ylemmän oikeustason ryhmät pois
+		if($user['Author']['id']!=$editorsId)
+		{
+			$options[$group['Group']['id']] = $group['Group']['groupname'];
+		}
+		elseif($group['Group']['id'] >= $modifyGroup)
+		{
+			$options[$group['Group']['id']] = $group['Group']['groupname'];
+		}
 	}
 	
 	echo ("<label class=\"labelfix\">" . __('Ryhmä', true) . "</label>");
 	
 	echo $this->Form->select('group_id', $options, null, array('empty' => false));
 	
-	echo("<br><br>");
+	echo ("<br><br>");
+	
+	echo $this->Form->input('confirmPassword', array('type'=>'password', 'label' => __('Syötä salasanasi', true), 'after'=> '<span class="afterInput">' . __('Turvallisuussyistä johtuen, syötä salasanasi vahvistaaksesi muutokset.', true) . '</span>'));
 ?>
 
 <!-- Tallenna muutokset -->

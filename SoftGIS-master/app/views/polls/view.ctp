@@ -29,18 +29,19 @@ $(document).ready(function() {
 <div class="subnav">
     <?php
     echo $this->Html->link(
-        'Muokkaa',
+        __('Muokkaa', true),
         array(
             'action' => 'modify',
             $poll['id']
         ),
         array(
             'class' => 'button',
-            'title' => 'Muokkaa kyselyä'
+            'title' => __('Muokkaa kyselyä', true)
         )
     );
+	echo (" ");
     echo $this->Html->link(
-        'Kokeile',
+        __('Kokeile', true),
         array(
             'controller' => 'answers',
             'action' => 'test',
@@ -48,79 +49,84 @@ $(document).ready(function() {
         ),
         array(
             'class' => 'button',
-            'title' => 'Voit kokeilla kyselyyn vastaamista ennen sen julkaisua. Kokeiluvastauksia ei tallenneta.'
+            'title' => __('Voit kokeilla kyselyyn vastaamista ennen sen julkaisua. Kokeiluvastauksia ei tallenneta.', true)
         )
     );
+	echo (" ");
     echo $this->Html->link(
-        'Aseta aukioloaika',
+        __('Aseta aukioloaika', true),
         array(
             'action' => 'launch',
             $poll['id']
         ),
         array(
             'class' => 'button',
-            'title' => 'Määrittele mistä mihin kysely on vastattavissa.'
+            'title' => __('Määrittele mistä mihin kysely on vastattavissa.', true)
         )
     );
+	echo (" ");
     if ($poll['public'] == 0) {
         echo $this->Html->link(
-            'Varmenteet',
+            __('Varmenteet', true),
             array(
                 'action' => 'hashes',
                 $poll['id']
             ),
             array(
                 'class' => 'button',
-                'title' => 'Luo ja tarkastele varmenteita, joiden avulla kyselyyn vastaajat todennetaan.'
+                'title' => __('Luo ja tarkastele varmenteita, joiden avulla kyselyyn vastaajat todennetaan.', true)
             )
         );
+		echo (" ");
     };
     echo $this->Html->link(
-        'Vastaukset',
+        __('Vastaukset', true),
         array(
             'action' => 'answers',
             $poll['id']
         ),
         array(
             'class' => 'button',
-            'title' => 'Tarkastele kyselyn vastauksia'
+            'title' => __('Tarkastele kyselyn vastauksia', true)
         )
     );
+	echo (" ");
     echo $this->Html->link(
-        'Poista',
+        __('Poista', true),
         array(
             'action' => 'delete',
             $poll['id'],
         ),
         array(
             'class' => 'button',
-            'title' => 'Poista kysely'
+            'title' => __('Poista kysely', true)
         ),
-        'Oletko varma että haluat poistaa kyselyn?'
+        __('Oletko varma että haluat poistaa kyselyn?', true)
     );
+	echo (" ");
     echo $this->Html->link(
-        'Kopioi',
+        __('Kopioi', true),
         array(
             'action' => 'copy',
             $poll['id']
         ),
         array(
             'class' => 'button',
-            'title' => 'Kopioi uudeksi kyselyksi'
+            'title' => __('Kopioi uudeksi kyselyksi', true)
         ),
-        'Oletko varma että haluat kopioida kyselyn?'
+        __('Oletko varma että haluat kopioida kyselyn?', true)
     );
     ?>
 </div>
 
-<h3>Yleistiedot</h3>
+<h3><?php __('Yleistiedot'); ?></h3>
 <table class="details">
     <tr>
-        <th class="fixed">Vastauksia</th>
+        <th class="fixed"><?php __('Vastauksia'); ?></th>
         <td><?php echo $responseCount; ?></td>
     </tr>
     <tr>
-        <th>Aukioloaika</th>
+        <th><?php __('Aukioloaika'); ?></th>
         <td>
             <?php
                 $launch = $poll['launch'];
@@ -130,43 +136,43 @@ $(document).ready(function() {
                     if ($end) {
                         echo date('j.n.Y', strtotime($end));
                     } else {
-                        echo 'Ei päättymispäivää';
+                        echo __('Ei päättymispäivää', true);
                     }
                 } else {
-                    echo 'Ei aukioloaikaa';
+                    echo __('Ei aukioloaikaa', true);
                 }
             ?>
         </td>
     </tr>
     <tr>
-        <th>Kaikille avoin</th>
-        <td><?php echo $poll['public'] ? 'Kyllä' : 'Ei'; ?>
+        <th><?php __('Kaikille avoin'); ?></th>
+        <td><?php echo $poll['public'] ? __('Kyllä', true) : __('Ei', true); ?>
  
              <?php if ($poll['public'] == 1) {
-                echo $this->Html->link('Muuta suljetuksi',
+                echo $this->Html->link(__('Muuta suljetuksi', true),
                     array('action' => 'openClosed',$poll['id']),
-                    array('class' => 'button','title' => 'Muuta kysely suljetuksi'));
+                    array('class' => 'button','title' => __('Muuta kysely suljetuksi', true)));
             } else {
-                echo $this->Html->link('Muuta avoimeksi',
+                echo $this->Html->link(__('Muuta avoimeksi', true),
                     array('action' => 'openClosed',$poll['id']),
-                    array('class' => 'button','title' => 'Muuta kysely avoimeksi'));
+                    array('class' => 'button','title' => __('Muuta kysely avoimeksi', true)));
             } ?>
         </td>
     </tr>
     <tr>
-        <th>Kuvaus</th>
+        <th><?php __('Kuvaus'); ?></th>
         <td><?php echo $poll['welcome_text']; ?></td>
     </tr>
     <tr>
-        <th>Kiitosteksti</th>
+        <th><?php __('Kiitosteksti'); ?></th>
         <td><?php echo $poll['thanks_text']; ?></td>
     </tr>
 	<tr>
-        <th>Vastausosoite</th>
+        <th><?php __('Vastausosoite'); ?></th>
         <td>
             <?php if ($poll['public'] == 0) {
                 echo $this->Html->link(
-                    'Katso varmenteet',
+                    __('Katso varmenteet', true),
                     array(
                         'action' => 'hashes',
                         $poll['id']
@@ -185,7 +191,7 @@ $(document).ready(function() {
     </tr>
 </table>
 
-<h3>Karttamerkit</h3>
+<h3><?php __('Karttamerkit'); ?></h3>
 <table class="details">
     <?php if (!empty($markers)): ?>
         <?php foreach ($markers as $marker): ?>
@@ -195,11 +201,11 @@ $(document).ready(function() {
             </tr>
         <?php endforeach; ?>
     <?php else: ?>
-        <tr><td>Kyselyn yhteydessä ei ole näytettäviä karttamerkkejä</td></tr>
+        <tr><td><?php __('Kyselyn yhteydessä ei ole näytettäviä karttamerkkejä'); ?></td></tr>
     <?php endif; ?>
 </table>
 
-<h3>Viivat ja alueet</h3>
+<h3><?php __('Viivat ja alueet'); ?></h3>
 <table class="details">
     <?php if (!empty($paths)): ?>
         <?php foreach ($paths as $path): ?>
@@ -209,11 +215,11 @@ $(document).ready(function() {
             </tr>
         <?php endforeach; ?>
     <?php else: ?>
-        <tr><td>Kyselyn yhteydessä ei ole näytettäviä viivoja tai alueita</td></tr>
+        <tr><td><?php __('Kyselyn yhteydessä ei ole näytettäviä viivoja tai alueita'); ?></td></tr>
     <?php endif; ?>
 </table>
 
-<h3>Karttakuvat</h3>
+<h3><?php __('Karttakuvat'); ?></h3>
 <table class="details">
     <?php if (!empty($overlays)): ?>
         <?php foreach ($overlays as $overlay): ?>
@@ -223,11 +229,11 @@ $(document).ready(function() {
             </tr>
         <?php endforeach; ?>
     <?php else: ?>
-        <tr><td>Kyselyn yhteydessä ei ole näytettäviä karttakuvia</td></tr>
+        <tr><td><?php __('Kyselyn yhteydessä ei ole näytettäviä karttakuvia'); ?></td></tr>
     <?php endif; ?>
 </table>
 
-<h3>Kysymykset</h3>
+<h3><?php __('Kysymykset'); ?></h3>
 
 <div>
 <?php foreach ($questions as $q): ?>
@@ -239,41 +245,41 @@ $(document).ready(function() {
         <div class="details">
             <table class="details">
                 <tr>
-                    <th class="longfixed">Tekstivastauksen tyyppi</th>
+                    <th class="longfixed"><?php __('Tekstivastauksen tyyppi'); ?></th>
                     <td colspan="3"><?php echo $answers[$q['type']]; ?></td>
                 </tr>
                 <tr>
-                    <th class="longfixed">Karttavastauksen tyyppi</th>
+                    <th class="longfixed"><?php __('Karttavastauksen tyyppi'); ?></th>
                     <td colspan="3"><?php echo $map_answers[$q['map_type']]; ?></td>
                 </tr>
                 <tr>
-                    <th>Sijainti</th>
+                    <th><?php __('Sijainti'); ?></th>
                     <td> 
-                        <?php echo empty($q['latlng']) ? 'Ei' : $q['latlng']; ?>
+                        <?php echo empty($q['latlng']) ? __('Ei', true) : $q['latlng']; ?>
                     </td>
                 </tr>
                 <tr>
-                    <th>Zoom-taso</th>
+                    <th><?php __('Zoom-taso'); ?></th>
                     <td> 
-                        <?php echo empty($q['zoom']) ? 'Ei' : $q['zoom']; ?>
+                        <?php echo empty($q['zoom']) ? __('Ei', true) : $q['zoom']; ?>
                     </td>
                 </tr>
                 <!--<tr>
                     <th>Kohteen merkitseminen kartalle</th>
                     <td> 
-                        <?php echo $q['answer_location'] ? 'Kyllä' : 'Ei'; ?>
+                        <?php echo $q['answer_location'] ? __('Kyllä', true) : __('Ei', true); ?>
                     </td>
                 </tr>-->
                 <tr>
-                    <th>Vastaukset näkyvissä muille vastaajille</th>
+                    <th><?php __('Vastaukset näkyvissä muille vastaajille'); ?></th>
                     <td> 
-                        <?php echo $q['answer_visible'] ? 'Kyllä' : 'Ei'; ?>
+                        <?php echo $q['answer_visible'] ? __('Kyllä', true) : __('Ei', true); ?>
                     </td>
                 </tr>
                 <!--<tr>
                     <th>Vastausten kommentointi</th>
                     <td colspan="3"> 
-                        <?php echo $q['comments'] ? 'Kyllä' : 'Ei'; ?>
+                        <?php echo $q['comments'] ? __('Kyllä', true) : __('Ei', true); ?>
                     </td>
                 </tr>-->
             </table>

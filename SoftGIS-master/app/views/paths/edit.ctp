@@ -191,77 +191,77 @@ function deletePoint(pos){ // if a point is secondclicked, delete it
 </script>
 
 <div class="answerMenu">
-    <a href="#help" class="button" id="toggleHelp">Ohje</a>
+    <a href="#help" class="button" id="toggleHelp"><?php __('Ohje'); ?></a>
 </div>
 
-<h1>Aineiston tiedot</h1>
+<h1><?php __('Aineiston tiedot'); ?></h1>
 
 <div class="help">
-    <h2>Aineiston muokkaaminen</h2>
-    <p><b>Aineiston tyyppi</b></p>
-    <p>Valitse muokattavan aineiston tyypiksi joko viiva tai alue. Kartalla olevat aineistot päivittyvät valinnan mukaan.</p>
-    <p><b>Viivan väri, opasiteetti ja paksuus</b></p>
-    <p>Jos aineiston tyypiksi on valittu alue, viiva tarkoittaa alueen ulkoreunan viivaa, muuten näkyvissä on vain viiva. Voit valita viivalle värin, opasiteetin (läpinäkyvyysasteen) sekä paksuuden.</p>
-    <p><b>Täytön väri ja opasiteetti</b></p>
-    <p>Jos tyypiksi on valittu alue, voit valita alueen täyttövärin, sekä täytön opasiteetin (läpinäkyvyyden).</p>
-    <h2>Aineisto kartalla</h2>
-    <p><b>Lisääminen</b></p>
-    <p>Klikkaamalla kartalle voit luoda uuden aineiston. Jos kartalla on aineisto, jossa on 1 kulmapiste, lisääminen luo tähän aineistoon toisen pisteen, muuten luodaan uusi aineito. Kartalla olevia aineistoja, jotka koostuvat vain yhdestä kulmapisteestä, ei tallenneta.</p>
-    <p><b>Muokkaaminen</b></p>
-    <p>Kun kartalla on aineisto, jossa on vähintään 2 kulmapistettä, kulmapisteistä vetämällä voit siirtää niiden paikkaa. Kulmapisteiden välissä olevasta haaleammasta pallukasta voit luoda uuden kulmapisteen aineistoon.</p>
-    <p><b>Poistaminen</b></p>
-    <p>Klikkaamalla aineiston kulmapistettä hiiren oikealla painikkeella voit poistaa kyseisen kulmpisteen.</p>
+    <h2><?php __('Aineiston muokkaaminen'); ?></h2>
+    <p><b><?php __('Aineiston tyyppi'); ?></b></p>
+    <p><?php __('Valitse muokattavan aineiston tyypiksi joko viiva tai alue. Kartalla olevat aineistot päivittyvät valinnan mukaan.'); ?></p>
+    <p><b><?php __('Viivan väri, opasiteetti ja paksuus'); ?></b></p>
+    <p><?php __('Jos aineiston tyypiksi on valittu alue, viiva tarkoittaa alueen ulkoreunan viivaa, muuten näkyvissä on vain viiva. Voit valita viivalle värin, opasiteetin (läpinäkyvyysasteen) sekä paksuuden.'); ?></p>
+    <p><b><?php __('Täytön väri ja opasiteetti'); ?></b></p>
+    <p><?php __('Jos tyypiksi on valittu alue, voit valita alueen täyttövärin, sekä täytön opasiteetin (läpinäkyvyyden).'); ?></p>
+    <h2><?php __('Aineisto kartalla'); ?></h2>
+    <p><b><?php __('Lisääminen'); ?></b></p>
+    <p><?php __('Klikkaamalla kartalle voit luoda uuden aineiston. Jos kartalla on aineisto, jossa on 1 kulmapiste, lisääminen luo tähän aineistoon toisen pisteen, muuten luodaan uusi aineito. Kartalla olevia aineistoja, jotka koostuvat vain yhdestä kulmapisteestä, ei tallenneta.'); ?></p>
+    <p><b><?php __('Muokkaaminen'); ?></b></p>
+    <p><?php __('Kun kartalla on aineisto, jossa on vähintään 2 kulmapistettä, kulmapisteistä vetämällä voit siirtää niiden paikkaa. Kulmapisteiden välissä olevasta haaleammasta pallukasta voit luoda uuden kulmapisteen aineistoon.'); ?></p>
+    <p><b><?php __('Poistaminen'); ?></b></p>
+    <p><?php __('Klikkaamalla aineiston kulmapistettä hiiren oikealla painikkeella voit poistaa kyseisen kulmpisteen.'); ?></p>
 </div>
 
 <?php echo $this->Form->create('Path'); ?>
 <?php echo $this->Form->input(
     'name', 
-    array('label' => 'Nimi','placeholder'=>'Anna nimi','required'=> true)
+    array('label' => __('Nimi', true),'placeholder'=> __('Anna nimi', true),'required'=> true)
 ); ?>
 <?php echo $this->Form->input(
     'content', 
-    array('label' => 'Sisältö')
+    array('label' => __('Sisältö', true))
 ); ?>
 <?php echo $this->Form->input(
     'type', 
-    array('label' => 'Aineiston tyyppi', 'options' => array('none','Viiva', 'Alue'))
+    array('label' => __('Aineiston tyyppi', true), 'options' => array('none',__('Viiva', true), __('Alue', true)))
 ); ?>
 <?php echo $this->Form->input(
     'stroke_color', 
-    array('label' => 'Viivan väri', 'class' => 'color small')
+    array('label' => __('Viivan väri', true), 'class' => 'color small')
 ); ?>
 <?php echo $this->Form->input(
     'stroke_opacity', 
-    array('label' => 'Viivan opasitetti', 'class' => 'small')
+    array('label' => __('Viivan opasitetti', true), 'class' => 'small')
 ); ?>
 <?php echo $this->Form->input(
     'stroke_weight', 
-    array('label' => 'Viivan paksuus', 'class' => 'small')
+    array('label' => __('Viivan paksuus', true), 'class' => 'small')
 ); ?>
 <div id='areaOnly'>
     <?php echo $this->Form->input(
         'fill_color', 
-        array('label' => 'Täytön väri', 'class' => 'color small')
+        array('label' => __('Täytön väri', true), 'class' => 'color small')
     );?>
     <?php echo $this->Form->input(
         'fill_opacity', 
-        array('label' => 'Täytön opasitetti', 'class' => 'small')
+        array('label' => __('Täytön opasitetti', true), 'class' => 'small')
     ); ?>
 </div>
 <div hidden>
     <?php echo $this->Form->input(
         'coordinates', 
-        array('label' => 'Koordinaatit')
+        array('label' => __('Koordinaatit', true))
     ); ?>
 </div>
 <div class="input map-container">
-    <label>Esikatselu</label>
+    <label><?php __('Esikatselu'); ?></label>
     <div id="map" class="map">
     </div>
 </div>
-<button type="submit" id="submit" class="button">Tallenna</button>
+<button type="submit" id="submit" class="button"><?php __('Tallenna'); ?></button>
 <?php echo $this->Html->link(
-    'Peruuta',
+    __('Peruuta', true),
     array('action' => 'index'),
     array('class' => 'button cancel')
 ); ?>

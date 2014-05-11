@@ -78,11 +78,44 @@ class GroupsController extends AppController
 				$this->redirect(array('action' => 'index'));
 			}
 			if (!empty($this->data)) {
-				if ($this->Group->save($this->data)) {
-					$this->Session->setFlash(__('Ryhmään tehdyt muutokset on tallennettu', true));
-					$this->redirect(array('action' => 'index'));
-				} else {
-					$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+			
+				// Id of authorized editor
+				$editorId = $this->Auth->user('id');
+				
+				//Authorized user's password
+				$AuthorizedPassword =  $this->Group->query("SELECT authors.password FROM authors WHERE authors.id=$editorId;");
+				$AuthorizedPassword = $AuthorizedPassword['0']['authors']['password'];
+			
+				//Confirm password
+				$confirmPassword = $this->Auth->password($this->data['Group']['confirmPassword']);
+		
+				// IF Authorized user's password == Confirm password
+				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
+				{
+			
+					if ($this->Group->save($this->data)) {
+						$this->Session->setFlash(__('Ryhmään tehdyt muutokset on tallennettu', true));
+						$this->redirect(array('action' => 'index'));
+					} else {
+						$this->Session->setFlash(__('Muutoksia ei voitu tallentaa. Ryhmän nimi on jo käytössä.', true));
+						$this->data['Group']['confirmPassword'] = '';
+						$this->redirect(array('action' => 'edit', $id));
+					}
+				}
+				else
+				{
+					//$this->data['confirmPassword'] = '';
+					//$this->set('passwordWrong', true);
+					//$this->Session->setFlash(__('Virheellinen salasana. Muutoksia ei tallennettu', true));
+					//$this->redirect(array('action' => 'username', $id));
+					
+					$this->Session->setFlash(__('Virheellinen salasana.', true));
+					$this->redirect(array('action' => 'edit', $id));
+					
+					//Tyhjennetään salasanakentät
+					//$this->data['Author']['password']="";
+					//$this->data['Author']['passwordRetyped']="";
+					$this->data['Group']['confirmPassword'] = '';
 				}
 			}
 			if (empty($this->data)) {

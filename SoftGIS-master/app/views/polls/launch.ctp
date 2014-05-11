@@ -48,7 +48,7 @@ $(document).ready(function() {
     Tallenna muutokset
 </button>
 <?php echo $this->Html->link(
-    'Peruuta',
+    __('Peruuta'),
     array(
         'action' => 'view',
         $poll['Poll']['id']
@@ -60,6 +60,6 @@ $(document).ready(function() {
 <?php echo $this->Form->end(); ?>
 
 <div class="help">
-    <p>Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja päättymispäivä sisältyvät aukioloaikaan.</p>
-    <p>Kysely on suljettu, jos alkamispäivämäärää ei ole asetettu.</p>
+    <p><?php __('Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja päättymispäivä sisältyvät aukioloaikaan.'); ?></p>
+    <p><?php __('Kysely on suljettu, jos alkamispäivämäärää ei ole asetettu.'); ?></p>
 </div>
