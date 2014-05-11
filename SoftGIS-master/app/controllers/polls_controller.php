@@ -20,6 +20,9 @@ class PollsController extends AppController
         $this->Poll->contain('Response');
         $polls = $this->Poll->findAllByAuthorId($authorId, array(), array('id'));
         $this->set('polls', $polls);
+		
+		//Debug
+		//$this->Session->setFlash(Configure::read('Config.language'));
     }
 
     public function view($id = null)
@@ -48,20 +51,20 @@ class PollsController extends AppController
         $this->set('responseCount', $responseCount);
 
         $answers = array(
-            0 => 'Ei tekstivastausta',
-            1 => 'Teksti',
-            2 => 'Kyllä, ei, en osaa sanoa',
-            3 => '1 - 5, en osaa sanoa',
-            4 => '1 - 7, en osaa sanoa',
-			5 => 'Monivalinta (max 9)'
+            0 => __('Ei tekstivastausta', true),
+            1 => __('Teksti', true),
+            2 => __('Kyllä, Ei, En osaa sanoa', true),
+            3 => __('1 - 5, En osaa sanoa', true),
+            4 => __('1 - 7, En osaa sanoa', true),
+			5 => __('Monivalinta (max 9)', true)
         );
         $map_answers = array(
-            0 => "Ei karttaa",
-            1 => "Kartta, ei vastausta",
-            2 => "Kartta, 1 merkki",
-            3 => "Kartta, monta merkkiä",
-            4 => "Kartta, polku",
-            5 => "Kartta, alue"
+            0 => __('Ei karttaa', true),
+            1 => __('Kartta, ei vastausta', true),
+            2 => __('Kartta, 1 merkki', true),
+            3 => __('Kartta, monta merkkiä', true),
+            4 => __('Kartta, polku', true),
+            5 => __('Kartta, alue', true)
         );
 
         $this->set('answers', $answers);
@@ -213,7 +216,7 @@ class PollsController extends AppController
             );
 
             if ($responseCount > 0) {
-                $this->Session->setFlash('Kyselyyn on vastattu, joten sitä ei voida enään muokata');
+                $this->Session->setFlash(__('Kyselyyn on vastattu, joten sitä ei voi enää muokata', true));
                 $this->redirect(array('action' => 'view', $id));
             }
 
@@ -269,10 +272,10 @@ class PollsController extends AppController
                         $this->Poll->Question->delete($q['id'], false);
                     }
                 }
-                $this->Session->setFlash('Kysely tallennettu');
+                $this->Session->setFlash(__('Kysely tallennettu', true));
                 $this->redirect(array('action' => 'view', $this->Poll->id));
             } else {
-                $this->Session->setFlash('Tallentaminen epäonnistui');
+                $this->Session->setFlash(__('Tallentaminen epäonnistui', true));
                 $poll = $data;
                 $temp = json_decode($this->data, true);
                 //debug($temp);
@@ -427,7 +430,7 @@ class PollsController extends AppController
                 $this->Poll->delete($poll['Poll']['id'], false);
 
 
-                $this->Session->setFlash('Kysely poistettu');
+                $this->Session->setFlash(__('Kysely poistettu', true));
                 $this->redirect(array('action' => 'index'));
 
             }
@@ -437,10 +440,12 @@ class PollsController extends AppController
             $this->redirect(array('action' => 'index'));
         }
     }
-
-
+	
+	//  MIF-FILE & CSV-FILE EXPORT
     public function answers($pollId = null)
     {
+		//http://resource.mapinfo.com/static/files/document/1074660800077/interchange_file.pdf
+	
         $authorId = $this->Auth->user('id');
         $this->Poll->id = $pollId;
         if (!$this->Poll->exists() 
@@ -457,7 +462,7 @@ class PollsController extends AppController
         //header
         $line = array();
         $questions = $this->Poll->Question->findAllByPollId($pollId, 
-            array('num', 'type', 'map_type'), array('id'), 0,-1,-1
+            array('num', 'type', 'map_type', 'text'), array('id'), 0,-1,-1
         );
         //Tässä haetaan, modelista poiketen, kysymykset id:n mukaan järjestettynä, normaalin num järjestyksestä poiketen. Koska answers taulussa on ainoastaan viittaus question_id:hen ja minä en nyt kerkeä alkaa miettimään, että miten myös vastaukset järjestettäisiin kysymysten num:n mukaan.
         //debug($questions); //die;
@@ -465,12 +470,13 @@ class PollsController extends AppController
             $line[] = array(
                 "text" => $q['Question']['type'],
                 "map" => $q['Question']['map_type'],
-                "num" => $q['Question']['num']
+                "num" => $q['Question']['num'],
+				"questionText" => $q['Question']['text']
                 );
         }
 
         $header = array(
-            "date" => "Aika",
+            "date" => __('Aika', true),
             "answer" => $line
         );
         $this->set('header', $header);
@@ -504,6 +510,8 @@ class PollsController extends AppController
         $poll = $this->Poll->read();
         $this->set('pollNam', $poll['Poll']['name']);
     }
+	
+	//  / MIF-FILE & CSV-FILE EXPORT
 
 
     /**
@@ -595,7 +603,7 @@ class PollsController extends AppController
             $this->Poll->saveField('published', date('Y-m-d H:i:s'));
             $this->Session->setFlash('Kysely julkaistu.');
         } else {
-            $this->Session->setFlash('Kysely on jo julkaistu');
+            $this->Session->setFlash(__('Kysely on jo julkaistu', true));
         }
 
         $this->redirect(array('action' => 'view', $pollId));
@@ -637,7 +645,7 @@ class PollsController extends AppController
         $count = $this->data['count'];
 
         if (!is_numeric($count)) {
-            $this->Session->setFlas('Virheellinen lukumäärä');
+            $this->Session->setFlash(__('Virheellinen lukumäärä', true));
         } else {
             $this->Poll->generateHashes($count);
         }
@@ -663,10 +671,10 @@ class PollsController extends AppController
                 }
                 //debug($edit); die;
                 if ($this->Poll->save($edit)) {
-                    $this->Session->setFlash('Muutokset tallennettu');
+                    $this->Session->setFlash(__('Muutokset tallennettu', true));
                     $this->redirect(array('action' => 'view', $id));
                 } else {
-                    $this->Session->setFlash('Tallennus epäonnistui');
+                    $this->Session->setFlash(__('Tallennus epäonnistui', true));
                 }
             }
         } else {
@@ -678,11 +686,3 @@ class PollsController extends AppController
 
 
 }
-
-
-
-
-
-
-
-

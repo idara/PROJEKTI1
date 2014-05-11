@@ -36,25 +36,25 @@ $( document ).ready(function() {
 
 </script>
 
-<h2>Karttamerkki</h2>
+<h2><?php __('Karttamerkki'); ?></h2>
 
 <?php 
     echo $this->Html->link(
-        'muokkaa', 
+        __('muokkaa', true), 
         array('action' => 'edit', $this->data['Marker']['id']),
-        array('class' => 'button','title' => 'Muokkaa karttakerkkiä')
+        array('class' => 'button','title' => __('Muokkaa karttamerkkiä', true))
     );
     echo $this->Html->link(
-        'kopioi', 
+        __('kopioi', true), 
         array('action' => 'copy', $this->data['Marker']['id']),
-        array('class' => 'button','title' => 'Kopioi karttamerkki'),
-        'Oletko varma että haluat kopioida karttakerkin?'
+        array('class' => 'button','title' => __('Kopioi karttamerkki', true)),
+        __('Oletko varma että haluat kopioida karttamerkin?', true)
     );
     echo $this->Html->link(
-        'poista', 
+        __('poista', true), 
         array('action' => 'delete', $this->data['Marker']['id']),
-        array('class' => 'button','title' => 'Poista karttamerkki'),
-        'Oletko varma että haluat poistaa karttakerkin?'
+        array('class' => 'button','title' => __('Poista karttamerkki', true)),
+        __('Oletko varma että haluat poistaa karttamerkin?', true)
     );
 ?>
 
@@ -63,9 +63,9 @@ $( document ).ready(function() {
 
 <div hidden>
     <?php echo $this->Form->create('Marker'); ?>
-    <?php echo $this->Form->input('name', array('label' => 'Nimi','placeholder'=>'Anna nimi','required'=> true)); ?>
-    <?php echo $this->Form->input('content', array('label' => 'Sisältö')); ?>
-    <?php echo $this->Form->input('icon', array('label' => 'Kuvake')); ?>
+    <?php echo $this->Form->input('name', array('label' => __('Nimi', true),'placeholder'=>'Anna nimi','required'=> true)); ?>
+    <?php echo $this->Form->input('content', array('label' => __('Sisältö', true))); ?>
+    <?php echo $this->Form->input('icon', array('label' => __('Kuvake', true))); ?>
     <?php echo $this->Form->input('latlng', array('type' => 'hidden')); ?>
 </div>
 <div class="input map-container">
@@ -73,7 +73,7 @@ $( document ).ready(function() {
     </div>
 </div>
 <?php echo $this->Html->link(
-    'Takaisin',
+    __('Takaisin', true),
     array('action' => 'index'),
     array('class' => 'button cancel')
 ); ?>

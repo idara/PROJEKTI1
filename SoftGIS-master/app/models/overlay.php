@@ -8,44 +8,49 @@ class Overlay extends AppModel
         )
     );
 
-    public $validate = array(
-        'name' => array(
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Anna kuvalle nimi'
-            ),
-            'unique' => array(
-                'rule' => array('uniqueByUser', 'author_id'),
-                'message' => 'Tämänniminen kuva on jo olemassa'
-            )
-        ),
-        'image' => array(
-            'unique' => array(
-                'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),
-                'message' => 'Kuvatiedoston on oltava .png tai .jpg -tyyppinen'
-            ),
-            'not_empty' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Valitse kuvatiedosto'
-            )
-        ),
-        'ne_lat' => array(
-            'rule' => array('decimal'),
-            'message' => 'Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan pisteellä.)'
-        ),
-        'ne_lng' => array(
-            'rule' => array('decimal'),
-            'message' => 'Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan pisteellä.)'
-        ),
-        'sw_lat' => array(
-            'rule' => array('decimal'),
-            'message' => 'Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan pisteellä.)'
-        ),
-        'sw_lng' => array(
-            'rule' => array('decimal'),
-            'message' => 'Koordinaatin on oltava desimaaliluku. (Tässä desimaaliosa erotetaan pisteellä.)'
-        ),
-    );
+    function __construct()
+	{
+		parent::__construct();
+
+		$this->validate = array(
+			'name' => array(
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Anna kuvalle nimi', true)
+				),
+				'unique' => array(
+					'rule' => array('uniqueByUser', 'author_id'),
+					'message' => __('Tämänniminen kuva on jo olemassa', true)
+				)
+			),
+			'image' => array(
+				'unique' => array(
+					'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg')),
+					'message' => __('Kuvatiedoston on oltava .png tai .jpg -tyyppinen', true)
+				),
+				'not_empty' => array(
+					'rule' => 'notEmpty',
+					'message' => __('Valitse kuvatiedosto', true)
+				)
+			),
+			'ne_lat' => array(
+				'rule' => array('decimal'),
+				'message' => __('Koordinaatin on oltava desimaaliluku (tässä desimaaliosa erotetaan pisteellä).', true)
+			),
+			'ne_lng' => array(
+				'rule' => array('decimal'),
+				'message' => __('Koordinaatin on oltava desimaaliluku (tässä desimaaliosa erotetaan pisteellä).', true)
+			),
+			'sw_lat' => array(
+				'rule' => array('decimal'),
+				'message' => __('Koordinaatin on oltava desimaaliluku (tässä desimaaliosa erotetaan pisteellä).', true)
+			),
+			'sw_lng' => array(
+				'rule' => array('decimal'),
+				'message' => __('Koordinaatin on oltava desimaaliluku (tässä desimaaliosa erotetaan pisteellä).', true)
+			),
+		);
+	}
 
     function uniqueByUser($check, $field){
         //$check = automaattisesti tarkastettava kenttä, $field = käyttäjän tunniste

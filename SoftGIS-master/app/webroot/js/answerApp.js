@@ -51,7 +51,7 @@ var AnswerApp = Spine.Controller.create({
 
         $(window).bind("beforeunload", function() {
             if (me.promptBeforeUnload) {
-                return "Vastauksiasi ei tallenneta, kun poistut sivulta. \nHaluatko varmasti poistua sivulta?";
+                return <?php __("Vastauksiasi ei tallenneta, kun poistut sivulta. \nHaluatko varmasti poistua sivulta?"); ?>;
             }
         });
     },
@@ -131,19 +131,19 @@ var AnswerApp = Spine.Controller.create({
         //Update the map_note text
         if (this.activeQuestion.map_type == 1){
             document.getElementById("map_note").style.display="block";
-            document.getElementById("map_note").innerHTML = "Kartalle ei voi laittaa merkkejä";
+            document.getElementById("map_note").innerHTML = <?php __("Kartalle ei voi laittaa merkkejä"); ?>;
         } else if (this.activeQuestion.map_type == 2){
             document.getElementById("map_note").style.display="block";
-            document.getElementById("map_note").innerHTML = "Voit asettaa kartalle yhden merkin";
+            document.getElementById("map_note").innerHTML = <?php __("Voit asettaa kartalle yhden merkin"); ?>;
         } else if (this.activeQuestion.map_type == 3){
             document.getElementById("map_note").style.display="block";
-            document.getElementById("map_note").innerHTML = "Voit asettaa kartalle monta merkkiä";
+            document.getElementById("map_note").innerHTML = <?php __("Voit asettaa kartalle monta merkkiä"); ?>;
         } else if (this.activeQuestion.map_type == 4){
             document.getElementById("map_note").style.display="block";
-            document.getElementById("map_note").innerHTML = "Voit luoda kartalle viivan";
+            document.getElementById("map_note").innerHTML = <?php __("Voit luoda kartalle viivan"); ?>;
         } else if (this.activeQuestion.map_type == 5){
             document.getElementById("map_note").style.display="block";
-            document.getElementById("map_note").innerHTML = "Voit luoda kartalle alueen";
+            document.getElementById("map_note").innerHTML = <?php __("Voit luoda kartalle alueen"); ?>;
         } else {
             document.getElementById("map_note").style.display="none";
             document.getElementById("map_note").innerHTML = "";
@@ -229,7 +229,7 @@ var AnswerApp = Spine.Controller.create({
         if ( !this.noAnswerCheckbox.is(':checked') && this.activeQuestion.map_type > 1 && this.map.getMapAnswer() == "" ) {
             // If map can have enswers, check that user has selected location, or notify
             this.mapEl.qtip({
-                content: "Et ole vastannut kartalle",
+                content: <?php __("Et ole vastannut kartalle"); ?>,
                 position: {
                     my: "bottom center",
                     at: "top center",
@@ -270,7 +270,7 @@ var AnswerApp = Spine.Controller.create({
 		if ( this.activeQuestion.type > 0 && !answerVal && !answerVal2 ) {
 			$( answerSelector ).focus();
 			$( ".answer-field", this.el ).qtip({
-				content: "Et ole vastannut kysymykseen",
+				content: <?php __("Et ole vastannut kysymykseen"); ?>,
 				position: {
 					my: "top center",
 					at: "bottom center",

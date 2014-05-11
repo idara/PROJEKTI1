@@ -25,9 +25,9 @@ var DEFAULT_SETTINGS = {
     processPrePopulate: false,
 
     // Display settings
-    hintText: "Syötä hakusana",
-    noResultsText: "Tuloksia ei löytynyt",
-    searchingText: "Etsitään",
+    hintText: <?php __("Syötä hakusana"); ?>,
+    noResultsText: <?php __("Tuloksia ei löytynyt"); ?>,
+    searchingText: <?php __("Etsitään"); ?>,
     deleteText: "&times;",
     animateDropdown: true,
     theme: null,

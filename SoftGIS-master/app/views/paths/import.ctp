@@ -119,7 +119,7 @@ function handleFiles(files) {
             }
             reader.onerror = function (evt) {
             //    document.getElementById("coordinates").innerHTML = "error reading file";
-                alert('Tiedoston lukeminen epäonnistui');
+                alert(<?php __('Tiedoston lukeminen epäonnistui'); ?>);
             }
         }
     }
@@ -128,15 +128,15 @@ function handleFiles(files) {
 </script>
 
 <div class="answerMenu">
-    <a href="#help" class="button" id="toggleHelp">Ohje</a>
+    <a href="#help" class="button" id="toggleHelp"><?php __('Ohje'); ?></a>
 </div>
 
 
-<h2>Tuo aineisto</h2>
+<h2><?php __('Tuo aineisto'); ?></h2>
 
 <div class="help">
-    <h2>Aineiston tuominen</h2>
-    <p>Voit tuoda aineiston <b>mif-päätteisestä</b> <i>(MapInfo Interchange Format)</i> tiedostosta joko valitsemalla tiedoston painikkeesta tai kopioimalla tiedoston koko sisällön laatikkoon alle. Ohjelma muuntaa sen automaattisesti Google Mapsin ymmärtämään muotoon.</p>
+    <h2><?php __('Aineiston tuominen'); ?></h2>
+    <p><?php __('Voit tuoda aineiston <b>mif-päätteisestä</b> <i>(MapInfo Interchange Format)</i> tiedostosta joko valitsemalla tiedoston painikkeesta tai kopioimalla tiedoston koko sisällön laatikkoon alle. Ohjelma muuntaa sen automaattisesti Google Mapsin ymmärtämään muotoon.'); ?></p>
     <p></p>
 </div>
 
@@ -150,9 +150,9 @@ function handleFiles(files) {
 
     <input type="hidden" name="data[Path][type]" id="type" />
 
-    <button type="submit" class="button">Jatka</button>
+    <button type="submit" class="button"><?php __('Jatka'); ?></button>
     <?php echo $this->Html->link(
-        'Takaisin',
+        __('Takaisin', true),
         array('action' => 'index'),
         array('class' => 'button cancel')
     ); ?>

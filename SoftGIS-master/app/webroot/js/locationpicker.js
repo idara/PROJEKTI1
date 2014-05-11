@@ -35,14 +35,14 @@
             );
 
             var menuEl = $( "<div>" );
-            var selectBtn = $( "<button>Valitse</button>" )
+            var selectBtn = $( "<button><?php __('Valitse'); ?></button>" )
                 .addClass( "big proceed" ).appendTo( menuEl )
                 .click(function() {
                     methods.select.call( $this );
                     return false;
                 }
             );
-            var cancelBtn = $( "<button>Peruuta</button>" )
+            var cancelBtn = $( "<button><?php __('Peruuta'); ?></button>" )
                 .addClass( "big cancel" ).appendTo( menuEl )
                 .click(function() {
                     methods.cancel.call( $this );

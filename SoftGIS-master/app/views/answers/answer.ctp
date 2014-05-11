@@ -47,14 +47,14 @@ $( document ).ready(function() {
 </div>
 
 <div class="help">
-    <h2>Vastausohjeet</h2>
-    <p>Kyselyyn vastataan joko tekstikenttään tai monivalintaan, sekä mahdolliseen karttavastaukseen.</p>
-    <p>Monivalinnassa valitse vaihtehdoista mielestäsi asiaa parhaiten kuvaava vaihtoehto.</p>
-	<p>Voit myös kirjoittaa oman vaihtoehtosi "Joku, muu mikä?" -tekstikentän sisälle, mikäli kyselyn laatija on sellaisen laittanut</p>
-    <p>Joidenkin kysymysten yhteydessä kartalla voi näkyä kysymykseen liittyvältä karttamerkkejä, viivoja, alueita sekä karttakuvia.</p>
-    <h2>Karttaan vastaaminen</h2>
-    <p> Karttaa voi liikuttaa hiirellä vetämällä ja zoomata hiiren rullalla, mutta oletusarvoisesti se on kyselyn laatijan määräämässä sijannissa.</p>
-    <p>Kysymyksestä riippuen, karttaan joko ei voi vastata, siihen voi laittaa merkin, useita merkkejä, viivan tai alueen. Nämät kaikki asetetaan klikkaamalla karttaan hiiren ensimmäisellä painikkeella. Kartalla olevaa pistettä voi vetää hiirellä paikasta toiseen ja toisella hiiren painikkeella poistaa. Viivoissa ja alueissa kulmapisteiden välissä olevista pallukoista vetämällä voi luoda uuden kulmapisteen.</p>
+    <h2><?php __('Vastausohjeet'); ?></h2>
+    <p><?php __('Kyselyyn vastataan joko tekstikenttään tai monivalintaan, sekä mahdolliseen karttavastaukseen.'); ?></p>
+    <p><?php __('Monivalinnassa valitse vaihtoehdoista mielestäsi asiaa parhaiten kuvaava vaihtoehto.'); ?></p>
+	<p><?php __('Voit myös kirjoittaa oman vaihtoehtosi "Joku, muu mikä?" -tekstikentän sisälle, mikäli kyselyn laatija on sellaisen laittanut.'); ?></p>
+    <p><?php __('Joidenkin kysymysten yhteydessä kartalla voi näkyä kysymykseen liittyviä karttamerkkejä, viivoja, alueita sekä karttakuvia.'); ?></p>
+    <h2><?php __('Karttaan vastaaminen'); ?></h2>
+    <p><?php __('Karttaa voi liikuttaa hiirellä vetämällä ja zoomata hiiren rullalla, mutta oletusarvoisesti se on kyselyn laatijan määräämässä sijannissa.'); ?></p>
+    <p><?php __('Kysymyksestä riippuen, karttaan joko ei voi vastata, siihen voi laittaa merkin, useita merkkejä, viivan tai alueen. Nämät kaikki asetetaan klikkaamalla karttaan hiiren ensimmäisellä painikkeella. Kartalla olevaa pistettä voi vetää hiirellä paikasta toiseen ja toisella hiiren painikkeella poistaa. Viivoissa ja alueissa kulmapisteiden välissä olevista pallukoista vetämällä voi luoda uuden kulmapisteen.'); ?></p>
 </div>
 
 <script id="welcomeTmpl" type="text/x-jquery-tmpl">
@@ -66,7 +66,7 @@ $( document ).ready(function() {
     </div>
     <div class="answerNav">
         <button type="button" class="start">
-            Aloita kysely
+            <?php __('Aloita kysely'); ?>
         </button>
     </div>
 </script>
@@ -74,9 +74,9 @@ $( document ).ready(function() {
 <script id="questionTmpl" type="text/x-jquery-tmpl">
     <div class="answerNav">
         <table class="answer"><tr>
-            <td><button type="button" class="prevQues" id = "prev">Edellinen</button></td>
-            <td><div class="info" id="info">Kysymys numero #</div></td>
-            <td><button type="button" class="nextQues">Seuraava</button></td>
+            <td><button type="button" class="prevQues" id = "prev"><?php __('edellinen'); ?></button></td>
+            <td><div class="info" id="info"><?php __('Kysymys numero'); ?> #</div></td>
+            <td><button type="button" class="nextQues"><?php __('seuraava'); ?></button></td>
         </tr></table>
     </div>
     <h3>${text}</h3>
@@ -85,9 +85,9 @@ $( document ).ready(function() {
             {{if type == 1}}
                 <textarea name="text" id="texta"></textarea>
             {{else type == 2}}
-                <input type="radio" name="text" class="joo"  id="1" value="Kyllä"/>Kyllä
-                <input type="radio" name="text" id="2" value="Ei"/>Ei
-                <input type="radio" name="text" id="Eos" value="En osaa sanoa"/>En osaa sanoaa
+                <input type="radio" name="text" class="joo"  id="1" value="Kyllä"/><?php __('Kyllä'); ?>
+                <input type="radio" name="text" id="2" value="Ei"/><?php __('Ei'); ?>
+                <input type="radio" name="text" id="Eos" value="En osaa sanoa"/><?php __('En osaa sanoa'); ?>
             {{else type == 3}}
                 ${low_text}
                 <input type="radio" name="text" class="1" id="1" value="1"/>
@@ -97,7 +97,7 @@ $( document ).ready(function() {
                 <input type="radio" name="text" id="5" value="5"/>
                 ${high_text}
 				<br/>
-                <input type="radio" name="text" id="Eos" value="En osaa sanoa"/>En osaa sanoa
+                <input type="radio" name="text" id="Eos" value="En osaa sanoa"/><?php __('En osaa sanoa'); ?>
             {{else type == 4}}
                 ${low_text}
                 <input type="radio" name="text" class="1"  id="1" value="1"/>
@@ -109,7 +109,7 @@ $( document ).ready(function() {
                 <input type="radio" name="text" id="7" value="7"/>
                 ${high_text}
 				<br/>
-                <input type="radio" name="text" id="Eos" value="En osaa sanoa"/>En osaa sanoa
+                <input type="radio" name="text" id="Eos" value="En osaa sanoa"/><?php __('En osaa sanoa'); ?>
 				<!-- Tämä valitaan jos kysely on monivalinta-->
 			{{else type == 5}}
 				{{if choice1 != null}}
@@ -164,11 +164,11 @@ $( document ).ready(function() {
 <div class="answer">
     <div id="noAnswerCont">
         <input type="checkbox" id="noAnswer" />
-        <label>En halua vastata kartalle</label>
+        <label><?php __('En halua vastata kartalle'); ?></label>
     </div>
         <br/>
 		<br/>
-        <p class="map_note" id="map_note">Ohjeteksti</p>
+        <p class="map_note" id="map_note"><?php __('Ohjeteksti'); ?></p>
         <div id="map" class="map">
     </div>
 </div>
@@ -179,7 +179,7 @@ $( document ).ready(function() {
 </form>
 
 <div id="publicAnswers" class="publicAnswers">
-    <h3>Aiemmat vastaukset</h3>
+    <h3><?php __('Aiemmat vastaukset'); ?></h3>
     <div class="answers">
     </div>
 </div>

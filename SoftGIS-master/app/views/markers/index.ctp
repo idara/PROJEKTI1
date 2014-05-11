@@ -1,22 +1,22 @@
 <h2>Karttamerkit</h2>
 <div class="subnav">
     <?php echo $this->Html->link(
-        'Luo uusi karttamerkki',
+        __('Luo uusi karttamerkki', true),
         array('action' => 'edit'),
         array('class' => 'button')
     ); ?>
 </div>
 
-<h3>Käyttäjän karttamerkit</h3>
+<h3><?php __('Käyttäjän karttamerkit'); ?></h3>
 <table class="list">
     <thead>
         <tr>
-            <th>Nimi</th>
-            <th>Muokkaa</th>
-            <th>Muokattu</th>
-            <th>Kopioi</th>
-            <th>Poista</th>
-            <th>Käytössä</th>
+            <th><?php __('Nimi'); ?></th>
+            <th><?php __('Muokkaa'); ?></th>
+            <th><?php __('Muokattu'); ?></th>
+            <th><?php __('Kopioi'); ?></th>
+            <th><?php __('Poista'); ?></th>
+            <th><?php __('Käytössä'); ?></th>
         </tr>
     </thead>
     <tbody>
@@ -26,15 +26,15 @@
                     <?php echo $this->Html->link(
                         $marker['Marker']['name'], 
                         array('action' => 'view', $marker['Marker']['id']),
-                        array('title' => 'Katsele karttakerkkiä')
+                        array('title' => __('Katsele karttamerkkiä', true))
                         );
                     ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'muokkaa', 
+                        __('muokkaa', true), 
                         array('action' => 'edit', $marker['Marker']['id']),
-                        array('title' => 'Muokkaa karttakerkkiä')
+                        array('title' => __('Muokkaa karttamerkkiä', true))
                         );
                     ?>
                 </td>
@@ -43,19 +43,19 @@
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'kopioi', 
+                        __('kopioi', true), 
                         array('action' => 'copy', $marker['Marker']['id']),
                         array('title' => 'Kopioi karttamerkki'),
-                        'Oletko varma että haluat kopioida karttakerkin?'
+                        __('Oletko varma että haluat kopioida karttamerkin?', true)
                         );
                     ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'poista', 
+                        __('poista', true), 
                         array('action' => 'delete', $marker['Marker']['id']),
                         array('title' => 'Poista karttamerkki'),
-                        'Oletko varma että haluat poistaa karttakerkin?'
+                        __('Oletko varma että haluat poistaa karttamerkin?', true)
                         );
                     ?>
                 </td>
@@ -82,16 +82,16 @@
                     <?php echo $this->Html->link(
                         $marker['Marker']['name'], 
                         array('action' => 'view', $marker['Marker']['id']),
-                        array('title' => 'Katsele aineistoa')
+                        array('title' => __('Katsele aineistoa', true))
                         );
                     ?>
                 </td>
                 <td>
                     <?php echo $this->Html->link(
-                        'kopioi', 
+                        __('kopioi', true), 
                         array('action' => 'copy', $marker['Marker']['id']),
                         array('title' => 'Kopioi aineisto'),
-                        'Oletko varma että haluat kopioida aineiston?'
+                        __('Oletko varma että haluat kopioida aineiston?', true)
                         );
                     ?>
                 </td>

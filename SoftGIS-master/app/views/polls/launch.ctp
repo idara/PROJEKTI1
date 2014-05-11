@@ -61,5 +61,5 @@ $(document).ready(function() {
 
 <div class="help">
     <p>Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja päättymispäivä sisältyvät aukioloaikaan.</p>
-    <p>Kysely on suljettu, jos alkamispäivämäärää ei ole asettetu.</p>
+    <p>Kysely on suljettu, jos alkamispäivämäärää ei ole asetettu.</p>
 </div>
