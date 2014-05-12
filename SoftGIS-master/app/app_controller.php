@@ -93,7 +93,15 @@ class AppController extends Controller
 			}
 			
 			// Sähköpostiosoitteen syöttämisen muistutus
-			if(strlen($this->Auth->user('email'))==0)
+			$searchId = $this->Auth->user('id');
+			$db = ConnectionManager::getInstance();
+			$conn = $db->getDataSource('default');
+			$emailLengt = $conn->query("SELECT authors.email FROM authors WHERE authors.id=$searchId;");
+			$emailLengt = strlen($emailLengt['0']['authors']['email']);
+			
+			$this->set('emailLengtForView', $emailLengt);
+			
+			if($emailLengt==0)
 			{
 				if($notificationCount==0)
 				{
@@ -156,9 +164,13 @@ class AppController extends Controller
                 'controller' => 'polls',
                 'action' => 'index'
             ),
-            'authError' => __('Kirjaudu sisään'),
-            'loginError' => __('Sisäänkirjautuminen epäonnistui. 
-                Tarkista käyttäjänimi ja salasana')
+			//'authError' => __('Kirjaudu sisään'),
+            //'loginError' => __('Sisäänkirjautuminen epäonnistui. 
+            //    Tarkista käyttäjänimi ja salasana')
+            'authError' => 'Kirjaudu sisään',
+            'loginError' => 'Sisäänkirjautuminen epäonnistui. 
+                Tarkista käyttäjänimi ja salasana'
+
         ),
         'Session',
         'RequestHandler',

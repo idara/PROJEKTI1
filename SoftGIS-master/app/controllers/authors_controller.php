@@ -385,6 +385,8 @@ class AuthorsController extends AppController
 				// IF Authorized user's password == Confirm password
 				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
 				{
+					$this->data['Author']['id'] = $id;
+					
 					if(strcmp($this->data['Author']['email'], $this->data['Author']['emailRetyped'])==0)
 					{
 						if ($this->Author->save($this->data)) {
@@ -527,6 +529,8 @@ class AuthorsController extends AppController
 				// IF Authorized user's password == Confirm password
 				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
 				{
+					$this->data['Author']['id'] = $id;
+					
 					if ($this->Author->save($this->data)) {
 						$this->Session->setFlash(__('Käyttäjään tehdyt muutokset on tallennettu', true));
 						$this->redirect(array('action' => 'view'));
@@ -588,7 +592,12 @@ class AuthorsController extends AppController
 		$id = $this->Auth->user('id');
 	
 		//Käyttäjän tiedot
-		$this->set('author', $this->Author->query("SELECT authors.id, authors.username, authors.password, authors.group_id FROM authors WHERE authors.id=$id;"));
+		$this->set('author', $this->Author->query("SELECT authors.id, authors.username, authors.password, authors.email, authors.group_id FROM authors WHERE authors.id=$id;"));
+		
+		// Sähköpostin pituus
+		//$this->set('emailLengt', strlen($this->Auth->user('email')));
+		//$emailLengt = $this->Author->query("SELECT authors.email FROM authors WHERE authors.id=$id;");
+		//$this->set('emailLengt', strlen($emailLengt['0']['authors']['email']));
 		
 		//Kyselyiden määrä
 		$this->set('pollsCount', $this->Author->query("SELECT authors.id, COUNT(polls.author_id) as lkm FROM authors INNER JOIN polls ON authors.id=polls.author_id GROUP BY authors.id;"));
@@ -788,7 +797,7 @@ class AuthorsController extends AppController
 			if (!empty($this->data)) {
 			
 				//Authorized user's password
-				$AuthorizedPassword =  $this->Author->query("SELECT authors.password FROM authors WHERE authors.id=$editorId;");
+				$AuthorizedPassword =  $this->Author->query("SELECT authors.password FROM authors WHERE authors.id=$id;");
 				$AuthorizedPassword = $AuthorizedPassword['0']['authors']['password'];
 			
 				//Confirm password
@@ -797,6 +806,8 @@ class AuthorsController extends AppController
 				// IF Authorized user's password == Confirm password
 				if(strcmp($AuthorizedPassword, $confirmPassword)==0)
 				{
+					$this->data['Author']['id'] = $id;
+					
 					if ($this->Author->save($this->data)) {
 						$this->Session->setFlash(__('Käyttäjän sähköpostiosoitteeseen tehdyt muutokset on tallennettu', true));
 						$this->redirect(array('action' => 'profile'));

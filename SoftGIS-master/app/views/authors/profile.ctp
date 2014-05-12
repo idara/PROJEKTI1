@@ -51,6 +51,7 @@
 
 	<div class="profileBasicInfo">
 		<h3><?php echo $author['0']['authors']['username']; ?></h3>
+		<p><?php echo $author['0']['authors']['email']; ?></p>
 		<p>
 			<?php
 				//Käyttäjän ryhmän tulostus
@@ -157,17 +158,24 @@
 				
 				<!-- Linkki tukipyynnön jättämiseen -->
 				<?php
-					echo $this->Html->link(
-						__('Tukipyyntö', true),
-						array(
-							'controller' => 'requests',
-							'action' => 'add'
-						),
-						array(
-							'class' => 'button small profileEditButton',
-							'title' => __('Jätä tukipyyntö järjestelmänvalvojalle', true)
-						)
-					);
+					if($emailLengtForView != 0)
+					{
+						echo $this->Html->link(
+							__('Tukipyyntö', true),
+							array(
+								'controller' => 'requests',
+								'action' => 'add'
+							),
+							array(
+								'class' => 'button small profileEditButton',
+								'title' => __('Jätä tukipyyntö järjestelmänvalvojalle', true)
+							)
+						);
+					}
+					else
+					{
+						// Tähän mahdollinen näytettävä ilmoitus käyttäjälle sähköpostiosoitteen lisäämisen eduista
+					}
 				?>
 		</div>
 		
