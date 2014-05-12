@@ -44,6 +44,8 @@
 		var head = <?php echo json_encode($header); ?>;
 		var text = "";
 		var mid_text = "";
+		var csvNoMap_text = "";
+		var mid_text_tmp = "";
 		var mapanswertype = '';
 		var textanswertype = '';
 
@@ -160,7 +162,8 @@
 				}
 				
 				// Luodaan rivi MID-tiedostoon
-				mid_text = mid_text + head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""') + ',\n';
+				//mid_text = mid_text + head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""') + ',\n';
+				mid_text_tmp = head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""') + ',\n';
 				
 				// Koordinaattien lukumäärä
 				var pointCount = map.length;
@@ -169,26 +172,32 @@
 				if(head.answer[x].map == 0) // Ei karttaa
 				{
 					//text = text + '\n' + '\nEi karttaa \n' + pointCount + '\n' + mapPrintable + '\n';
+					csvNoMap_text = csvNoMap_text + mid_text_tmp;
 				}
 				else if(head.answer[x].map == 1) // Kartta, ei vastausta
 				{
 					//text = text + '\nKartta, ei vastausta \n' + pointCount + '\n' + mapPrintable + '\n';
+					csvNoMap_text = csvNoMap_text + mid_text_tmp;
 				}
 				else if(head.answer[x].map == 2) // Kartta, 1 merkki
 				{
 					text = text + '\nPOINT ' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
+					mid_text = mid_text + mid_text_tmp;
 				}
 				else if(head.answer[x].map == 3) // Kartta, monta merkkiä
 				{
 					text = text + '\nMULTIPOINT ' + pointCount + '\n' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
+					mid_text = mid_text + mid_text_tmp;
 				}
 				else if(head.answer[x].map == 4) // Kartta, viiva
 				{
 					text = text + '\nPLINE \n' + pointCount + '\n' + mapPrintable + 'PEN (2,2,0)\n';
+					mid_text = mid_text + mid_text_tmp;
 				}
 				else if(head.answer[x].map == 5) // Kartta, alue
 				{
 					text = text + '\nREGION 1 \n' + pointCount + '\n' + mapPrintable + 'PEN (2,2,0)\nBRUSH (1,0,65280)\n';
+					mid_text = mid_text + mid_text_tmp;
 				}
 			}
 		}
@@ -376,6 +385,8 @@
 		var head = <?php echo json_encode($header); ?>;
 		var text = "";
 		var mid_text = "";
+		var csvNoMap_text = "QUESTIONNUM integer, QUESTION char (65535), MAPANSWERTYPE char (65535), TEXTANSWERTYPE char (65535), TEXTANSWER char (65535)\n";		
+		var mid_text_tmp = "";
 		var mapanswertype = '';
 		var textanswertype = '';
 
@@ -492,7 +503,8 @@
 				}
 				
 				// Luodaan rivi MID-tiedostoon
-				mid_text = mid_text + head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""').replace(/,/g,';') + '\n';
+				//mid_text = mid_text + head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""').replace(/,/g,';') + '\n';
+				mid_text_tmp = head.answer[x].num + ',' + head.answer[x].questionText + ',' + mapanswertype + ',' + textanswertype + ',' + responses[i].answer[x].text.replace(/"/g,'""').replace(/,/g,';') + '\n';
 				
 				// Koordinaattien lukumäärä
 				var pointCount = map.length;
@@ -501,33 +513,40 @@
 				if(head.answer[x].map == 0) // Ei karttaa
 				{
 					//text = text + '\n' + '\nEi karttaa \n' + pointCount + '\n' + mapPrintable + '\n';
+					csvNoMap_text = csvNoMap_text + mid_text_tmp
 				}
 				else if(head.answer[x].map == 1) // Kartta, ei vastausta
 				{
 					//text = text + '\nKartta - ei vastausta \n' + pointCount + '\n' + mapPrintable + '\n';
+					csvNoMap_text = csvNoMap_text + mid_text_tmp
 				}
 				else if(head.answer[x].map == 2) // Kartta - 1 merkki
 				{
 					text = text + '\nPOINT ' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
+					mid_text = mid_text + mid_text_tmp
 				}
 				else if(head.answer[x].map == 3) // Kartta, monta merkkiä
 				{
 					text = text + '\nMULTIPOINT ' + pointCount + '\n' + mapPrintable + 'SYMBOL \(67,16711680,10\)\n';
+					mid_text = mid_text + mid_text_tmp
 				}
 				else if(head.answer[x].map == 4) // Kartta, viiva
 				{
 					text = text + '\nPLINE \n' + pointCount + '\n' + mapPrintable + 'PEN (2,2,0)\n';
+					mid_text = mid_text + mid_text_tmp
 				}
 				else if(head.answer[x].map == 5) // Kartta, alue
 				{
 					text = text + '\nREGION 1 \n' + pointCount + '\n' + mapPrintable + 'PEN (2,2,0)\nBRUSH (1,0,65280)\n';
+					mid_text = mid_text + mid_text_tmp
 				}
 			}
 		}
 		
-		var fileData = new Array(2);
+		var fileData = new Array(3);
 		fileData['mif'] = text;
         fileData['mid'] = mid_text;
+		fileData['csvNoMap'] = csvNoMap_text;
 		
 		return fileData;
 		
@@ -580,10 +599,14 @@
 		//document.getElementById("mid").innerHTML = mifData['mid'];
         document.getElementById("mid_lataus3").href = "data:application/mid;charset=utf-8," + mifData3['mid'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
         document.getElementById("mid_lataus3").download = pollNam.replace(/ /g,"_") + '_3_vastaukset.mid';
+		
+		//csvNoMap 3
+		//document.getElementById("csvNoMap_lataus3").href = "data:application/mid;charset=utf-8," + mifData3['csvNoMap'].replace(/\n/g,'%0D%0A').replace(/ /g,'%20');
+        //document.getElementById("csvNoMap_lataus3").download = pollNam.replace(/ /g,"_") + '_3_csvNoMap_vastaukset.mid';
+		document.getElementById("csvNoMap_lataus3").href = "data:application/csv;charset=utf-8," + "sep=,%0A" + mifData3['csvNoMap'].replace(/\n/g,'%0A').replace(/ /g,'%20');
+        document.getElementById("csvNoMap_lataus3").download = pollNam.replace(/ /g,"_") + '_vastaukset.csv';
     }
 	
-	
-
     window.addEventListener("load", setContent, false);
 </script>
 
@@ -685,6 +708,8 @@
 	<a class="button" id="mif_lataus3" download="example.mif" href="data:application/mif;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MIF-tiedosto versio 3'); ?></a>
 	
 	<a class="button" id="mid_lataus3" download="example.mid" href="data:application/mid;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa MID-tiedosto versio 3'); ?></a>
+	
+	<a class="button" id="csvNoMap_lataus3" download="example.mid" href="data:application/mid;charset=utf-8,Col1%2CCol2%0AVal1%2CVal2"><?php __('Lataa kartattomat vastaukset CSV-tiedosto versio 3'); ?></a>
 
 	
 	<div class="help answersArea">
