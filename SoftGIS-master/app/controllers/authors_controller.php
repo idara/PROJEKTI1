@@ -812,7 +812,7 @@ class AuthorsController extends AppController
 						$this->Session->setFlash(__('Käyttäjän sähköpostiosoitteeseen tehdyt muutokset on tallennettu', true));
 						$this->redirect(array('action' => 'profile'));
 					} else {
-						$this->Session->setFlash(__('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
+						$this->Session->setFlash(__('Sähköpostiosoite on jo käytössä', true) . '<br>' . __('Muutosten tallentaminen ei onnistunut. Ole hyvä ja yritä uudestaan.', true));
 					}
 				}
 				else
