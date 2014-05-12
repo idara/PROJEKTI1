@@ -111,13 +111,28 @@ class RequestsController extends AppController
 			$this->Request->create();
 			
 			// Haetaan käyttäjän id sähköpostiosoitteen perusteella
-			//$this->Request->query("SELECT requests.author_id, authors.username, authors.email FROM requests INNER JOIN authors ON requests.author_id=authors.id GROUP BY requests.author_id;")
+			$reuquestorEmail = '\'' . $this->data['Request']['email'] . '\'';
+			$requestorId = $this->Request->query("SELECT authors.id FROM authors WHERE authors.email=$reuquestorEmail;");
 			
-			if ($this->Request->save($this->data)) {
-				$this->Session->setFlash(__('Salasanan uusimispyyntö lähetetty', true));
-				$this->redirect(array('controller' => 'authors', 'action' => 'profile'));
-			} else {
-				$this->Session->setFlash(__('Salasanan uusimispyyntöä ei voitu lähettää. Ole hyvä ja yritä uudestaan.', true));
+			if(isset($requestorId['0']['authors']['id']))
+			{				
+				$this->data['Request']['author_id'] = $requestorId['0']['authors']['id'];
+				
+				$this->data['Request']['request_created'] = date("Y-m-d H:i:s");
+				
+				$this->data['Request']['request'] = __('Olen unohtanut salasanani. En pääse kirjautumaan sisään. Voisitteko toimittaa minulle uuden salasanan? TÄMÄ VAKIOMUOTOINEN PYYNTÖ ON LÄHETETTY KIRJAUTUMISSIVUN KAUTTA!', true);
+				
+				if ($this->Request->save($this->data))
+				{
+					$this->Session->setFlash(__('Salasanan uusimispyyntö lähetetty', true));
+					$this->redirect(array('controller' => 'authors', 'action' => 'profile'));
+				} else {
+					$this->Session->setFlash(__('Salasanan uusimispyyntöä ei voitu lähettää. Ole hyvä ja yritä uudestaan.', true));
+				}
+			}
+			else
+			{
+				$this->Request->invalidate( 'email', __('Sähköpostiosoitetta ei löytynyt.', true) );
 			}
 		}	
 		

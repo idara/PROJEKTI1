@@ -1,4 +1,4 @@
-<!-- Ryhmähallinta - listaa kaikki ryhmät -->
+<!-- RyhmÃ¤hallinta - listaa kaikki ryhmÃ¤t -->
 
 <script>	
 	
@@ -26,13 +26,13 @@
 			}
 		});
 	});
-	
-	// Näytä lisää / vähemmän tekstiä
+
+	// NÃ¤ytÃ¤ lisÃ¤Ã¤ / vÃ¤hemmÃ¤n tekstiÃ¤
 	$(document).ready(function() {
 		var showChar = 150;
 		var ellipsestext = "...";
-		var moretext = "näytä lisää";
-		var lesstext = "näytä vähemmän";
+		var moretext = "nÃ¤ytÃ¤ lisÃ¤Ã¤";
+		var lesstext = "nÃ¤ytÃ¤ vÃ¤hemmÃ¤n";
 		$('.more').each(function() {
 			var content = $(this).html();
 	 
@@ -68,15 +68,15 @@
 	echo $this->element('authors_menu');
 ?>
 
-<h3><?php __('Avoimet tukipyynnöt'); ?></h3><br>
+<h3><?php __('Avoimet tukipyynnÃ¶t'); ?></h3><br>
 
 <table class="list">
     <thead>
         <tr>
-			<th><?php __('Käyttäjätunnus'); ?></th>
-			<th><?php __('Sähköpostiosoite'); ?></th>
-			<th><?php echo $this->Paginator->sort('Tukipyyntö luotu', 'request_created');?></th>
-			<th><?php echo $this->Paginator->sort('Tukipyyntö', 'request');?></th>
+			<th><?php __('KÃ¤yttÃ¤jÃ¤tunnus'); ?></th>
+			<th><?php __('SÃ¤hkÃ¶postiosoite'); ?></th>
+			<th><?php echo $this->Paginator->sort('TukipyyntÃ¶ luotu', 'request_created');?></th>
+			<th><?php echo $this->Paginator->sort('TukipyyntÃ¶', 'request');?></th>
 			<th><?php __('Merkitse'); ?></th>
         </tr>
     </thead>
@@ -84,7 +84,7 @@
         <?php foreach ($requests as $request): ?>
             <tr>
 				<td>
-					<?php // Tukipyynnön lähettäjän käyttäjänimi
+					<?php // TukipyynnÃ¶n lÃ¤hettÃ¤jÃ¤n kÃ¤yttÃ¤jÃ¤nimi
 						foreach ($requestors as $requestor)
 						{
 							if($requestor['requests']['author_id']==$request['Request']['author_id'])
@@ -95,7 +95,7 @@
 					?>
 				</td>
 				<td>
-					<?php // Tukipyynnön lähettäjän käyttäjänimi
+					<?php // TukipyynnÃ¶n lÃ¤hettÃ¤jÃ¤n kÃ¤yttÃ¤jÃ¤nimi
 						foreach ($requestors as $requestor)
 						{
 							if($requestor['requests']['author_id']==$request['Request']['author_id'])
@@ -111,7 +111,7 @@
 					<!-- Linkki tilan muuttamiseen -->
 					<?php
 						echo $this->Html->link(
-							__('Käsitellyksi',true),
+							__('KÃ¤sittelemÃ¤ttÃ¶mÃ¤ksi',true),
 							array(
 								'controller' => 'requests',
 								'action' => 'complete',
@@ -119,7 +119,7 @@
 							),
 							array(
 								'class' => 'button small',
-								'title' => __('Merkitse tukipyyntö käsitellyksi',true)
+								'title' => __('Merkitse tukipyyntÃ¶ kÃ¤sitellyksi',true)
 							)
 						);
 					?>

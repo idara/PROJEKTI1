@@ -73,20 +73,6 @@
 			'autofocus' => 'autofocus'
 		)
 	);
-	echo $this->Form->hidden('request', 
-		array(
-			'label' => 'request', 
-			'type' => 'text',
-			'value' => __('Olen unohtanut salasanani. En pääse kirjautumaan sisään. Voisitteko toimittaa minulle uuden salasanan? TÄMÄ VAKIOMUOTOINEN PYYNTÖ ON LÄHETETTY KIRJAUTUMISSIVUN KAUTTA!', true)
-		)
-	);
-	echo $this->Form->hidden('request_created', 
-		array(
-			'label' => 'Request created', 
-			'type' => 'text',
-			'value' => $timestamp
-		)
-	);
 ?>
 
 
