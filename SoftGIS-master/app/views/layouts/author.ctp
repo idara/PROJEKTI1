@@ -10,7 +10,7 @@
 	<?php
 		$locale = Configure::read('Config.language');
 	?>
-	<link rel="gettext" type="application/x-po" href="<?php echo ($this->webroot . 'js/locale/' . $locale . '/LC_MESSAGES/default.po'); ?>"/>
+	<link rel="gettext" type="application/x-po" href="<?php echo ($this->webroot . 'js/locale/' . $locale . '/LC_MESSAGES/js-default.po'); ?>"/>
 
     <?php
         echo $this->Html->meta('icon');
