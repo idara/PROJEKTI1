@@ -1,3 +1,6 @@
+// http://openflights.org/blog/2009/05/29/dynamic-javascript-localization-with-gettext-and-php/
+var gt = new Gettext({ 'domain' : 'messages' });
+
 /*
 * jQuery Plugin: Tokenizing Autocomplete Text Entry
 * Version 1.6.0
@@ -25,9 +28,9 @@ var DEFAULT_SETTINGS = {
     processPrePopulate: false,
 
     // Display settings
-    hintText: <?php __("Syötä hakusana"); ?>,
-    noResultsText: <?php __("Tuloksia ei löytynyt"); ?>,
-    searchingText: <?php __("Etsitään"); ?>,
+    hintText: gt.gettext("Syötä hakusana"),
+    noResultsText: gt.gettext("Tuloksia ei löytynyt"),
+    searchingText: gt.gettext("Etsitään"),
     deleteText: "&times;",
     animateDropdown: true,
     theme: null,

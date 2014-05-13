@@ -1,3 +1,5 @@
+// http://openflights.org/blog/2009/05/29/dynamic-javascript-localization-with-gettext-and-php/
+var gt = new Gettext({ 'domain' : 'messages' });
 
 (function( $ ) {
     // "use strict";
@@ -35,14 +37,14 @@
             );
 
             var menuEl = $( "<div>" );
-            var selectBtn = $( "<button><?php __('Valitse'); ?></button>" )
+            var selectBtn = $( "<button>" + gt.gettext("Valitse") + "</button>" )
                 .addClass( "big proceed" ).appendTo( menuEl )
                 .click(function() {
                     methods.select.call( $this );
                     return false;
                 }
             );
-            var cancelBtn = $( "<button><?php __('Peruuta'); ?></button>" )
+            var cancelBtn = $( "<button>" + gt.gettext("Peruuta") + "</button>" )
                 .addClass( "big cancel" ).appendTo( menuEl )
                 .click(function() {
                     methods.cancel.call( $this );

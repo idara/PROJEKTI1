@@ -33,7 +33,6 @@ class AppController extends Controller
 		{
 			Configure::write('Config.language', $this->Cookie->read('lang'));
 		}
-		
 		// / Localization
 		
 		//      Onko käyttäjällä oikeutta käyttäjähallintaan?

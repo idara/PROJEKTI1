@@ -1,0 +1,189 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-04-17 09:44+0000\n"
+"PO-Revision-Date: 2014-05-05 22:27+0200\n"
+"Last-Translator: Ida Viinikka <ida.viinikka@student.oulu.fi>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: webroot/js/answerApp.js
+msgid "Vastauksiasi ei tallenneta, kun poistut sivulta. \nHaluatko varmasti poistua sivulta?"
+msgstr ""
+
+msgid "Kartalle ei voi laittaa merkkejä"
+msgstr ""
+
+msgid "Voit asettaa kartalle yhden merkin"
+msgstr ""
+
+msgid "Voit asettaa kartalle monta merkkiä"
+msgstr ""
+
+msgid "Voit luoda kartalle viivan"
+msgstr ""
+
+msgid "Voit luoda kartalle alueen"
+msgstr ""
+
+msgid "Et ole vastannut kartalle"
+msgstr ""
+
+msgid "Et ole vastannut kysymykseen"
+msgstr ""
+
+#: /app/webroot/js/jquery.tokeninput.js
+msgid "Syötä hakusana"
+msgstr ""
+
+msgid "Tuloksia ei löytynyt"
+msgstr ""
+
+msgid "Etsitään"
+msgstr ""
+
+#: /app/webroot/js/jquery.ui.datepicker-fi.js
+msgid "Sulje"
+msgstr ""
+
+msgid "Edellinen"
+msgstr ""
+
+msgid "Seuraava"
+msgstr ""
+
+msgid "T&auml;n&auml;&auml;n"
+msgstr ""
+
+msgid "Tammikuu"
+msgstr ""
+
+msgid "Helmikuu"
+msgstr ""
+
+msgid "Maaliskuu"
+msgstr ""
+
+msgid "Huhtikuu"
+msgstr ""
+
+msgid "Toukokuu"
+msgstr ""
+
+msgid "Kes&auml;kuu"
+msgstr ""
+
+msgid "Hein&auml;kuu"
+msgstr ""
+
+msgid "Elokuu"
+msgstr ""
+
+msgid "Syyskuu"
+msgstr ""
+
+msgid "Lokakuu"
+msgstr ""
+
+msgid "Marraskuu"
+msgstr ""
+
+msgid "Joulukuu"
+msgstr ""
+
+msgid "Tammi"
+msgstr ""
+
+msgid "Helmi"
+msgstr ""
+
+msgid "Maalis"
+msgstr ""
+
+msgid "Huhti"
+msgstr ""
+
+msgid "Touko"
+msgstr ""
+
+msgid "Kes&auml;"
+msgstr ""
+
+msgid "Hein&auml;"
+msgstr ""
+
+msgid "Elo"
+msgstr ""
+
+msgid "Syys"
+msgstr ""
+
+msgid "Loka"
+msgstr ""
+
+msgid "Marras"
+msgstr ""
+
+msgid "Joulu"
+msgstr ""
+
+msgid "Sunnuntai"
+msgstr ""
+
+msgid "Maanantai"
+msgstr ""
+
+msgid "Tiistai"
+msgstr ""
+
+msgid "Keskiviikko"
+msgstr ""
+
+msgid "Torstai"
+msgstr ""
+
+msgid "Perjantai"
+msgstr ""
+
+msgid "Lauantai"
+msgstr ""
+
+msgid "Su"
+msgstr ""
+
+msgid "Ma"
+msgstr ""
+
+msgid "Ti"
+msgstr ""
+
+msgid "Ke"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Pe"
+msgstr ""
+
+msgid "La"
+msgstr ""
+
+msgid "Vk"
+msgstr ""
+
+#: /app/webroot/js/locationpicker.js
+msgid "Valitse"
+msgstr ""
+
+msgid "Peruuta"
+msgstr ""
