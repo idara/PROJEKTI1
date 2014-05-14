@@ -1,4 +1,4 @@
-<h2>Karttamerkit</h2>
+<h2><?php __('Karttamerkit'); ?></h2>
 <div class="subnav">
     <?php echo $this->Html->link(
         __('Luo uusi karttamerkki', true),
