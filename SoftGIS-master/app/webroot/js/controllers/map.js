@@ -117,7 +117,7 @@ var Map = Spine.Controller.create({
 				[
 					{
 						featureType: "poi",
-						elementType: "label",
+						elementType: "labels",
 						stylers: [
 							{ visibility: "off" }
 						]
@@ -130,7 +130,7 @@ var Map = Spine.Controller.create({
 				[
 					{
 						featureType: "poi",
-						elementType: "label",
+						elementType: "labels",
 						stylers: [
 							{ visibility: "on" }
 						]
