@@ -25,6 +25,32 @@
 				classes: "ui-tooltip-help ui-tooltip-shadow"
 			}
 		});
+		
+		// Ponnahdusikkuna tukiyynnölle
+		
+		$('.requestButton').each(function() {  
+			$.data(this, 'dialog', 
+				$(this).next('.requestDialog').dialog({
+					autoOpen: false,  
+					modal: true,  
+					title: gt.gettext("Tukipyyntö"),
+					resizable: true,
+					width: 600,
+					draggable: false,
+					closeOnEscape: true,
+					buttons: {
+						<?php __('Sulje'); ?>: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				})
+			);  
+		}).click(function() {  
+			$.data(this, 'dialog').dialog('open');  
+			return false;  
+		});
+		
+		// /Ponnahdusikkuna tukiyynnölle
 	});
 
 	// Näytä lisää / vähemmän tekstiä
@@ -106,7 +132,14 @@
 					?>
 				</td>
 				<td><?php echo $request['Request']['request_created']; ?></td>
-				<td style="text-align:justify;" class="more"><?php echo $request['Request']['request']; ?></td>
+				<!--<td style="text-align:justify;" class="more">-->
+				<td>
+					<a class="requestButton button small">Näytä</a>
+					<div class="requestDialog">
+						<?php echo $request['Request']['request']; ?>
+					</div>
+				</td>
+				<!--</td>-->
 				<td>
 					<!-- Linkki tilan muuttamiseen -->
 					<?php
