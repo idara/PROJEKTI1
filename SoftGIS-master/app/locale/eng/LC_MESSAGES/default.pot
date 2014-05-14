@@ -347,52 +347,62 @@ msgstr "Data saved"
 msgid "Aineisto poistettu"
 msgstr "Data removed"
 
-#: \controllers\polls_controller.php:54 \views\polls\answers.ctp:165;305;399
+#: \controllers\polls_controller.php:54
+#: \views\polls\answers.ctp:165;305;399
 #: \views\polls\modify.ctp:53
 msgid "Ei tekstivastausta"
 msgstr "No text response"
 
-#: \controllers\polls_controller.php:55 \views\polls\answers.ctp:169;306;400
+#: \controllers\polls_controller.php:55
+#: \views\polls\answers.ctp:169;306;400
 #: \views\polls\modify.ctp:54
 msgid "Teksti"
 msgstr "Text"
 
-#: \controllers\polls_controller.php:56 \views\polls\answers.ctp:307;401
+#: \controllers\polls_controller.php:56
+#: \views\polls\answers.ctp:307;401
 #: \views\polls\modify.ctp:55
 msgid "Kyllä, Ei, En osaa sanoa"
 msgstr "Yes, no, I can not say"
 
-#: \controllers\polls_controller.php:57 \views\polls\answers.ctp:308;402
+#: \controllers\polls_controller.php:57
+#: \views\polls\answers.ctp:308;402
 #: \views\polls\modify.ctp:56
 msgid "1 - 5, En osaa sanoa"
 msgstr "1 - 5, I can not say"
 
-#: \controllers\polls_controller.php:58 \views\polls\answers.ctp:309;403
+#: \controllers\polls_controller.php:58 
+#: \views\polls\answers.ctp:309;403
 #: \views\polls\modify.ctp:57
 msgid "1 - 7, En osaa sanoa"
 msgstr "1 - 7, I can not say"
 
-#: \controllers\polls_controller.php:59 \views\polls\answers.ctp:185;310;404
+#: \controllers\polls_controller.php:59
+#: \views\polls\answers.ctp:185;310;404
 #: \views\polls\modify.ctp:58
 msgid "Monivalinta (max 9)"
 msgstr "Multiple choice (max 9)"
 
-#: \controllers\polls_controller.php:62 \views\polls\answers.ctp:139;315;409
+#: \controllers\polls_controller.php:62
+#: \views\polls\answers.ctp:139;315;409
 #: \views\polls\modify.ctp:62
 msgid "Ei karttaa"
 msgstr "No map"
 
-#: \controllers\polls_controller.php:63 \views\polls\answers.ctp:316;410
+#: \controllers\polls_controller.php:63
+#: \views\polls\answers.ctp:316;410
 #: \views\polls\modify.ctp:63
 msgid "Kartta, ei vastausta"
 msgstr "Map, no response"
 
-#: \controllers\polls_controller.php:64 \views\polls\answers.ctp:317;411
+#: \controllers\polls_controller.php:64
+#: \views\polls\answers.ctp:317;411
 #: \views\polls\modify.ctp:64
 msgid "Kartta, 1 merkki"
 msgstr "Map, 1 mark"
 
-#: \controllers\polls_controller.php:65 \views\polls\answers.ctp:318;412
+#: \controllers\polls_controller.php:65 
+#: \views\polls\answers.ctp:318;412
 #: \views\polls\modify.ctp:65
 msgid "Kartta, monta merkkiä"
 msgstr "Map, multiple marks"
@@ -401,7 +411,8 @@ msgstr "Map, multiple marks"
 msgid "Kartta, polku"
 msgstr "Map, path"
 
-#: \controllers\polls_controller.php:67 \views\polls\answers.ctp:320;414
+#: \controllers\polls_controller.php:67
+#: \views\polls\answers.ctp:320;414
 #: \views\polls\modify.ctp:67
 msgid "Kartta, alue"
 msgstr "Map, area"
@@ -516,7 +527,8 @@ msgstr "Username can not be over 50 characters long."
 msgid "Sähköpostiosoite on jo käytössä."
 msgstr "Email address already in use."
 
-#: \models\author.php:42 \views\authors\profile_email.ctp:12
+#: \models\author.php:42 
+#: \views\authors\profile_email.ctp:12
 #: \views\requests\forgotpassword.ctp:70;71
 msgid "Sähköpostiosoitteen on oltava muotoa erkki@esimerkki.fi"
 msgstr "Email address must be form user@example.com."
@@ -579,7 +591,8 @@ msgstr "Data with the same name already exists, please try another name."
 msgid "Aineistolla täytyy olla sijainti, lisää se kartalle."
 msgstr "Data must have a location, add it on the map."
 
-#: \models\poll.php:49 \views\polls\modify.ctp:246
+#: \models\poll.php:49
+#: \views\polls\modify.ctp:246
 msgid "Anna kyselylle nimi"
 msgstr "Give poll a name"
 
@@ -590,6 +603,10 @@ msgstr "Poll with the same name already exists, please try another name."
 #: \models\request.php:21
 msgid "Pyynnön täytyy olla tarpeeksi selkeä. Käytä vähintään 10 merkkiä."
 msgstr "Request must be clear enough. Use at least 10 characters."
+
+#: \views\answers\answer.ctp:53
+msgid "Apua"
+msgstr "Help"
 
 #: \views\answers\answer.ctp:50
 msgid "Vastausohjeet"
@@ -652,12 +669,15 @@ msgstr ""
 "clicking with the right mouse button. You can create a new corner point by "
 "dragging circles between corner points on tracks and areas."
 
-#: \views\answers\answer.ctp:69 \views\answers\welcome.ctp:10
+#: \views\answers\answer.ctp:69 
+#: \views\answers\welcome.ctp:10
 msgid "Aloita kysely"
 msgstr "Start poll"
 
-#: \views\answers\answer.ctp:77 \views\authors\view.ctp:266
-#: \views\groups\index.ctp:71 \views\requests\index.ctp:139
+#: \views\answers\answer.ctp:77 
+#: \views\authors\view.ctp:266
+#: \views\groups\index.ctp:71 
+#: \views\requests\index.ctp:139
 #: \views\requests\viewcomplited.ctp:137
 msgid "edellinen"
 msgstr "previous"
@@ -666,18 +686,22 @@ msgstr "previous"
 msgid "Kysymys numero"
 msgstr "Question number"
 
-#: \views\answers\answer.ctp:79 \views\authors\view.ctp:269
-#: \views\groups\index.ctp:74 \views\requests\index.ctp:142
+#: \views\answers\answer.ctp:79
+#: \views\authors\view.ctp:269
+#: \views\groups\index.ctp:74 
+#: \views\requests\index.ctp:142
 #: \views\requests\viewcomplited.ctp:140
 msgid "seuraava"
 msgstr "next"
 
-#: \views\answers\answer.ctp:88 \views\polls\index.ctp:57
+#: \views\answers\answer.ctp:88
+#: \views\polls\index.ctp:57
 #: \views\polls\view.ctp:149;270;276;282
 msgid "Kyllä"
 msgstr "Yes"
 
-#: \views\answers\answer.ctp:89 \views\polls\index.ctp:59
+#: \views\answers\answer.ctp:89
+#: \views\polls\index.ctp:59
 #: \views\polls\view.ctp:149;258;264;270;276;282
 msgid "Ei"
 msgstr "No"
@@ -710,13 +734,17 @@ msgstr "Back to poll view"
 msgid "Voit sulkea selainikkunan"
 msgstr "You can close browser window"
 
-#: \views\authors\add.ctp:6;45 \views\elements\authors_menu.ctp:23
+#: \views\authors\add.ctp:6;45
+#: \views\elements\authors_menu.ctp:23
 msgid "Lisää käyttäjä"
 msgstr "Add user"
 
-#: \views\authors\add.ctp:14 \views\authors\profile_username.ctp:12
-#: \views\authors\username.ctp:22 \views\authors\view.ctp:75
-#: \views\requests\index.ctp:76 \views\requests\viewcomplited.ctp:74
+#: \views\authors\add.ctp:14
+#: \views\authors\profile_username.ctp:12
+#: \views\authors\username.ctp:22
+#: \views\authors\view.ctp:75
+#: \views\requests\index.ctp:76
+#: \views\requests\viewcomplited.ctp:74
 msgid "Käyttäjätunnus"
 msgstr "User account"
 
@@ -728,24 +756,33 @@ msgstr "Username must be at least 3 characters long."
 msgid "Syötä uuden käyttäjän käyttäjätunnus."
 msgstr "Input new user's username"
 
-#: \views\authors\add.ctp:18 \views\authors\login.ctp:10
-#: \views\authors\password.ctp:12 \views\authors\profile.ctp:90
-#: \views\authors\profile_password.ctp:12 \views\authors\register.ctp:27
+#: \views\authors\add.ctp:18
+#: \views\authors\login.ctp:10
+#: \views\authors\password.ctp:12
+#: \views\authors\profile.ctp:90
+#: \views\authors\profile_password.ctp:12
+#: \views\authors\register.ctp:27
 #: \views\authors\view.ctp:193
 msgid "Salasana"
 msgstr "password"
 
-#: \views\authors\add.ctp:19 \views\authors\password.ctp:13
-#: \views\authors\profile_password.ctp:13 \views\authors\register.ctp:28
+#: \views\authors\add.ctp:19
+#: \views\authors\password.ctp:13
+#: \views\authors\profile_password.ctp:13
+#: \views\authors\register.ctp:28
 msgid "Vahvista salasana"
 msgstr "Confirm password"
 
-#: \views\authors\add.ctp:19 \views\authors\register.ctp:28
+#: \views\authors\add.ctp:19;24
+#: \views\authors\email.ctp:23
+#: \views\authors\register.ctp:28
 msgid "Kirjoitusvirheiden ehkäisemiseksi, syötä salasana molempiin kenttiin."
 msgstr "To avoid misspelling, insert password to both fields."
 
-#: \views\authors\add.ctp:23 \views\authors\email.ctp:22
-#: \views\authors\profile_email.ctp:12 \views\requests\index.ctp:77
+#: \views\authors\add.ctp:23
+#: \views\authors\email.ctp:22
+#: \views\authors\profile_email.ctp:12
+#: \views\requests\index.ctp:77
 #: \views\requests\viewcomplited.ctp:75
 msgid "Sähköpostiosoite"
 msgstr "Email address"
@@ -754,12 +791,8 @@ msgstr "Email address"
 msgid "Vahvista sähköpostiosoite"
 msgstr "Confirm email address"
 
-#: \views\authors\add.ctp:24 \views\authors\email.ctp:23
-msgid ""
-"Kirjoitusvirheiden ehkäisemiseksi, syötä sähköpostiosoite molempiin kenttiin."
-msgstr "To avoid misspelling, insert email address to both fields."
-
-#: \views\authors\add.ctp:37 \views\authors\group.ctp:29
+#: \views\authors\add.ctp:37
+#: \views\authors\group.ctp:29
 #: \views\authors\profile_group.ctp:25 \views\authors\view.ctp:97;225
 msgid "Ryhmä"
 msgstr "Group"
@@ -874,6 +907,11 @@ msgstr "password"
 msgid "Vaihtaaksesi salasanan, syötä uusi salasana molempiin kenttiin."
 msgstr "To change password, insert new password to both fields."
 
+#: \views\authors\password.ctp:13
+#: \views\authors\profile_password.ctp:13
+msgid "Kirjoitusvirheiden ehkäisemiseksi, syötä uusi salasana molempiin kenttiin."
+msgstr "To avoid misspelling, enter new password to both fields."
+
 #: \views\authors\profile.ctp:98 \views\authors\view.ctp:112
 msgid "Vaihda oma salasanasi"
 msgstr "Change your own password"
@@ -895,13 +933,29 @@ msgstr "Support request"
 msgid "Jätä tukipyyntö järjestelmänvalvojalle"
 msgstr "Leave support request to system administrator"
 
+#: \views\authors\profile.ctp:184
+msgid "Kyselyitä"
+msgstr "Polls"
+
+#: \views\authors\profile.ctp:188
+msgid "Yhteensä"
+msgstr "Altogether"
+
 #: \views\authors\profile.ctp:195
 msgid "Käyttäjän kaikkien kyselyiden yhteismäärä"
 msgstr "Total quantity of user's all polls"
 
+#: \views\authors\profile.ctp:209
+msgid "Julkisia"
+msgstr "Public"
+
 #: \views\authors\profile.ctp:216
 msgid "Käyttäjän julkisten kyselyiden määrä"
 msgstr "Quantity of user's public users"
+
+#: \views\authors\profile.ctp:230
+msgid "Aktiivisia"
+msgstr "Active"
 
 #: \views\authors\profile.ctp:237
 msgid "Käyttäjän avoimien kyselyiden määrä"
@@ -1212,6 +1266,10 @@ msgstr "Location"
 #: \views\paths\edit.ctp:262
 msgid "Tallenna"
 msgstr "Save"
+
+#: \views\markers\index.ctp:1
+msgid "Karttamerkit"
+msgstr "Map marks"
 
 #: \views\markers\index.ctp:4
 msgid "Luo uusi karttamerkki"
@@ -1855,6 +1913,14 @@ msgstr "Copy as a new poll"
 msgid "Oletko varma että haluat kopioida kyselyn?"
 msgstr "Are you sure you want to copy poll?"
 
+#: \views\polls\launch.ctp:26
+msgid "Alkamispäivä"
+msgstr "Starting date"
+
+#: \views\polls\launch.ctp:37
+msgid "Päättymispäivä"
+msgstr "Ending date"
+
 #: \views\polls\launch.ctp:63
 msgid ""
 "Kyselyn aukioloaikana käyttäjät voivat vastata kyselyyn. Alkamis- ja "
@@ -2255,6 +2321,10 @@ msgstr "Unprocessed"
 #: \views\requests\index.ctp:122
 msgid "Merkitse tukipyyntö käsitellyksi"
 msgstr "Mark support request as processed"
+
+#: \views\requests\viewcomplited.ctp:103
+msgid "Tukipyyntö luotu"
+msgstr "Support request created"
 
 #: \views\requests\viewcomplited.ctp:120
 msgid "Merkitse tukipyyntö käsittelemättömäksi"
