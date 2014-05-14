@@ -111,6 +111,8 @@ var Map = Spine.Controller.create({
         }
     },
     setPoi: function(value){
+	// https://developers.google.com/maps/documentation/javascript/styling
+	// https://developers.google.com/maps/tutorials/customizing/styling-the-base-map
         if(value == 0){
             //this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "off" } ] } ] );
 			this.map.set('styles',
