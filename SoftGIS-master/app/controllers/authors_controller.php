@@ -211,6 +211,7 @@ class AuthorsController extends AppController
 	}
 	
 	//Käyttäjän käyttäjänimen muokkaaminen
+	/*
 	function username($id = null) {
 	
 		if(($this->Auth->user('group_id'))==1)
@@ -274,6 +275,7 @@ class AuthorsController extends AppController
 			$this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
 	}
+	*/
 	
 	//Käyttäjän salasanan muokkaaminen
 	function password($id = null) {
@@ -623,6 +625,7 @@ class AuthorsController extends AppController
 	}
 	
 	//Profiili - Käyttäjänimen muokkaaminen
+	/*
 	function profile_username() {
 	
 		$id = $this->Auth->user('id');
@@ -660,6 +663,7 @@ class AuthorsController extends AppController
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
 	}
+	*/
 	
 	//Käyttäjän salasanan muokkaaminen
 	function profile_password() {
@@ -741,6 +745,7 @@ class AuthorsController extends AppController
 	}
 	
 	//Käyttäjän poistaminen
+	/*
 	function profile_delete() {
 	
 		$id = $this->Auth->user('id');
@@ -781,7 +786,7 @@ class AuthorsController extends AppController
 			 $this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
 	}
-	
+	*/
 	
 	//Profiili - Sähköpostiosoitteen muokkaaminen
 	function profile_email() {
@@ -847,6 +852,7 @@ class AuthorsController extends AppController
 	}
 	
 	//Ryhmän vaihtaminen
+	/*
 	function profile_group() {
 	
 		$id = $this->Auth->user('id');
@@ -892,6 +898,7 @@ class AuthorsController extends AppController
 			$this->redirect(array('controller' => 'polls', 'action' => 'index'));
 		}
 	}
+	*/
 	
 	//  /Omien tietojen hallinta
 	
