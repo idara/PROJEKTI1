@@ -113,6 +113,7 @@ var Map = Spine.Controller.create({
     setPoi: function(value){
 	// https://developers.google.com/maps/documentation/javascript/styling
 	// https://developers.google.com/maps/tutorials/customizing/styling-the-base-map
+	// http://stackoverflow.com/questions/15194072/disable-bus-stop-on-google-map
         if(value == 0){
             //this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "off" } ] } ] );
 			this.map.set('styles',
@@ -120,6 +121,12 @@ var Map = Spine.Controller.create({
 					{
 						featureType: "poi",
 						elementType: "labels",
+						stylers: [
+							{ visibility: "off" }
+						]
+					},
+					{
+						featureType: "transit.station.bus",
 						stylers: [
 							{ visibility: "off" }
 						]
@@ -133,6 +140,12 @@ var Map = Spine.Controller.create({
 					{
 						featureType: "poi",
 						elementType: "labels",
+						stylers: [
+							{ visibility: "on" }
+						]
+					},
+					{
+						featureType: "transit.station.bus",
 						stylers: [
 							{ visibility: "on" }
 						]
