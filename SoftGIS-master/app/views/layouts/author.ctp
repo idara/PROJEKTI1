@@ -6,13 +6,10 @@
         <?php __('SoftGIS'); ?>
         <?php echo $title_for_layout; ?>
     </title>
-	
-	<?php
-		$locale = Configure::read('Config.language');
-	?>
-	<link rel="gettext" type="application/x-po" href="<?php echo ($this->webroot . 'js/locale/' . $locale . '/LC_MESSAGES/js-default.po'); ?>"/>
 
     <?php
+		echo $this->Html->script('Gettext');
+	
         echo $this->Html->meta('icon');
 
         // echo $this->Html->css('cake.generic');
@@ -40,11 +37,15 @@
         // echo $this->Html->script('smoke');
         echo $this->Html->script('jquery.tokeninput');
         echo $this->Html->script('jscolor/jscolor');
-		echo $this->Html->script('Gettext');
 
         echo $scripts_for_layout;
     ?>
+		
+	<?php
+		$locale = Configure::read('Config.language');
+	?>
 	
+	<link rel="gettext" type="application/x-po" href="<?php echo ($this->webroot . 'js/locale/' . $locale . '/LC_MESSAGES/js-default.po'); ?>"/>
     <script>
 
 $( document ).ready(function() {
