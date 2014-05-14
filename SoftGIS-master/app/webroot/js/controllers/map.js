@@ -112,9 +112,31 @@ var Map = Spine.Controller.create({
     },
     setPoi: function(value){
         if(value == 0){
-            this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "off" } ] } ] );
+            //this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "off" } ] } ] );
+			this.map.set('styles',
+				[
+					{
+						featureType: "poi",
+						elementType: "label",
+						stylers: [
+							{ visibility: "off" }
+						]
+					}
+				]
+			);	
         }if(value == 1){
-            this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "on" } ] } ] );
+            //this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "on" } ] } ] );
+			this.map.set('styles',
+				[
+					{
+						featureType: "poi",
+						elementType: "label",
+						stylers: [
+							{ visibility: "on" }
+						]
+					}
+				]
+			);
         }
     },
     setMap: function(mode, lat, lng, zoom) {
