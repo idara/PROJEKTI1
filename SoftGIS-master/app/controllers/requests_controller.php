@@ -5,6 +5,9 @@ class RequestsController extends AppController
 	var $name = 'Requests';
 	
 	function beforeFilter() {
+	
+		parent::beforeFilter();
+		
         $this->Auth->allow('forgotpassword');
 	}
 	
@@ -35,7 +38,7 @@ class RequestsController extends AppController
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', __(' - Ryhmälista', true));
+			$this->set('title_for_layout', __(' - Tukipyyntö', true));
 		}
     }
 	
@@ -64,7 +67,7 @@ class RequestsController extends AppController
 			$this->layout = 'author';
 			
 			//Asetetaan sivun otsikko
-			$this->set('title_for_layout', __(' - Ryhmälista', true));
+			$this->set('title_for_layout', __(' - Tukipyyntö', true));
 		}
     }
 
