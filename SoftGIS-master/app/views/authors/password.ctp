@@ -10,7 +10,7 @@
 	echo $this->Session->flash('auth');
     echo $this->Form->create('Author');
     echo $this->Form->input('pwd', array('type'=>'password', 'label' => __('Uusi salasana', true), 'autofocus' => 'autofocus'));
-	echo $this->Form->input('retypedPassword', array('type'=>'password', 'label' => __('Vahvista uusi salasana', true), 'title' => __('Vaihtaaksesi salasanan, syötä uusi salasana molempiin kenttiin.', true), 'after' => '<span class="afterInput">Kirjoitusvirheiden ehkäisemiseksi, syötä uusi salasana molempiin kenttiin.</span>'));
+	echo $this->Form->input('retypedPassword', array('type'=>'password', 'label' => __('Vahvista uusi salasana', true), 'title' => __('Vaihtaaksesi salasanan, syötä uusi salasana molempiin kenttiin.', true), 'after' => '<span class="afterInput">' . __('Kirjoitusvirheiden ehkäisemiseksi, syötä uusi salasana molempiin kenttiin.', true) . '</span>'));
 	
 	echo ("<br><br>");
 	
