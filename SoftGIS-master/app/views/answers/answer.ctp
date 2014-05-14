@@ -175,10 +175,13 @@ $( document ).ready(function() {
     <div id="noAnswerCont">
         <input type="checkbox" id="noAnswer" />
         <label><?php __('En halua vastata kartalle'); ?></label>
-         <input type="checkbox" id="noMap" />
-         <label>vittu</label>
+		 <br/><br/>
+		 <a id="noMap" class="button"><?php __('Piilota / näytä POI-kohteet'); ?></a>
     </div>
+		<br/>
         <br/>
+		<br/>
+		<br/>
 		<br/>
         <p class="map_note" id="map_note"><?php __('Ohjeteksti'); ?></p>
         <div id="map" class="map">
