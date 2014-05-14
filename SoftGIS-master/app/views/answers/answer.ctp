@@ -3,6 +3,11 @@
 <?php echo $this->Html->script('controllers/map'); ?>
 <?php echo $this->Html->script('models/poll'); ?>
 <?php echo $this->Html->script('models/question'); ?>
+<!--  Gettext -->
+<?php echo $this->Html->script('Gettext'); ?>
+<?php $locale = Configure::read('Config.language'); ?>
+<link rel="gettext" type="application/x-po" href="<?php echo ($this->webroot . 'js/locale/' . $locale . '/LC_MESSAGES/js-default.po'); ?>"/>
+<!-- /Gettext -->
 <?php echo $this->Html->script('answerApp'); ?>
 
 <script>
