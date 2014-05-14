@@ -108,7 +108,7 @@ $( document ).ready(function() {
         </div>
 		
 		<?php
-			//  Ilmoitus käsittelemättömien tukipyyntöjen määrästä
+			//  Ilmoitus käsittelemättömien tukipyyntöjen määrästä ja sähköpostiosoitteen puuttumisesta
 			if(isset($userNotification))
 			{
 				echo ($userNotification);
