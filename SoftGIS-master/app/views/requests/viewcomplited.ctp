@@ -73,8 +73,8 @@
         <tr>
 			<th><?php __('Käyttäjätunnus'); ?></th>
 			<th><?php __('Sähköpostiosoite'); ?></th>
-			<th><?php echo $this->Paginator->sort('Tukipyyntö luotu', 'request_created');?></th>
-			<th><?php echo $this->Paginator->sort('Tukipyyntö', 'request');?></th>
+			<th><?php echo $this->Paginator->sort(__('Tukipyyntö luotu'), 'request_created');?></th>
+			<th><?php echo __('Tukipyyntö', true);?></th>
 			<th><?php __('Merkitse'); ?></th>
         </tr>
     </thead>
