@@ -181,11 +181,11 @@
 		
 	</div>
 	
-	<h4>Kyselyitä</h4>
+	<h4><?php __('Kyselyitä'); ?></h4>
 	<div class="profileSpecialInfo">
 		<div class="profileSpecialInfofield">
 			<h4>
-				Yhteensä
+				<?php __('Yhteensä'); ?>
 				<?php
 					echo $this->Html->image(
 						'helpsmall.png',
@@ -206,7 +206,7 @@
 	
 		<div class="profileSpecialInfofield">
 			<h4>
-				Julkisia
+				<?php __('Julkisia'); ?>
 				<?php
 					echo $this->Html->image(
 						'helpsmall.png',
@@ -227,7 +227,7 @@
 		
 		<div class="profileSpecialInfofield">
 			<h4>
-				Aktiivisia
+				<?php __('Aktiivisia'); ?>
 				<?php
 					echo $this->Html->image(
 						'helpsmall.png',
