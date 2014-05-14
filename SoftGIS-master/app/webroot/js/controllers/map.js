@@ -126,7 +126,7 @@ var Map = Spine.Controller.create({
 						]
 					},
 					{
-						featureType: "transit.station.bus",
+						featureType: "transit.station",
 						stylers: [
 							{ visibility: "off" }
 						]
@@ -145,7 +145,7 @@ var Map = Spine.Controller.create({
 						]
 					},
 					{
-						featureType: "transit.station.bus",
+						featureType: "transit.station",
 						stylers: [
 							{ visibility: "on" }
 						]
