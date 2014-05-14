@@ -117,7 +117,7 @@ function addMarker(location) {
 </div>
 
 <?php echo $this->Form->create('Marker'); ?>
-<?php echo $this->Form->input('name', array('label' => __('Nimi'),'placeholder'=>__('Anna nimi'),'required'=> true)); ?>
+<?php echo $this->Form->input('name', array('label' => __('Nimi'),'placeholder'=> 'Anna nimi','required'=> true)); ?>
 <?php echo $this->Form->input('content', array('label' => __('Sisältö', true))); ?>
 <?php echo $this->Form->input('icon', array('label' => __('Kuvake', true))); ?>
 <?php echo $this->Form->input('latlng', array('type' => 'hidden')); ?>
