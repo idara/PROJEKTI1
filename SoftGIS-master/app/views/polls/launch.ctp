@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 <div class="subnav">
     <?php echo $this->Html->link(
-        'Takaisin',
+        __('Takaisin', true),
         array(
             'action' => 'view',
             $poll['Poll']['id']
@@ -23,7 +23,7 @@ $(document).ready(function() {
 <?php echo $this->Form->create('Poll'); ?>
 
 <div class="input text">
-    <label>Alkamispäivä</label>
+    <label><?php __('Alkamispäivä'); ?></label>
     <?php echo $this->Form->text(
         'launch',
         array(
@@ -34,7 +34,7 @@ $(document).ready(function() {
 </div>
 
 <div class="input text">
-    <label>Päättymispäivä</label>
+    <label><?php __('Päättymispäivä'); ?></label>
     <?php echo $this->Form->text(
         'end',
         array(
@@ -45,10 +45,10 @@ $(document).ready(function() {
 </div>
 
 <button type="submit" id="saveButton">
-    Tallenna muutokset
+    <?php __('Tallenna muutokset'); ?>
 </button>
 <?php echo $this->Html->link(
-    __('Peruuta'),
+    __('Peruuta', true),
     array(
         'action' => 'view',
         $poll['Poll']['id']
