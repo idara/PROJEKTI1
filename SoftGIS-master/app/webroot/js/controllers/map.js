@@ -110,6 +110,13 @@ var Map = Spine.Controller.create({
             }, this);
         }
     },
+    setPoi: function(value){
+        if(value == 0){
+            this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "off" } ] } ] );
+        }if(value == 1){
+            this.map.set('styles',[ { "featureType": "poi", "stylers": [ { "visibility": "on" } ] } ] );
+        }
+    },
     setMap: function(mode, lat, lng, zoom) {
         /*
         When the page moves to a new question, the map should be initialized with this.

@@ -40,6 +40,11 @@ $( document ).ready(function() {
         });
         return false;
     });
+    $("#noMap").toggle(function(){
+            answerApp.map.setPoi(0);
+        },function(){
+            answerApp.map.setPoi(1);
+        });
 });
 </script>
 
@@ -170,6 +175,8 @@ $( document ).ready(function() {
     <div id="noAnswerCont">
         <input type="checkbox" id="noAnswer" />
         <label><?php __('En halua vastata kartalle'); ?></label>
+         <input type="checkbox" id="noMap" />
+         <label>vittu</label>
     </div>
         <br/>
 		<br/>
