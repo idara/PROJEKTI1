@@ -50,7 +50,7 @@ $( document ).ready(function() {
 
 <div class="answerMenu">
     <?php echo $this->Html->link(
-        'Apua',
+        __('Apua', true),
         '#help',
         array('class' => 'button', 'id' => 'toggleHelp')
     ); ?>
