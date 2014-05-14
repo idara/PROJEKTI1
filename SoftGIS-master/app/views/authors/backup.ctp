@@ -48,7 +48,7 @@
 			echo ("<td>" .  date ("d.m.Y H:i:s", filemtime($file)) . "</td>");
 			echo ("<td>" . $fileSize . " Mt</td>\n");
 			echo ("<td>");
-				echo ("<a href=\"" . $downloadPath . $fileName. "\" class=\"button small\" title=\"__('Lataa varmuuskopio palvelimelta', true)\">__('Lataa', true)</a>");
+				echo ("<a href=\"" . $downloadPath . $fileName. "\" class=\"button small\" title=\"Lataa varmuuskopio palvelimelta\">Lataa</a>");
 				echo(" ");
 				echo $this->Html->link(
 							__('Poista', true),
