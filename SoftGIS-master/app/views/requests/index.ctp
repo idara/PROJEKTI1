@@ -134,7 +134,7 @@
 				<td><?php echo $request['Request']['request_created']; ?></td>
 				<!--<td style="text-align:justify;" class="more">-->
 				<td>
-					<a class="requestButton button small">Näytä</a>
+					<a class="requestButton button small"><?php __('Näytä'); ?></a>
 					<div class="requestDialog">
 						<?php echo $request['Request']['request']; ?>
 					</div>
@@ -144,7 +144,7 @@
 					<!-- Linkki tilan muuttamiseen -->
 					<?php
 						echo $this->Html->link(
-							__('Käsittelemättömäksi',true),
+							__('Käsitellyksi',true),
 							array(
 								'controller' => 'requests',
 								'action' => 'complete',
