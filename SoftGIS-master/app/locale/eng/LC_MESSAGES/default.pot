@@ -2314,13 +2314,17 @@ msgstr "Your email address"
 msgid "Merkitse"
 msgstr "Mark"
 
-#: \views\requests\index.ctp:114 \views\requests\viewcomplited.ctp:112
-msgid "Käsittelemättömäksi"
-msgstr "Unprocessed"
+#: \views\requests\index.ctp:147
+msgid "Käsitellyksi"
+msgstr "Processed"
 
 #: \views\requests\index.ctp:122
 msgid "Merkitse tukipyyntö käsitellyksi"
 msgstr "Mark support request as processed"
+
+#: \views\requests\viewcomplited.ctp:112
+msgid "Käsittelemättömäksi"
+msgstr "Unprocessed"
 
 #: \views\requests\viewcomplited.ctp:103
 msgid "Tukipyyntö luotu"
